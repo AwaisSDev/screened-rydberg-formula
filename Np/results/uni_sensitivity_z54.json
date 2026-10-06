@@ -1,0 +1,55 @@
+{
+ "note": "Selection score recomputed with S1/S3 restricted to Z<=54 (train and test). Reporting only; the pre-registered choice is unchanged.",
+ "counts": {
+  "S1_test_rows": 1188,
+  "S1_test_rows_Zge55": 913,
+  "S1_train_rows_Zge55": 3449,
+  "S3_test_rows": 928,
+  "S3_test_rows_Zge55": 703,
+  "S3_train_rows_Zge55": 3659
+ },
+ "candidates": {
+  "pa_hier_rel": {
+   "V1": 3.085,
+   "V2": 1.603,
+   "S1_Zle54": 1.232,
+   "S3_Zle54": 1.457,
+   "restricted_score": 1.844
+  },
+  "pa_hier": {
+   "V1": 3.468,
+   "V2": 1.531,
+   "S1_Zle54": 1.315,
+   "S3_Zle54": 1.642,
+   "restricted_score": 1.989
+  },
+  "pa_bound9": {
+   "V1": 2.158,
+   "V2": 1.949,
+   "S1_Zle54": 2.165,
+   "S3_Zle54": 2.105,
+   "restricted_score": 2.094
+  },
+  "pa_bound14_relfit": {
+   "V1": 3.852,
+   "V2": 2.827,
+   "S1_Zle54": 2.018,
+   "S3_Zle54": 2.091,
+   "restricted_score": 2.697
+  },
+  "pb_clip_pos": {
+   "V1": 4.039,
+   "V2": 1.837,
+   "S1_Zle54": 1.202,
+   "S3_Zle54": 1.394,
+   "restricted_score": 2.118
+  },
+  "pb_exp_pos": {
+   "V1": 8.941,
+   "V2": 2.202,
+   "S1_Zle54": 1.463,
+   "S3_Zle54": 1.776,
+   "restricted_score": 3.596
+  }
+ }
+}

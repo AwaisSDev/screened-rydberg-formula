@@ -1,0 +1,1513 @@
+{
+ "table3_IE_delta_E": {
+  "C-like": [
+   {
+    "Z": 6,
+    "printed_au": 0.3638,
+    "nist_cfg_au": 0.3638,
+    "madelung_cfg_au": 0.3638,
+    "dev_nist_%": 0.001,
+    "dev_madelung_%": 0.001
+   },
+   {
+    "Z": 7,
+    "printed_au": 1.045,
+    "nist_cfg_au": 1.04495,
+    "madelung_cfg_au": 1.04495,
+    "dev_nist_%": -0.0048,
+    "dev_madelung_%": -0.0048
+   },
+   {
+    "Z": 8,
+    "printed_au": 1.9763,
+    "nist_cfg_au": 1.97631,
+    "madelung_cfg_au": 1.97631,
+    "dev_nist_%": 0.0006,
+    "dev_madelung_%": 0.0006
+   },
+   {
+    "Z": 9,
+    "printed_au": 3.1581,
+    "nist_cfg_au": 3.15807,
+    "madelung_cfg_au": 3.15807,
+    "dev_nist_%": -0.0008,
+    "dev_madelung_%": -0.0008
+   },
+   {
+    "Z": 10,
+    "printed_au": 4.5905,
+    "nist_cfg_au": 4.59048,
+    "madelung_cfg_au": 4.59048,
+    "dev_nist_%": -0.0005,
+    "dev_madelung_%": -0.0005
+   },
+   {
+    "Z": 11,
+    "printed_au": 6.2738,
+    "nist_cfg_au": 6.2738,
+    "madelung_cfg_au": 6.2738,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 12,
+    "printed_au": 8.2084,
+    "nist_cfg_au": 8.20839,
+    "madelung_cfg_au": 8.20839,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": -0.0001
+   },
+   {
+    "Z": 13,
+    "printed_au": 10.3946,
+    "nist_cfg_au": 10.39464,
+    "madelung_cfg_au": 10.39464,
+    "dev_nist_%": 0.0004,
+    "dev_madelung_%": 0.0004
+   },
+   {
+    "Z": 14,
+    "printed_au": 12.833,
+    "nist_cfg_au": 12.83298,
+    "madelung_cfg_au": 12.83298,
+    "dev_nist_%": -0.0002,
+    "dev_madelung_%": -0.0002
+   },
+   {
+    "Z": 15,
+    "printed_au": 15.5239,
+    "nist_cfg_au": 15.5239,
+    "madelung_cfg_au": 15.5239,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   },
+   {
+    "Z": 16,
+    "printed_au": 18.468,
+    "nist_cfg_au": 18.46795,
+    "madelung_cfg_au": 18.46795,
+    "dev_nist_%": -0.0003,
+    "dev_madelung_%": -0.0003
+   },
+   {
+    "Z": 17,
+    "printed_au": 21.6657,
+    "nist_cfg_au": 21.66572,
+    "madelung_cfg_au": 21.66572,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 18,
+    "printed_au": 25.1179,
+    "nist_cfg_au": 25.11788,
+    "madelung_cfg_au": 25.11788,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": -0.0001
+   },
+   {
+    "Z": 19,
+    "printed_au": 28.8251,
+    "nist_cfg_au": 28.82511,
+    "madelung_cfg_au": 28.82511,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   },
+   {
+    "Z": 20,
+    "printed_au": 32.7882,
+    "nist_cfg_au": 32.78817,
+    "madelung_cfg_au": 32.78817,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": -0.0001
+   },
+   {
+    "Z": 21,
+    "printed_au": 37.0079,
+    "nist_cfg_au": 37.00789,
+    "madelung_cfg_au": 37.00789,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   },
+   {
+    "Z": 22,
+    "printed_au": 41.4851,
+    "nist_cfg_au": 41.48512,
+    "madelung_cfg_au": 41.48512,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 23,
+    "printed_au": 46.2208,
+    "nist_cfg_au": 46.2208,
+    "madelung_cfg_au": 46.2208,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   },
+   {
+    "Z": 24,
+    "printed_au": 51.2159,
+    "nist_cfg_au": 51.2159,
+    "madelung_cfg_au": 51.2159,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   },
+   {
+    "Z": 25,
+    "printed_au": 56.4715,
+    "nist_cfg_au": 56.47146,
+    "madelung_cfg_au": 56.47146,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": -0.0001
+   },
+   {
+    "Z": 26,
+    "printed_au": 61.9886,
+    "nist_cfg_au": 61.98859,
+    "madelung_cfg_au": 61.98859,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   },
+   {
+    "Z": 27,
+    "printed_au": 67.7684,
+    "nist_cfg_au": 67.76843,
+    "madelung_cfg_au": 67.76843,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   },
+   {
+    "Z": 28,
+    "printed_au": 73.8122,
+    "nist_cfg_au": 73.81222,
+    "madelung_cfg_au": 73.81222,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   },
+   {
+    "Z": 29,
+    "printed_au": 80.1212,
+    "nist_cfg_au": 80.12123,
+    "madelung_cfg_au": 80.12123,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   },
+   {
+    "Z": 30,
+    "printed_au": 86.6968,
+    "nist_cfg_au": 86.69682,
+    "madelung_cfg_au": 86.69682,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   },
+   {
+    "Z": 31,
+    "printed_au": 93.5404,
+    "nist_cfg_au": 93.54038,
+    "madelung_cfg_au": 93.54038,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   },
+   {
+    "Z": 32,
+    "printed_au": 100.6534,
+    "nist_cfg_au": 100.65339,
+    "madelung_cfg_au": 100.65339,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   }
+  ],
+  "Ne-like": [
+   {
+    "Z": 10,
+    "printed_au": 0.5594,
+    "nist_cfg_au": 0.55939,
+    "madelung_cfg_au": 0.55939,
+    "dev_nist_%": -0.0015,
+    "dev_madelung_%": -0.0015
+   },
+   {
+    "Z": 11,
+    "printed_au": 1.5454,
+    "nist_cfg_au": 1.54537,
+    "madelung_cfg_au": 1.54537,
+    "dev_nist_%": -0.0022,
+    "dev_madelung_%": -0.0022
+   },
+   {
+    "Z": 12,
+    "printed_au": 2.781,
+    "nist_cfg_au": 2.78104,
+    "madelung_cfg_au": 2.78104,
+    "dev_nist_%": 0.0013,
+    "dev_madelung_%": 0.0013
+   },
+   {
+    "Z": 13,
+    "printed_au": 4.2664,
+    "nist_cfg_au": 4.26641,
+    "madelung_cfg_au": 4.26641,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 14,
+    "printed_au": 6.0015,
+    "nist_cfg_au": 6.00148,
+    "madelung_cfg_au": 6.00148,
+    "dev_nist_%": -0.0003,
+    "dev_madelung_%": -0.0003
+   },
+   {
+    "Z": 15,
+    "printed_au": 7.9863,
+    "nist_cfg_au": 7.98628,
+    "madelung_cfg_au": 7.98628,
+    "dev_nist_%": -0.0003,
+    "dev_madelung_%": -0.0003
+   },
+   {
+    "Z": 16,
+    "printed_au": 10.2208,
+    "nist_cfg_au": 10.22083,
+    "madelung_cfg_au": 10.22083,
+    "dev_nist_%": 0.0003,
+    "dev_madelung_%": 0.0003
+   },
+   {
+    "Z": 17,
+    "printed_au": 12.7052,
+    "nist_cfg_au": 12.70517,
+    "madelung_cfg_au": 12.70517,
+    "dev_nist_%": -0.0002,
+    "dev_madelung_%": -0.0002
+   },
+   {
+    "Z": 18,
+    "printed_au": 15.4394,
+    "nist_cfg_au": 15.43935,
+    "madelung_cfg_au": 15.43935,
+    "dev_nist_%": -0.0003,
+    "dev_madelung_%": -0.0003
+   },
+   {
+    "Z": 19,
+    "printed_au": 18.4234,
+    "nist_cfg_au": 18.42342,
+    "madelung_cfg_au": 18.42342,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 20,
+    "printed_au": 21.6575,
+    "nist_cfg_au": 21.65745,
+    "madelung_cfg_au": 21.65745,
+    "dev_nist_%": -0.0002,
+    "dev_madelung_%": -0.0002
+   },
+   {
+    "Z": 21,
+    "printed_au": 25.1415,
+    "nist_cfg_au": 25.14151,
+    "madelung_cfg_au": 25.14151,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   },
+   {
+    "Z": 22,
+    "printed_au": 28.8757,
+    "nist_cfg_au": 28.87569,
+    "madelung_cfg_au": 28.87569,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   },
+   {
+    "Z": 23,
+    "printed_au": 32.8601,
+    "nist_cfg_au": 32.86009,
+    "madelung_cfg_au": 32.86009,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   },
+   {
+    "Z": 24,
+    "printed_au": 37.0948,
+    "nist_cfg_au": 37.0948,
+    "madelung_cfg_au": 37.0948,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   },
+   {
+    "Z": 25,
+    "printed_au": 41.5799,
+    "nist_cfg_au": 41.57993,
+    "madelung_cfg_au": 41.57993,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 26,
+    "printed_au": 46.3156,
+    "nist_cfg_au": 46.31562,
+    "madelung_cfg_au": 46.31562,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   },
+   {
+    "Z": 27,
+    "printed_au": 51.302,
+    "nist_cfg_au": 51.30198,
+    "madelung_cfg_au": 51.30198,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   },
+   {
+    "Z": 28,
+    "printed_au": 56.5392,
+    "nist_cfg_au": 56.53916,
+    "madelung_cfg_au": 56.53916,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": -0.0001
+   },
+   {
+    "Z": 29,
+    "printed_au": 62.0273,
+    "nist_cfg_au": 62.0273,
+    "madelung_cfg_au": 62.0273,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   },
+   {
+    "Z": 30,
+    "printed_au": 67.7666,
+    "nist_cfg_au": 67.76657,
+    "madelung_cfg_au": 67.76657,
+    "dev_nist_%": -0.0,
+    "dev_madelung_%": -0.0
+   },
+   {
+    "Z": 31,
+    "printed_au": 73.7571,
+    "nist_cfg_au": 73.75713,
+    "madelung_cfg_au": 73.75713,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   },
+   {
+    "Z": 32,
+    "printed_au": 79.9992,
+    "nist_cfg_au": 79.99915,
+    "madelung_cfg_au": 79.99915,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": -0.0001
+   }
+  ],
+  "Al-like": [
+   {
+    "Z": 13,
+    "printed_au": 0.181,
+    "nist_cfg_au": 0.18102,
+    "madelung_cfg_au": 0.18102,
+    "dev_nist_%": 0.0127,
+    "dev_madelung_%": 0.0127
+   },
+   {
+    "Z": 14,
+    "printed_au": 0.6108,
+    "nist_cfg_au": 0.61081,
+    "madelung_cfg_au": 0.61081,
+    "dev_nist_%": 0.0018,
+    "dev_madelung_%": 0.0018
+   },
+   {
+    "Z": 15,
+    "printed_au": 1.1519,
+    "nist_cfg_au": 1.15186,
+    "madelung_cfg_au": 1.15186,
+    "dev_nist_%": -0.0038,
+    "dev_madelung_%": -0.0038
+   },
+   {
+    "Z": 16,
+    "printed_au": 1.8043,
+    "nist_cfg_au": 1.80425,
+    "madelung_cfg_au": 1.80425,
+    "dev_nist_%": -0.0028,
+    "dev_madelung_%": -0.0028
+   },
+   {
+    "Z": 17,
+    "printed_au": 2.5681,
+    "nist_cfg_au": 2.5681,
+    "madelung_cfg_au": 2.5681,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 18,
+    "printed_au": 3.4435,
+    "nist_cfg_au": 3.44354,
+    "madelung_cfg_au": 3.44354,
+    "dev_nist_%": 0.0011,
+    "dev_madelung_%": 0.0011
+   },
+   {
+    "Z": 19,
+    "printed_au": 4.4307,
+    "nist_cfg_au": 4.43071,
+    "madelung_cfg_au": 4.43071,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 20,
+    "printed_au": 5.5298,
+    "nist_cfg_au": 5.52977,
+    "madelung_cfg_au": 5.52977,
+    "dev_nist_%": -0.0006,
+    "dev_madelung_%": -0.0006
+   },
+   {
+    "Z": 21,
+    "printed_au": 6.7409,
+    "nist_cfg_au": 6.74091,
+    "madelung_cfg_au": 6.74091,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 22,
+    "printed_au": 8.0643,
+    "nist_cfg_au": 8.06433,
+    "madelung_cfg_au": 8.06433,
+    "dev_nist_%": 0.0003,
+    "dev_madelung_%": 0.0003
+   },
+   {
+    "Z": 23,
+    "printed_au": 9.5002,
+    "nist_cfg_au": 9.50024,
+    "madelung_cfg_au": 9.50024,
+    "dev_nist_%": 0.0004,
+    "dev_madelung_%": 0.0004
+   },
+   {
+    "Z": 24,
+    "printed_au": 11.0489,
+    "nist_cfg_au": 11.04889,
+    "madelung_cfg_au": 11.04889,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": -0.0001
+   },
+   {
+    "Z": 25,
+    "printed_au": 12.7105,
+    "nist_cfg_au": 12.71053,
+    "madelung_cfg_au": 12.71053,
+    "dev_nist_%": 0.0002,
+    "dev_madelung_%": 0.0002
+   },
+   {
+    "Z": 26,
+    "printed_au": 14.4854,
+    "nist_cfg_au": 14.48544,
+    "madelung_cfg_au": 14.48544,
+    "dev_nist_%": 0.0003,
+    "dev_madelung_%": 0.0003
+   },
+   {
+    "Z": 27,
+    "printed_au": 16.3739,
+    "nist_cfg_au": 16.37392,
+    "madelung_cfg_au": 16.37392,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 28,
+    "printed_au": 18.3763,
+    "nist_cfg_au": 18.37627,
+    "madelung_cfg_au": 18.37627,
+    "dev_nist_%": -0.0002,
+    "dev_madelung_%": -0.0002
+   },
+   {
+    "Z": 29,
+    "printed_au": 20.4928,
+    "nist_cfg_au": 20.49284,
+    "madelung_cfg_au": 20.49284,
+    "dev_nist_%": 0.0002,
+    "dev_madelung_%": 0.0002
+   },
+   {
+    "Z": 30,
+    "printed_au": 22.724,
+    "nist_cfg_au": 22.72398,
+    "madelung_cfg_au": 22.72398,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": -0.0001
+   },
+   {
+    "Z": 31,
+    "printed_au": 25.0701,
+    "nist_cfg_au": 25.07007,
+    "madelung_cfg_au": 25.07007,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": -0.0001
+   },
+   {
+    "Z": 32,
+    "printed_au": 27.5315,
+    "nist_cfg_au": 27.53151,
+    "madelung_cfg_au": 27.53151,
+    "dev_nist_%": 0.0,
+    "dev_madelung_%": 0.0
+   }
+  ],
+  "Ar-like": [
+   {
+    "Z": 18,
+    "printed_au": 0.6332,
+    "nist_cfg_au": 0.63316,
+    "madelung_cfg_au": 0.63316,
+    "dev_nist_%": -0.0058,
+    "dev_madelung_%": -0.0058
+   },
+   {
+    "Z": 19,
+    "printed_au": 1.2652,
+    "nist_cfg_au": 1.2652,
+    "madelung_cfg_au": 1.2652,
+    "dev_nist_%": -0.0004,
+    "dev_madelung_%": -0.0004
+   },
+   {
+    "Z": 20,
+    "printed_au": 2.0083,
+    "nist_cfg_au": 2.00825,
+    "madelung_cfg_au": 2.00825,
+    "dev_nist_%": -0.0027,
+    "dev_madelung_%": -0.0027
+   },
+   {
+    "Z": 21,
+    "printed_au": 2.8623,
+    "nist_cfg_au": 2.86234,
+    "madelung_cfg_au": 2.86234,
+    "dev_nist_%": 0.0014,
+    "dev_madelung_%": 0.0014
+   },
+   {
+    "Z": 22,
+    "printed_au": 3.8275,
+    "nist_cfg_au": 3.82751,
+    "madelung_cfg_au": 3.82751,
+    "dev_nist_%": 0.0002,
+    "dev_madelung_%": 0.0002
+   },
+   {
+    "Z": 23,
+    "printed_au": 4.9038,
+    "nist_cfg_au": 4.90378,
+    "madelung_cfg_au": 4.90378,
+    "dev_nist_%": -0.0003,
+    "dev_madelung_%": -0.0003
+   },
+   {
+    "Z": 24,
+    "printed_au": 6.0912,
+    "nist_cfg_au": 6.09121,
+    "madelung_cfg_au": 6.09121,
+    "dev_nist_%": 0.0002,
+    "dev_madelung_%": 0.0002
+   },
+   {
+    "Z": 25,
+    "printed_au": 7.3898,
+    "nist_cfg_au": 7.38984,
+    "madelung_cfg_au": 7.38984,
+    "dev_nist_%": 0.0005,
+    "dev_madelung_%": 0.0005
+   },
+   {
+    "Z": 26,
+    "printed_au": 8.7997,
+    "nist_cfg_au": 8.79971,
+    "madelung_cfg_au": 8.79971,
+    "dev_nist_%": 0.0001,
+    "dev_madelung_%": 0.0001
+   },
+   {
+    "Z": 27,
+    "printed_au": 10.3209,
+    "nist_cfg_au": 10.32089,
+    "madelung_cfg_au": 10.32089,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": -0.0001
+   },
+   {
+    "Z": 28,
+    "printed_au": 11.9535,
+    "nist_cfg_au": 11.95344,
+    "madelung_cfg_au": 11.95344,
+    "dev_nist_%": -0.0005,
+    "dev_madelung_%": -0.0005
+   },
+   {
+    "Z": 29,
+    "printed_au": 13.6975,
+    "nist_cfg_au": 13.69744,
+    "madelung_cfg_au": 13.69744,
+    "dev_nist_%": -0.0004,
+    "dev_madelung_%": -0.0004
+   },
+   {
+    "Z": 30,
+    "printed_au": 15.553,
+    "nist_cfg_au": 15.55296,
+    "madelung_cfg_au": 15.55296,
+    "dev_nist_%": -0.0003,
+    "dev_madelung_%": -0.0003
+   },
+   {
+    "Z": 31,
+    "printed_au": 17.5201,
+    "nist_cfg_au": 17.52007,
+    "madelung_cfg_au": 17.52007,
+    "dev_nist_%": -0.0002,
+    "dev_madelung_%": -0.0002
+   },
+   {
+    "Z": 32,
+    "printed_au": 19.5989,
+    "nist_cfg_au": 19.59887,
+    "madelung_cfg_au": 19.59887,
+    "dev_nist_%": -0.0002,
+    "dev_madelung_%": -0.0002
+   }
+  ],
+  "Fe-like": [
+   {
+    "Z": 26,
+    "printed_au": 0.1616,
+    "nist_cfg_au": 0.16156,
+    "madelung_cfg_au": 0.19271,
+    "dev_nist_%": -0.0229,
+    "dev_madelung_%": 19.253
+   },
+   {
+    "Z": 27,
+    "printed_au": 0.2609,
+    "nist_cfg_au": 0.26093,
+    "madelung_cfg_au": 0.96463,
+    "dev_nist_%": 0.0098,
+    "dev_madelung_%": 269.73
+   },
+   {
+    "Z": 28,
+    "printed_au": 1.0733,
+    "nist_cfg_au": 1.07334,
+    "madelung_cfg_au": 1.84715,
+    "dev_nist_%": 0.0038,
+    "dev_madelung_%": 72.1003
+   },
+   {
+    "Z": 29,
+    "printed_au": 1.9964,
+    "nist_cfg_au": 1.99645,
+    "madelung_cfg_au": 2.84027,
+    "dev_nist_%": 0.0024,
+    "dev_madelung_%": 42.2696
+   },
+   {
+    "Z": 30,
+    "printed_au": 3.0302,
+    "nist_cfg_au": 3.03024,
+    "madelung_cfg_au": 3.94396,
+    "dev_nist_%": 0.0012,
+    "dev_madelung_%": 30.1551
+   },
+   {
+    "Z": 31,
+    "printed_au": 4.1747,
+    "nist_cfg_au": 4.17469,
+    "madelung_cfg_au": 5.1582,
+    "dev_nist_%": -0.0001,
+    "dev_madelung_%": 23.5586
+   },
+   {
+    "Z": 32,
+    "printed_au": 5.4298,
+    "nist_cfg_au": 5.42981,
+    "madelung_cfg_au": 6.48298,
+    "dev_nist_%": 0.0002,
+    "dev_madelung_%": 19.3962
+   }
+  ]
+ },
+ "table4_total_energy": [
+  {
+   "ion": "N I",
+   "printed_au": -54.45,
+   "model_au": -54.451,
+   "dev_%": 0.0018
+  },
+  {
+   "ion": "N II",
+   "printed_au": -54.03,
+   "model_au": -54.0266,
+   "dev_%": -0.0063
+  },
+  {
+   "ion": "N III",
+   "printed_au": -52.98,
+   "model_au": -52.9816,
+   "dev_%": 0.0031
+  },
+  {
+   "ion": "N IV",
+   "printed_au": -51.22,
+   "model_au": -51.2234,
+   "dev_%": 0.0067
+  },
+  {
+   "ion": "N V",
+   "printed_au": -48.38,
+   "model_au": -48.3815,
+   "dev_%": 0.0031
+  },
+  {
+   "ion": "N VI",
+   "printed_au": -44.78,
+   "model_au": -44.7828,
+   "dev_%": 0.0063
+  },
+  {
+   "ion": "O I",
+   "printed_au": -74.94,
+   "model_au": -74.9405,
+   "dev_%": 0.0006
+  },
+  {
+   "ion": "O II",
+   "printed_au": -74.46,
+   "model_au": -74.4643,
+   "dev_%": 0.0058
+  },
+  {
+   "ion": "O III",
+   "printed_au": -73.28,
+   "model_au": -73.283,
+   "dev_%": 0.0041
+  },
+  {
+   "ion": "O IV",
+   "printed_au": -71.31,
+   "model_au": -71.3067,
+   "dev_%": -0.0046
+  },
+  {
+   "ion": "O V",
+   "printed_au": -68.44,
+   "model_au": -68.4435,
+   "dev_%": 0.0051
+  },
+  {
+   "ion": "O VI",
+   "printed_au": -64.26,
+   "model_au": -64.2608,
+   "dev_%": 0.0012
+  },
+  {
+   "ion": "O VII",
+   "printed_au": -59.18,
+   "model_au": -59.1827,
+   "dev_%": 0.0046
+  }
+ ],
+ "table5_total_energy_Na_like": [
+  {
+   "Z": 18,
+   "printed_au": -513.3,
+   "model_au": -513.317,
+   "dev_%": 0.0033
+  },
+  {
+   "Z": 20,
+   "printed_au": -651.2,
+   "model_au": -651.239,
+   "dev_%": 0.006
+  },
+  {
+   "Z": 23,
+   "printed_au": -889.7,
+   "model_au": -889.708,
+   "dev_%": 0.0009
+  },
+  {
+   "Z": 26,
+   "printed_au": -1166.4,
+   "model_au": -1166.369,
+   "dev_%": -0.0027
+  },
+  {
+   "Z": 30,
+   "printed_au": -1595.3,
+   "model_au": -1595.316,
+   "dev_%": 0.001
+  },
+  {
+   "Z": 34,
+   "printed_au": -2093.9,
+   "model_au": -2093.885,
+   "dev_%": -0.0007
+  },
+  {
+   "Z": 36,
+   "printed_au": -2369.7,
+   "model_au": -2369.661,
+   "dev_%": -0.0017
+  },
+  {
+   "Z": 47,
+   "printed_au": -4211.7,
+   "model_au": -4211.709,
+   "dev_%": 0.0002
+  },
+  {
+   "Z": 50,
+   "printed_au": -4812.8,
+   "model_au": -4812.823,
+   "dev_%": 0.0005
+  },
+  {
+   "Z": 54,
+   "printed_au": -5683.0,
+   "model_au": -5683.005,
+   "dev_%": 0.0001
+  },
+  {
+   "Z": 55,
+   "printed_au": -5913.1,
+   "model_au": -5913.086,
+   "dev_%": -0.0002
+  },
+  {
+   "Z": 67,
+   "printed_au": -9086.5,
+   "model_au": -9086.457,
+   "dev_%": -0.0005
+  },
+  {
+   "Z": 79,
+   "printed_au": -13097.0,
+   "model_au": -13096.974,
+   "dev_%": -0.0002
+  }
+ ],
+ "table6_binding_Ne_like": [
+  {
+   "Z": 16,
+   "nlj": "1s1/2",
+   "printed_xa": 91.66,
+   "model_xa": 91.655,
+   "dev_xa_%": -0.0053,
+   "printed_hf": 96.53,
+   "model_hf": 96.525,
+   "dev_hf_%": -0.0048,
+   "printed_half": 92.65,
+   "model_half": 95.693,
+   "dev_half_%": 3.2849
+  },
+  {
+   "Z": 16,
+   "nlj": "2s1/2",
+   "printed_xa": 11.96,
+   "model_xa": 11.955,
+   "dev_xa_%": -0.0399,
+   "printed_hf": 12.84,
+   "model_hf": 12.837,
+   "dev_hf_%": -0.0214,
+   "printed_half": 13.84,
+   "model_half": 12.746,
+   "dev_half_%": -7.9053
+  },
+  {
+   "Z": 16,
+   "nlj": "2p1/2",
+   "printed_xa": 9.34,
+   "model_xa": 9.339,
+   "dev_xa_%": -0.013,
+   "printed_hf": 10.37,
+   "model_hf": 10.369,
+   "dev_hf_%": -0.0132,
+   "printed_half": 11.68,
+   "model_half": 10.265,
+   "dev_half_%": -12.1141
+  },
+  {
+   "Z": 16,
+   "nlj": "2p3/2",
+   "printed_xa": 9.29,
+   "model_xa": 9.295,
+   "dev_xa_%": 0.0512,
+   "printed_hf": 10.31,
+   "model_hf": 10.311,
+   "dev_hf_%": 0.0099,
+   "printed_half": 11.7,
+   "model_half": 10.217,
+   "dev_half_%": -12.6747
+  },
+  {
+   "Z": 26,
+   "nlj": "1s1/2",
+   "printed_xa": 276.17,
+   "model_xa": 276.166,
+   "dev_xa_%": -0.0016,
+   "printed_hf": 284.25,
+   "model_hf": 284.246,
+   "dev_hf_%": -0.0012,
+   "printed_half": 274.21,
+   "model_half": 283.398,
+   "dev_half_%": 3.3506
+  },
+  {
+   "Z": 26,
+   "nlj": "2s1/2",
+   "printed_xa": 49.86,
+   "model_xa": 49.863,
+   "dev_xa_%": 0.0058,
+   "printed_hf": 51.45,
+   "model_hf": 51.449,
+   "dev_hf_%": -0.0025,
+   "printed_half": 48.91,
+   "model_half": 51.365,
+   "dev_half_%": 5.0191
+  },
+  {
+   "Z": 26,
+   "nlj": "2p1/2",
+   "printed_xa": 44.93,
+   "model_xa": 44.926,
+   "dev_xa_%": -0.0082,
+   "printed_hf": 46.84,
+   "model_hf": 46.838,
+   "dev_hf_%": -0.0044,
+   "printed_half": 44.43,
+   "model_half": 46.743,
+   "dev_half_%": 5.206
+  },
+  {
+   "Z": 26,
+   "nlj": "2p3/2",
+   "printed_xa": 44.52,
+   "model_xa": 44.519,
+   "dev_xa_%": -0.0012,
+   "printed_hf": 46.41,
+   "model_hf": 46.408,
+   "dev_hf_%": -0.0049,
+   "printed_half": 44.43,
+   "model_half": 46.312,
+   "dev_half_%": 4.2355
+  },
+  {
+   "Z": 66,
+   "nlj": "1s1/2",
+   "printed_xa": 2128.97,
+   "model_xa": 2128.968,
+   "dev_xa_%": -0.0001,
+   "printed_hf": 2152.13,
+   "model_hf": 2152.134,
+   "dev_hf_%": 0.0002,
+   "printed_half": 2139.7,
+   "model_half": 2151.07,
+   "dev_half_%": 0.5314
+  },
+  {
+   "Z": 66,
+   "nlj": "2s1/2",
+   "printed_xa": 481.99,
+   "model_xa": 481.994,
+   "dev_xa_%": 0.0008,
+   "printed_hf": 486.71,
+   "model_hf": 486.711,
+   "dev_hf_%": 0.0003,
+   "printed_half": 494.98,
+   "model_half": 486.888,
+   "dev_half_%": -1.6348
+  },
+  {
+   "Z": 66,
+   "nlj": "2p1/2",
+   "printed_xa": 466.2,
+   "model_xa": 466.205,
+   "dev_xa_%": 0.001,
+   "printed_hf": 472.03,
+   "model_hf": 472.027,
+   "dev_hf_%": -0.0006,
+   "printed_half": 482.68,
+   "model_half": 472.249,
+   "dev_half_%": -2.1611
+  },
+  {
+   "Z": 66,
+   "nlj": "2p3/2",
+   "printed_xa": 438.28,
+   "model_xa": 438.285,
+   "dev_xa_%": 0.0011,
+   "printed_hf": 443.78,
+   "model_hf": 443.776,
+   "dev_hf_%": -0.0009,
+   "printed_half": 453.26,
+   "model_half": 443.656,
+   "dev_half_%": -2.1189
+  },
+  {
+   "Z": 91,
+   "nlj": "1s1/2",
+   "printed_xa": 4434.03,
+   "model_xa": 4434.033,
+   "dev_xa_%": 0.0001,
+   "printed_hf": 4471.47,
+   "model_hf": 4471.473,
+   "dev_hf_%": 0.0001,
+   "printed_half": 4451.87,
+   "model_half": 4469.986,
+   "dev_half_%": 0.4069
+  },
+  {
+   "Z": 91,
+   "nlj": "2s1/2",
+   "printed_xa": 1049.37,
+   "model_xa": 1049.369,
+   "dev_xa_%": -0.0001,
+   "printed_hf": 1056.65,
+   "model_hf": 1056.654,
+   "dev_hf_%": 0.0003,
+   "printed_half": 1071.31,
+   "model_half": 1057.592,
+   "dev_half_%": -1.2805
+  },
+  {
+   "Z": 91,
+   "nlj": "2p1/2",
+   "printed_xa": 1023.35,
+   "model_xa": 1023.353,
+   "dev_xa_%": 0.0003,
+   "printed_hf": 1032.36,
+   "model_hf": 1032.364,
+   "dev_hf_%": 0.0004,
+   "printed_half": 1051.16,
+   "model_half": 1033.51,
+   "dev_half_%": -1.6791
+  },
+  {
+   "Z": 91,
+   "nlj": "2p3/2",
+   "printed_xa": 896.2,
+   "model_xa": 896.202,
+   "dev_xa_%": 0.0003,
+   "printed_hf": 904.13,
+   "model_hf": 904.127,
+   "dev_hf_%": -0.0003,
+   "printed_half": 917.81,
+   "model_half": 903.958,
+   "dev_half_%": -1.5092
+  }
+ ],
+ "table7_Au25": [
+  {
+   "nlj": "1s1/2",
+   "printed": 2984.4,
+   "model_xa": 2984.41,
+   "dev_xa_%": 0.0,
+   "model_hf": 3014.16,
+   "dev_hf_%": 0.997
+  },
+  {
+   "nlj": "2s1/2",
+   "printed": 542.7,
+   "model_xa": 542.73,
+   "dev_xa_%": 0.006,
+   "model_hf": 548.66,
+   "dev_hf_%": 1.099
+  },
+  {
+   "nlj": "2p1/2",
+   "printed": 526.1,
+   "model_xa": 526.1,
+   "dev_xa_%": -0.0,
+   "model_hf": 533.41,
+   "dev_hf_%": 1.389
+  },
+  {
+   "nlj": "2p3/2",
+   "printed": 461.9,
+   "model_xa": 461.86,
+   "dev_xa_%": -0.008,
+   "model_hf": 468.53,
+   "dev_hf_%": 1.436
+  },
+  {
+   "nlj": "3s1/2",
+   "printed": 149.0,
+   "model_xa": 148.96,
+   "dev_xa_%": -0.024,
+   "model_hf": 151.23,
+   "dev_hf_%": 1.494
+  },
+  {
+   "nlj": "3p1/2",
+   "printed": 139.3,
+   "model_xa": 139.31,
+   "dev_xa_%": 0.011,
+   "model_hf": 141.76,
+   "dev_hf_%": 1.763
+  },
+  {
+   "nlj": "3p3/2",
+   "printed": 129.9,
+   "model_xa": 129.9,
+   "dev_xa_%": -0.003,
+   "model_hf": 132.2,
+   "dev_hf_%": 1.771
+  },
+  {
+   "nlj": "3d3/2",
+   "printed": 112.6,
+   "model_xa": 112.61,
+   "dev_xa_%": 0.009,
+   "model_hf": 115.26,
+   "dev_hf_%": 2.359
+  },
+  {
+   "nlj": "3d5/2",
+   "printed": 109.7,
+   "model_xa": 109.65,
+   "dev_xa_%": -0.043,
+   "model_hf": 112.26,
+   "dev_hf_%": 2.337
+  },
+  {
+   "nlj": "4s1/2",
+   "printed": 53.7,
+   "model_xa": 53.68,
+   "dev_xa_%": -0.04,
+   "model_hf": 54.78,
+   "dev_hf_%": 2.016
+  },
+  {
+   "nlj": "4p1/2",
+   "printed": 48.6,
+   "model_xa": 48.62,
+   "dev_xa_%": 0.034,
+   "model_hf": 49.73,
+   "dev_hf_%": 2.323
+  },
+  {
+   "nlj": "4p3/2",
+   "printed": 46.1,
+   "model_xa": 46.14,
+   "dev_xa_%": 0.079,
+   "model_hf": 47.15,
+   "dev_hf_%": 2.277
+  },
+  {
+   "nlj": "4d3/2",
+   "printed": 39.1,
+   "model_xa": 39.07,
+   "dev_xa_%": -0.069,
+   "model_hf": 40.08,
+   "dev_hf_%": 2.504
+  },
+  {
+   "nlj": "4d5/2",
+   "printed": 38.6,
+   "model_xa": 38.62,
+   "dev_xa_%": 0.045,
+   "model_hf": 39.62,
+   "dev_hf_%": 2.631
+  },
+  {
+   "nlj": "4f5/2",
+   "printed": 30.3,
+   "model_xa": 30.25,
+   "dev_xa_%": -0.163,
+   "model_hf": 31.27,
+   "dev_hf_%": 3.206
+  },
+  {
+   "nlj": "4f7/2",
+   "printed": 29.7,
+   "model_xa": 29.72,
+   "dev_xa_%": 0.077,
+   "model_hf": 30.72,
+   "dev_hf_%": 3.429
+  }
+ ],
+ "table8_Fe_ions": [
+  {
+   "ion": "Fe+2 3d6",
+   "nlj": "1s1/2",
+   "printed_xa_eV": 6989.28,
+   "model_xa_eV": 6989.28,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 7209.17,
+   "model_hf_eV": 7209.17,
+   "dev_hf_%": -0.0
+  },
+  {
+   "ion": "Fe+2 3d6",
+   "nlj": "2s1/2",
+   "printed_xa_eV": 850.7,
+   "model_xa_eV": 850.7,
+   "dev_xa_%": 0.0,
+   "printed_hf_eV": 893.45,
+   "model_hf_eV": 893.45,
+   "dev_hf_%": -0.0
+  },
+  {
+   "ion": "Fe+2 3d6",
+   "nlj": "2p1/2",
+   "printed_xa_eV": 737.21,
+   "model_xa_eV": 737.21,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 788.47,
+   "model_hf_eV": 788.47,
+   "dev_hf_%": 0.0
+  },
+  {
+   "ion": "Fe+2 3d6",
+   "nlj": "2p3/2",
+   "printed_xa_eV": 704.61,
+   "model_xa_eV": 704.61,
+   "dev_xa_%": -0.001,
+   "printed_hf_eV": 754.83,
+   "model_hf_eV": 754.83,
+   "dev_hf_%": -0.001
+  },
+  {
+   "ion": "Fe+2 3d6",
+   "nlj": "3s1/2",
+   "printed_xa_eV": 127.51,
+   "model_xa_eV": 127.51,
+   "dev_xa_%": -0.003,
+   "printed_hf_eV": 141.43,
+   "model_hf_eV": 141.43,
+   "dev_hf_%": -0.0
+  },
+  {
+   "ion": "Fe+2 3d6",
+   "nlj": "3p1/2",
+   "printed_xa_eV": 86.48,
+   "model_xa_eV": 86.48,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 100.01,
+   "model_hf_eV": 100.01,
+   "dev_hf_%": 0.002
+  },
+  {
+   "ion": "Fe+2 3d6",
+   "nlj": "3p3/2",
+   "printed_xa_eV": 83.62,
+   "model_xa_eV": 83.62,
+   "dev_xa_%": -0.006,
+   "printed_hf_eV": 96.59,
+   "model_hf_eV": 96.59,
+   "dev_hf_%": 0.005
+  },
+  {
+   "ion": "Fe+6 3d2",
+   "nlj": "1s1/2",
+   "printed_xa_eV": 7092.7,
+   "model_xa_eV": 7092.7,
+   "dev_xa_%": 0.0,
+   "printed_hf_eV": 7312.59,
+   "model_hf_eV": 7312.59,
+   "dev_hf_%": 0.0
+  },
+  {
+   "ion": "Fe+6 3d2",
+   "nlj": "2s1/2",
+   "printed_xa_eV": 959.02,
+   "model_xa_eV": 959.02,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 1001.78,
+   "model_hf_eV": 1001.77,
+   "dev_hf_%": -0.001
+  },
+  {
+   "ion": "Fe+6 3d2",
+   "nlj": "2p1/2",
+   "printed_xa_eV": 843.66,
+   "model_xa_eV": 843.65,
+   "dev_xa_%": -0.001,
+   "printed_hf_eV": 894.96,
+   "model_hf_eV": 894.96,
+   "dev_hf_%": 0.0
+  },
+  {
+   "ion": "Fe+6 3d2",
+   "nlj": "2p3/2",
+   "printed_xa_eV": 812.33,
+   "model_xa_eV": 812.33,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 862.62,
+   "model_hf_eV": 862.62,
+   "dev_hf_%": 0.0
+  },
+  {
+   "ion": "Fe+6 3d2",
+   "nlj": "3s1/2",
+   "printed_xa_eV": 219.63,
+   "model_xa_eV": 219.63,
+   "dev_xa_%": 0.002,
+   "printed_hf_eV": 234.15,
+   "model_hf_eV": 234.15,
+   "dev_hf_%": -0.002
+  },
+  {
+   "ion": "Fe+6 3d2",
+   "nlj": "3p1/2",
+   "printed_xa_eV": 176.59,
+   "model_xa_eV": 176.59,
+   "dev_xa_%": -0.002,
+   "printed_hf_eV": 191.32,
+   "model_hf_eV": 191.32,
+   "dev_hf_%": -0.001
+  },
+  {
+   "ion": "Fe+6 3d2",
+   "nlj": "3p3/2",
+   "printed_xa_eV": 173.83,
+   "model_xa_eV": 173.83,
+   "dev_xa_%": -0.002,
+   "printed_hf_eV": 188.04,
+   "model_hf_eV": 188.04,
+   "dev_hf_%": -0.001
+  },
+  {
+   "ion": "Fe+9 3p5",
+   "nlj": "1s1/2",
+   "printed_xa_eV": 7195.87,
+   "model_xa_eV": 7195.87,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 7415.76,
+   "model_hf_eV": 7415.76,
+   "dev_hf_%": -0.0
+  },
+  {
+   "ion": "Fe+9 3p5",
+   "nlj": "2s1/2",
+   "printed_xa_eV": 1064.47,
+   "model_xa_eV": 1064.47,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 1107.25,
+   "model_hf_eV": 1107.25,
+   "dev_hf_%": 0.0
+  },
+  {
+   "ion": "Fe+9 3p5",
+   "nlj": "2p1/2",
+   "printed_xa_eV": 944.59,
+   "model_xa_eV": 944.59,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 995.98,
+   "model_hf_eV": 995.98,
+   "dev_hf_%": 0.0
+  },
+  {
+   "ion": "Fe+9 3p5",
+   "nlj": "2p3/2",
+   "printed_xa_eV": 915.62,
+   "model_xa_eV": 915.62,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 966.05,
+   "model_hf_eV": 966.05,
+   "dev_hf_%": -0.0
+  },
+  {
+   "ion": "Fe+9 3p5",
+   "nlj": "3s1/2",
+   "printed_xa_eV": 298.66,
+   "model_xa_eV": 298.66,
+   "dev_xa_%": -0.001,
+   "printed_hf_eV": 313.68,
+   "model_hf_eV": 313.68,
+   "dev_hf_%": -0.0
+  },
+  {
+   "ion": "Fe+12 3p2",
+   "nlj": "1s1/2",
+   "printed_xa_eV": 7320.14,
+   "model_xa_eV": 7320.14,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 7540.03,
+   "model_hf_eV": 7540.03,
+   "dev_hf_%": -0.0
+  },
+  {
+   "ion": "Fe+12 3p2",
+   "nlj": "2s1/2",
+   "printed_xa_eV": 1187.43,
+   "model_xa_eV": 1187.43,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 1230.29,
+   "model_hf_eV": 1230.29,
+   "dev_hf_%": 0.0
+  },
+  {
+   "ion": "Fe+12 3p2",
+   "nlj": "2p1/2",
+   "printed_xa_eV": 1055.5,
+   "model_xa_eV": 1055.5,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 1107.06,
+   "model_hf_eV": 1107.06,
+   "dev_hf_%": -0.0
+  },
+  {
+   "ion": "Fe+12 3p2",
+   "nlj": "2p3/2",
+   "printed_xa_eV": 1033.26,
+   "model_xa_eV": 1033.26,
+   "dev_xa_%": -0.0,
+   "printed_hf_eV": 1083.98,
+   "model_hf_eV": 1083.98,
+   "dev_hf_%": -0.0
+  },
+  {
+   "ion": "Fe+12 3p2",
+   "nlj": "3s1/2",
+   "printed_xa_eV": 380.68,
+   "model_xa_eV": 380.68,
+   "dev_xa_%": 0.001,
+   "printed_hf_eV": 396.34,
+   "model_hf_eV": 396.34,
+   "dev_hf_%": 0.001
+  }
+ ],
+ "summary": {
+  "T3 C-like max|dev| NIST cfg %": 0.0048,
+  "T3 C-like max|dev| Madelung cfg %": 0.0048,
+  "T3 Ne-like max|dev| NIST cfg %": 0.0022,
+  "T3 Ne-like max|dev| Madelung cfg %": 0.0022,
+  "T3 Al-like max|dev| NIST cfg %": 0.0127,
+  "T3 Al-like max|dev| Madelung cfg %": 0.0127,
+  "T3 Ar-like max|dev| NIST cfg %": 0.0058,
+  "T3 Ar-like max|dev| Madelung cfg %": 0.0058,
+  "T3 Fe-like max|dev| NIST cfg %": 0.0229,
+  "T3 Fe-like max|dev| Madelung cfg %": 269.73,
+  "T4 max|dev| %": 0.0067,
+  "T5 max|dev| %": 0.006,
+  "T6 max|dev| Xalpha %": 0.0512,
+  "T6 max|dev| HF %": 0.0214,
+  "T6 max|dev| half %": 12.6747,
+  "T7 max|dev| Xalpha %": 0.163,
+  "T7 max|dev| HF %": 3.429,
+  "T8 max|dev| Xalpha %": 0.006,
+  "T8 max|dev| HF %": 0.005
+ }
+}

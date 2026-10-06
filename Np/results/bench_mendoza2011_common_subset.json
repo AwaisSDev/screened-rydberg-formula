@@ -1,0 +1,104 @@
+{
+ "bench_mendoza2011": {
+  "covered_ALL": [
+   5011,
+   2.822
+  ],
+  "covered_neutral": [
+   54,
+   27.092
+  ],
+  "covered_N<=10": [
+   1048,
+   0.396
+  ],
+  "covered_S1": [
+   1016,
+   2.83
+  ],
+  "covered_S2": [
+   3526,
+   2.737
+  ],
+  "covered_S3": [
+   793,
+   3.016
+  ],
+  "covered_experimental": [
+   236,
+   11.276
+  ],
+  "covered_ions_N>=2_not_neutral": [
+   4957,
+   2.558
+  ]
+ },
+ "pa_hier_rel": {
+  "covered_ALL": [
+   5011,
+   1.623
+  ],
+  "covered_neutral": [
+   54,
+   8.367
+  ],
+  "covered_N<=10": [
+   1048,
+   0.439
+  ],
+  "covered_S1": [
+   1016,
+   1.631
+  ],
+  "covered_S2": [
+   3526,
+   1.572
+  ],
+  "covered_S3": [
+   793,
+   1.748
+  ],
+  "covered_experimental": [
+   236,
+   4.374
+  ],
+  "covered_ions_N>=2_not_neutral": [
+   4957,
+   1.549
+  ]
+ },
+ "pa_bound9": {
+  "covered_ALL": [
+   5011,
+   2.634
+  ],
+  "covered_neutral": [
+   54,
+   11.452
+  ],
+  "covered_N<=10": [
+   1048,
+   0.514
+  ],
+  "covered_S1": [
+   1016,
+   2.643
+  ],
+  "covered_S2": [
+   3526,
+   2.297
+  ],
+  "covered_S3": [
+   793,
+   2.707
+  ],
+  "covered_experimental": [
+   236,
+   7.169
+  ],
+  "covered_ions_N>=2_not_neutral": [
+   4957,
+   2.538
+  ]
+ }
+}

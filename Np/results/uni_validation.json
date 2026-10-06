@@ -1,0 +1,448 @@
+{
+ "protocol": "Pre-registered blind validation of the FINAL model and the references (one re-runnable script).\n\n    py -3.13 models/unified/validate_blind.py            (all models, about 3-5 min)\n    py -3.13 models/unified/validate_blind.py --only final ref_u35   (subset; merged into the JSON)\n\nProtocol (identical for every model; refit on each training mask with the model's own fit function):\n  V1  fit Z <= 36            validate 37 <= Z <= 54\n  V2  fit Z <= 44            validate 45 <= Z <= 54\n  S1  fit Z % 5 != 0         test Z % 5 == 0\n  S3  fit N % 6 != 0         test N % 6 == 0\n  selection score = mean MAPE over V1, V2, S1, S3   (the ONLY quantity used to choose a model)\n  S2  fit Z <= 54            test Z >= 55            (BLIND: reported, never used for any choice)\n  all-data fit on all 5847 rows, scored with evaluate.py.\nFor every split: MAPE, median APE and neutral-first-IE MAPE of the test/validation rows.\n\nModels\n  final       = pa_hier_rel (Push A, 33 params): exact sigma1 + bounded hierarchical screening remainder\n                (models/push_a/model.py, imported read-only; spec frozen by Push A before its S2 run)\n  ref_u35     = previous unified final (35 params, ridge 0.02)       models/unified/umodel.py\n  ref_u29     = previous unified variant (29 params, ridge 0.0)      models/unified/umodel.py\n  ref_pocket  = 8-parameter pocket formula                            models/unified/pocket.py\n  ref_gshm    = Track B GSHM final (32 params) WITHOUT the post-hoc sigma_core bound (blind), and\n  ref_gshm_core = Track B GSHM core (30 params), same treatment       models/semi_empirical\n  ref_slater_total = Slater's rules, total-energy difference (0 params; test MAPE = MAPE on test rows)\n\nWrites results/uni_validation.json, results/uni_validation.md, results/uni_final_params.json,\nresults/uni_predictions.csv + uni_metrics.json (final, all-data fit), results/uni_ref_*_predictions.csv.\npredict() of every model reads only configurations; NIST IEs enter only as fit targets and for scoring.\n",
+ "final_model": "pa_hier_rel",
+ "models": {
+  "final": {
+   "label": "FINAL pa_hier_rel (exact sigma1 + bounded hierarchical remainder)",
+   "type": "hybrid",
+   "V1": {
+    "n": 819,
+    "MAPE": 3.085373408419649,
+    "median": 1.2541759612511147,
+    "neutral_MAPE": 12.466176885466801,
+    "n_neutral": 18,
+    "max": 45.38352037789889
+   },
+   "V2": {
+    "n": 495,
+    "MAPE": 1.6028811386989925,
+    "median": 0.865593532747223,
+    "neutral_MAPE": 14.167877784059277,
+    "n_neutral": 10,
+    "max": 31.292220766640344
+   },
+   "S1": {
+    "n": 1188,
+    "MAPE": 1.909133819840482,
+    "median": 0.9692532356651737,
+    "neutral_MAPE": 6.70931203793803,
+    "n_neutral": 21,
+    "max": 27.835828258777966
+   },
+   "S3": {
+    "n": 928,
+    "MAPE": 1.9951659554350207,
+    "median": 1.0228344877436275,
+    "neutral_MAPE": 7.94909233948894,
+    "n_neutral": 18,
+    "max": 27.817139028393978
+   },
+   "selection_score": 2.148138580598536,
+   "S2": {
+    "n": 4362,
+    "MAPE": 6.603116043006734,
+    "median": 1.6161708519593627,
+    "neutral_MAPE": 21.758869934509182,
+    "n_neutral": 54,
+    "max": 167.16507292409278
+   },
+   "n_params": 33,
+   "all": {
+    "MAPE": 1.8742082307997467,
+    "median": 0.9400517066350373,
+    "neutral_MAPE": 7.515447997344637,
+    "Hlike_MAPE": 0.0011608008240878806,
+    "csv": "results/uni_predictions.csv"
+   }
+  },
+  "ref_u35": {
+   "label": "previous unified final u35 (exact sigma1 + linear remainder)",
+   "type": "hybrid",
+   "V1": {
+    "n": 819,
+    "MAPE": 26.390760544773798,
+    "median": 1.1221130289658798,
+    "neutral_MAPE": 378.45546496770675,
+    "n_neutral": 18,
+    "max": 801.695246071555
+   },
+   "V2": {
+    "n": 495,
+    "MAPE": 1.484145634472283,
+    "median": 0.8267288630963154,
+    "neutral_MAPE": 9.735942583108427,
+    "n_neutral": 10,
+    "max": 24.83269003090707
+   },
+   "S1": {
+    "n": 1188,
+    "MAPE": 1.5157040923113447,
+    "median": 0.7437979394466332,
+    "neutral_MAPE": 5.419944687933459,
+    "n_neutral": 21,
+    "max": 18.32662829722418
+   },
+   "S3": {
+    "n": 928,
+    "MAPE": 1.649065950388561,
+    "median": 0.7887357145476226,
+    "neutral_MAPE": 6.886721162424718,
+    "n_neutral": 18,
+    "max": 22.01885837022996
+   },
+   "selection_score": 7.759919055486497,
+   "S2": {
+    "n": 4362,
+    "MAPE": 57.23312130469542,
+    "median": 1.998713324449422,
+    "neutral_MAPE": 3831.339832778423,
+    "n_neutral": 54,
+    "max": 16206.185013081764
+   },
+   "n_params": 35,
+   "all": {
+    "MAPE": 1.4844058801685969,
+    "median": 0.7279468536089957,
+    "neutral_MAPE": 6.431950544037177,
+    "Hlike_MAPE": 0.0011608008240878806,
+    "csv": "results/uni_ref_u35_predictions.csv"
+   }
+  },
+  "ref_u29": {
+   "label": "previous unified variant u29",
+   "type": "hybrid",
+   "V1": {
+    "n": 819,
+    "MAPE": 21.96574687362757,
+    "median": 0.9906575708275408,
+    "neutral_MAPE": 99.98064381345613,
+    "n_neutral": 18,
+    "max": 101.81119970701546
+   },
+   "V2": {
+    "n": 495,
+    "MAPE": 1.758890101775382,
+    "median": 0.5691580136950657,
+    "neutral_MAPE": 9.373594434777518,
+    "n_neutral": 10,
+    "max": 20.58343378062769
+   },
+   "S1": {
+    "n": 1188,
+    "MAPE": 1.974515021905467,
+    "median": 1.1139221878885914,
+    "neutral_MAPE": 6.213002856220497,
+    "n_neutral": 21,
+    "max": 24.77407888622662
+   },
+   "S3": {
+    "n": 928,
+    "MAPE": 2.121645138460791,
+    "median": 1.2509068495720603,
+    "neutral_MAPE": 8.023246670162811,
+    "n_neutral": 18,
+    "max": 25.369768659882315
+   },
+   "selection_score": 6.955199283942303,
+   "S2": {
+    "n": 4362,
+    "MAPE": 137.7494158176892,
+    "median": 1.3712601323510576,
+    "neutral_MAPE": 9402.631965173156,
+    "n_neutral": 54,
+    "max": 46724.31848613973
+   },
+   "n_params": 29,
+   "all": {
+    "MAPE": 1.9526777380041518,
+    "median": 1.130237529645796,
+    "neutral_MAPE": 7.581844417232675,
+    "Hlike_MAPE": 0.0011608008240878806,
+    "csv": "results/uni_ref_u29_predictions.csv"
+   }
+  },
+  "ref_pocket": {
+   "label": "pocket formula",
+   "type": "fitted",
+   "V1": {
+    "n": 819,
+    "MAPE": 4418597.62646313,
+    "median": 2.3278608272123775,
+    "neutral_MAPE": 201046016.10956532,
+    "n_neutral": 18,
+    "max": 3618827993.980335
+   },
+   "V2": {
+    "n": 495,
+    "MAPE": 2.5540823843276437,
+    "median": 1.2655402183442224,
+    "neutral_MAPE": 22.832580405666818,
+    "n_neutral": 10,
+    "max": 61.60017040018179
+   },
+   "S1": {
+    "n": 1188,
+    "MAPE": 4.624981841357159,
+    "median": 3.0386058033734678,
+    "neutral_MAPE": 13.08817271379032,
+    "n_neutral": 21,
+    "max": 46.49430448710375
+   },
+   "S3": {
+    "n": 928,
+    "MAPE": 5.242225915126778,
+    "median": 3.897407491324227,
+    "neutral_MAPE": 12.393870243168799,
+    "n_neutral": 18,
+    "max": 38.85931327239182
+   },
+   "selection_score": 1104652.5119383177,
+   "S2": {
+    "n": 4362,
+    "MAPE": 11.333892967320772,
+    "median": 2.0399554834485243,
+    "neutral_MAPE": 12.336176080572342,
+    "n_neutral": 54,
+    "max": 377.0140474462255
+   },
+   "n_params": 8,
+   "all": {
+    "MAPE": 4.684366943446486,
+    "median": 3.0434619876179494,
+    "neutral_MAPE": 16.793243576028683,
+    "Hlike_MAPE": 1.1644037824748525,
+    "csv": "results/uni_ref_pocket_predictions.csv"
+   }
+  },
+  "ref_gshm": {
+   "label": "Track B GSHM final (blind, no post-hoc bound)",
+   "type": "fitted",
+   "V1": {
+    "n": 819,
+    "MAPE": 34.12981884495769,
+    "median": 2.2978847180520146,
+    "neutral_MAPE": 401.27834773813896,
+    "n_neutral": 18,
+    "max": 862.6257054219612
+   },
+   "V2": {
+    "n": 495,
+    "MAPE": 1.6521557450005386,
+    "median": 1.2546621981991175,
+    "neutral_MAPE": 7.235324284449537,
+    "n_neutral": 10,
+    "max": 24.863842689375346
+   },
+   "S1": {
+    "n": 1188,
+    "MAPE": 1.5871301875245225,
+    "median": 0.7279014674384152,
+    "neutral_MAPE": 6.702692574512779,
+    "n_neutral": 21,
+    "max": 26.267791896209502
+   },
+   "S3": {
+    "n": 928,
+    "MAPE": 1.7000033227022553,
+    "median": 0.8015377022158996,
+    "neutral_MAPE": 8.117595263044695,
+    "n_neutral": 18,
+    "max": 26.386211813011784
+   },
+   "selection_score": 9.767277025046253,
+   "S2": {
+    "n": 4362,
+    "MAPE": 170.2696093481183,
+    "median": 3.512673810112415,
+    "neutral_MAPE": 7393.126785569313,
+    "n_neutral": 54,
+    "max": 34775.8566795655
+   },
+   "n_params": 32,
+   "all": {
+    "MAPE": 1.5732328768444346,
+    "median": 0.7371740230109521,
+    "neutral_MAPE": 7.6121628970740005,
+    "Hlike_MAPE": 0.19016288970382314,
+    "csv": "results/uni_ref_gshm_predictions.csv"
+   }
+  },
+  "ref_gshm_core": {
+   "label": "Track B GSHM core (blind, no post-hoc bound)",
+   "type": "fitted",
+   "V1": {
+    "n": 819,
+    "MAPE": 33.743112586710104,
+    "median": 1.0959822766480625,
+    "neutral_MAPE": 432.8519117521472,
+    "n_neutral": 18,
+    "max": 873.2245282432316
+   },
+   "V2": {
+    "n": 495,
+    "MAPE": 1.3105949715221459,
+    "median": 0.7388128145223471,
+    "neutral_MAPE": 7.609094860534104,
+    "n_neutral": 10,
+    "max": 21.4207430023883
+   },
+   "S1": {
+    "n": 1188,
+    "MAPE": 1.6328366859006929,
+    "median": 0.7832408282829604,
+    "neutral_MAPE": 6.887922346253403,
+    "n_neutral": 21,
+    "max": 26.5668424881429
+   },
+   "S3": {
+    "n": 928,
+    "MAPE": 1.707032082788495,
+    "median": 0.7931860481006456,
+    "neutral_MAPE": 8.361018724515112,
+    "n_neutral": 18,
+    "max": 26.649185956200327
+   },
+   "selection_score": 9.598394081730358,
+   "S2": {
+    "n": 4362,
+    "MAPE": 178.49530165390195,
+    "median": 1.405986698651099,
+    "neutral_MAPE": 7953.077313563377,
+    "n_neutral": 54,
+    "max": 34057.3580319748
+   },
+   "n_params": 30,
+   "all": {
+    "MAPE": 1.6180865545174625,
+    "median": 0.7954808863089511,
+    "neutral_MAPE": 7.710838020117244,
+    "Hlike_MAPE": 0.19016288970382314,
+    "csv": "results/uni_ref_gshm_core_predictions.csv"
+   }
+  },
+  "ref_slater_total": {
+   "label": "Slater's rules, total-energy difference",
+   "type": "empirical rules (0 params)",
+   "V1": {
+    "n": 819,
+    "MAPE": 13.414506471166968,
+    "median": 6.957096018735361,
+    "neutral_MAPE": 60.99322737534523,
+    "n_neutral": 18,
+    "max": 160.92533058544376
+   },
+   "V2": {
+    "n": 495,
+    "MAPE": 14.390786030380994,
+    "median": 7.065346150481017,
+    "neutral_MAPE": 91.70560407809339,
+    "n_neutral": 10,
+    "max": 160.92533058544376
+   },
+   "S1": {
+    "n": 1188,
+    "MAPE": 11.62920804579336,
+    "median": 7.414118359492299,
+    "neutral_MAPE": 43.65741982324067,
+    "n_neutral": 21,
+    "max": 152.35419834710743
+   },
+   "S3": {
+    "n": 928,
+    "MAPE": 12.35984347741029,
+    "median": 7.720144636802903,
+    "neutral_MAPE": 53.586337870603984,
+    "n_neutral": 18,
+    "max": 129.8223007518797
+   },
+   "selection_score": 12.948586006187902,
+   "S2": {
+    "n": 4362,
+    "MAPE": 11.637941896579834,
+    "median": 8.068883147320449,
+    "neutral_MAPE": 50.71830677591666,
+    "n_neutral": 54,
+    "max": 152.35419834710743
+   },
+   "n_params": 0,
+   "all": {
+    "MAPE": 11.76518862244198,
+    "median": 7.484724637681158,
+    "neutral_MAPE": 51.80150033878887,
+    "Hlike_MAPE": 5.995534141290412,
+    "csv": "results/uni_ref_slater_total_predictions.csv"
+   }
+  }
+ },
+ "selection_ranking": [
+  [
+   "final",
+   2.148138580598536
+  ],
+  [
+   "ref_u29",
+   6.955199283942303
+  ],
+  [
+   "ref_u35",
+   7.759919055486497
+  ],
+  [
+   "ref_gshm_core",
+   9.598394081730358
+  ],
+  [
+   "ref_gshm",
+   9.767277025046253
+  ],
+  [
+   "ref_slater_total",
+   12.948586006187902
+  ],
+  [
+   "ref_pocket",
+   1104652.5119383177
+  ]
+ ],
+ "consistency": {
+  "final vs push A pa_hier_rel": {
+   "V1": 0.0,
+   "V2": 0.0,
+   "S1": 0.0,
+   "S3": 0.0,
+   "S2": 0.0,
+   "all": 0.0
+  },
+  "ref_u35 vs push A ref_u35": {
+   "V1": 0.0,
+   "V2": 0.0,
+   "S1": 0.0,
+   "S3": 0.0,
+   "S2": 0.0,
+   "all": 0.0
+  },
+  "ref_pocket vs push A ref_pocket": {
+   "V1": 0.0,
+   "V2": 0.0,
+   "S1": 0.0,
+   "S3": 0.0,
+   "S2": 0.0,
+   "all": 0.0
+  },
+  "ref_u35 vs push B ref_u35": {
+   "V1": 0.0,
+   "V2": 0.0,
+   "S1": 0.0,
+   "S3": 0.0,
+   "S2": 0.0
+  },
+  "ref_pocket vs push B ref_pocket": {
+   "V1": 0.0,
+   "V2": 0.0,
+   "S1": 0.0,
+   "S3": 0.0,
+   "S2": 0.0
+  },
+  "ref_gshm S2 vs earlier se_gshm_S2 (170.27)": 0.000391
+ }
+}

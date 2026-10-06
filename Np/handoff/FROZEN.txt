@@ -1,0 +1,7 @@
+FROZEN WINNER (pre-registered selection, 2026-10-05 ~02:08): pa_hier_rel from models/push_a
+Blind S2 (computed once): 6.60% MAPE | all-data 1.874% | S1 1.91% | S3 2.00% | 33 params
+Any later change to these files' hashes = post-hoc modification; must be disclosed as a new version with a fresh blind test.
+
+7370ba6c30544ef1ef32d5c9eb5e1b91a8878558198bcd046bc10fa5c73469ee *results/pa_hier_rel_predictions.csv
+1f6bcbb16074c34d7510e7e473088fbef6e41bd4e600d6ea1e1ef40631bcee6b *results/pa_params.json
+4a649913f561e7cc4eb282f42c72fbe8453d602e9d2d5ba8155d1ddf04b36ea3 *models/push_a/model.py

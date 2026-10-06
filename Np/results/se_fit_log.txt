@@ -1,0 +1,90 @@
+forward selection (train = S1 train minus Z%5==2, validation = Z%5==2)
+  start val MAPE 1.6447 (30 params)
+  + x2_d                   val MAPE 1.6281 (linear screen) -> 1.6228 (joint refit)
+  + x2_p3                  val MAPE 1.6031 (linear screen) -> 1.6060 (joint refit)
+  stop: best candidate x4 gives 1.5959 (no >1% gain)
+time 1 s
+core  S1: test MAPE 1.633 median 0.784 neutral 6.889 (n=1188, neutral n=21)
+core  S2: test MAPE 19.234 median 1.534 neutral 259.800 (n=4362, neutral n=54)
+core  S3: test MAPE 1.707 median 0.794 neutral 8.361 (n=928, neutral n=18)
+final S1: test MAPE 1.587 median 0.728 neutral 6.702 (n=1188, neutral n=21)
+final S2: test MAPE 18.712 median 3.600 neutral 234.806 (n=4362, neutral n=54)
+final S3: test MAPE 1.700 median 0.801 neutral 8.117 (n=928, neutral n=18)
+core_S2_untied_noprior      : S2 test MAPE 850.972 median 2.387 neutral 35499.066
+core_S2_tied_noprior        : S2 test MAPE 390.728 median 2.164 neutral 19379.986
+core_S2_tied_ridge_only     : S2 test MAPE 178.495 median 1.406 neutral 7953.077
+S1 tied parameters: {}
+S2 tied parameters: {'sig_same_f': 'sig_same_d', 'sig_n1_sp_f': 'sig_n1_sp_d', 'sig_n1_d_f': 'sig_n1_d_d', 'sig_f_near': 'sig_d_near', 'sig_n1_f_f': 'sig_n1_d_d', 'sig_out_f': 'sig_out_d', 'rel_f': 'rel_d', 'x_f': 'x_d'}
+S3 tied parameters: {}
+time 11 s
+A0 screening only (sigma_c)                      p= 18 all MAPE 11.904 med 8.620 neutral 66.668 | S1 test 11.722
+A1 + q-dependent screening S1                    p= 22 all MAPE 3.196 med 1.695 neutral 8.927 | S1 test 3.224
+A2 + Dirac factor (no penetration corr.)         p= 22 all MAPE 1.942 med 0.908 neutral 8.479 | S1 test 1.934
+A3 + relativistic penetration r_lj               p= 27 all MAPE 1.630 med 0.773 neutral 7.943 | S1 test 1.634
+A4 + Hund exchange x_l (= core GSHM)             p= 30 all MAPE 1.618 med 0.795 neutral 7.711 | S1 test 1.633
+A5 + sparse corrections (= final GSHM)           p= 32 all MAPE 1.573 med 0.737 neutral 7.612 | S1 test 1.587
+-- core minus S1                                 p= 26 all MAPE 9.341 med 6.777 neutral 48.100 | S1 test 9.211
+-- core minus relativity                         p= 25 all MAPE 3.156 med 1.676 neutral 8.754 | S1 test 3.182
+-- core minus exchange                           p= 27 all MAPE 1.630 med 0.773 neutral 7.943 | S1 test 1.634
+-- core with S1 denominator Z_eff0 (not Z_a)     p= 30 all MAPE 3.207 med 1.617 neutral 18.598 | S1 test 3.192
+time 23 s
+
+=== gshm_core ===
+coverage: 5847/5847
+stratum                              n    MAPE%  medAPE%     p90%     max%     MAE eV   <=1%
+11<=N<=36                         2275    1.264    0.754    2.982    35.68     36.395   0.62
+19<=Z<=54                         1314    1.711    0.935    3.769    37.22     11.561   0.53
+ALL                               5847    1.618    0.795    3.980    37.22     41.349   0.58
+N<=10                             1048    0.751    0.418    1.095    21.73    121.789   0.89
+N>=37                             2524    2.297    1.286    5.359    37.22     12.414   0.41
+Z<=18                              171    3.112    1.925    7.813    21.73      3.724   0.38
+Z>=55                             4362    1.531    0.746    3.949    25.87     51.797   0.60
+first_IE_neutral_atoms             108    7.711    6.440   16.471    37.22      0.581   0.08
+hydrogen_like                      110    0.190    0.118    0.501     0.91    233.372   1.00
+rearranged_config                   63    4.671    2.667   12.479    17.38     39.651   0.33
+removed_l=d                       1929    1.069    0.640    2.125    37.22     17.084   0.69
+removed_l=f                        794    2.631    1.841    5.951    17.38     20.053   0.29
+removed_l=p                       2066    1.591    0.739    3.825    35.68     36.336   0.59
+removed_l=s                       1058    1.911    0.783    4.805    20.63    111.359   0.57
+removed_n=1                        219    0.373    0.290    0.848     1.46    377.092   0.95
+removed_n=2                        829    0.851    0.438    1.409    21.73     54.344   0.88
+removed_n=3                       1632    0.974    0.645    1.858    24.28     34.221   0.72
+removed_n=4                       1917    1.846    1.160    4.097    37.22     25.788   0.45
+removed_n=5                        986    2.402    1.445    4.937    25.87      8.030   0.38
+removed_n=6                        224    4.320    3.688    8.759    16.47      4.018   0.13
+removed_n=7                         40    5.247    5.032    9.786    20.63      0.709   0.12
+status=experimental                311    5.467    4.074   12.182    37.22      2.172   0.14
+status=semi-empirical              919    2.157    1.176    4.960    25.87     12.065   0.43
+status=theoretical                4617    1.251    0.677    3.214    20.63     49.816   0.64
+
+=== gshm ===
+coverage: 5847/5847
+stratum                              n    MAPE%  medAPE%     p90%     max%     MAE eV   <=1%
+11<=N<=36                         2275    1.164    0.625    2.880    35.72     27.648   0.64
+19<=Z<=54                         1314    1.700    0.906    3.813    35.72     11.844   0.53
+ALL                               5847    1.573    0.737    3.929    35.72     36.436   0.59
+N<=10                             1048    0.698    0.332    1.029    21.57    112.559   0.90
+N>=37                             2524    2.305    1.307    5.386    35.27     12.749   0.41
+Z<=18                              171    3.092    1.903    7.709    21.57      3.641   0.37
+Z>=55                             4362    1.476    0.683    3.841    25.60     45.129   0.61
+first_IE_neutral_atoms             108    7.612    6.443   16.358    35.72      0.572   0.09
+hydrogen_like                      110    0.190    0.118    0.501     0.91    233.372   1.00
+rearranged_config                   63    4.712    2.756   12.467    17.44     42.632   0.27
+removed_l=d                       1929    0.982    0.509    2.151    35.27     10.386   0.74
+removed_l=f                        794    2.675    1.849    6.081    17.44     20.572   0.28
+removed_l=p                       2066    1.544    0.758    3.791    35.72     27.650   0.58
+removed_l=s                       1058    1.881    0.789    4.717    20.31    112.991   0.56
+removed_n=1                        219    0.392    0.308    0.885     1.49    386.226   0.93
+removed_n=2                        829    0.779    0.337    1.324    21.57     40.263   0.89
+removed_n=3                       1632    0.828    0.422    1.838    23.44     21.868   0.76
+removed_n=4                       1917    1.868    1.106    4.105    35.72     26.403   0.46
+removed_n=5                        986    2.412    1.502    4.793    25.60      7.994   0.34
+removed_n=6                        224    4.243    3.642    8.472    16.36      3.862   0.16
+removed_n=7                         40    5.117    4.854    9.426    20.17      0.680   0.15
+status=experimental                311    5.415    3.950   12.130    35.72      1.921   0.14
+status=semi-empirical              919    2.146    1.181    4.877    25.60     11.796   0.42
+status=theoretical                4617    1.200    0.607    3.220    20.17     43.665   0.65
+predict() consistency max rel diff: 1.9984014443252818e-15
+predict(120, 120) [outside table, Madelung config] = 5.392461289730005
+predict(26, 26, shells=[(1,0,2),(2,0,2),(2,1,6),(3,0,2),(3,1,6),(3,2,6),(4,0,2)]) = 8.028181581510648
+total time 30 s

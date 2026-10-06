@@ -1,0 +1,7 @@
+bohr {'ALL': 1340.321, 'first_IE_neutral_atoms': 22527.52, 'hydrogen_like': 5.996, 'N<=10': 37.603, '11<=N<=36': 302.194, 'N>=37': 2816.941}
+zexp2 {'ALL': 658.195, 'first_IE_neutral_atoms': 12514.679, 'hydrogen_like': 5.996, 'N<=10': 11.579, '11<=N<=36': 112.743, 'N>=37': 1418.321}
+zexp2_rel {'ALL': 653.197, 'first_IE_neutral_atoms': 12469.84, 'hydrogen_like': 0.001, 'N<=10': 7.232, '11<=N<=36': 109.311, 'N>=37': 1411.64}
+zexp_sq {'ALL': 67.412, 'first_IE_neutral_atoms': 1059.945, 'hydrogen_like': 5.996, 'N<=10': 5.505, '11<=N<=36': 15.455, 'N>=37': 139.948}
+zexp_sq_rel {'ALL': 69.752, 'first_IE_neutral_atoms': 1104.735, 'hydrogen_like': 0.001, 'N<=10': 1.709, '11<=N<=36': 15.401, 'N>=37': 146.993}
+zexp_sq_rel_p4 {'ALL': 66.722, 'first_IE_neutral_atoms': 1062.148, 'hydrogen_like': 0.001, 'N<=10': 1.437, '11<=N<=36': 14.477, 'N>=37': 140.92}
+zexp {'ALL': 69.752, 'first_IE_neutral_atoms': 1104.735, 'hydrogen_like': 0.001, 'N<=10': 1.709, '11<=N<=36': 15.401, 'N>=37': 146.993}
