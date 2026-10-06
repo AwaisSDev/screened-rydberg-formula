@@ -1,0 +1,197 @@
+{
+ "n_rows": 5011,
+ "strata": {
+  "all covered rows": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 5011,
+    "mean": 1.6226297907640117,
+    "median": 0.7781918240930098
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 5011,
+    "mean": 2.634310016539411,
+    "median": 1.1945099290829966
+   },
+   "Mendoza et al. 2011": {
+    "n": 5011,
+    "mean": 2.8224731378088546,
+    "median": 0.848122847624061
+   }
+  },
+  "ions only (Z > N)": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 4957,
+    "mean": 1.549162456386086,
+    "median": 0.7639078303142519
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 4957,
+    "mean": 2.538252783046356,
+    "median": 1.173082583000176
+   },
+   "Mendoza et al. 2011": {
+    "n": 4957,
+    "mean": 2.558091664308632,
+    "median": 0.8161338540145936
+   }
+  },
+  "charge \u2265 3": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 4837,
+    "mean": 1.4500381225369139,
+    "median": 0.7272592241777754
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 4837,
+    "mean": 2.4296516245454396,
+    "median": 1.1371920648504055
+   },
+   "Mendoza et al. 2011": {
+    "n": 4837,
+    "mean": 2.2692066613494926,
+    "median": 0.7728058568329719
+   }
+  },
+  "singly charged (Z \u2212 N = 1)": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 54,
+    "mean": 5.763995905309859,
+    "median": 3.507603325458633
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 54,
+    "mean": 7.605167308001739,
+    "median": 6.083051622161101
+   },
+   "Mendoza et al. 2011": {
+    "n": 54,
+    "mean": 10.720077641331999,
+    "median": 6.437113497062
+   }
+  },
+  "neutral atoms": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 54,
+    "mean": 8.366658985419154,
+    "median": 6.512598549869667
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 54,
+    "mean": 11.452008283670375,
+    "median": 8.802611579627545
+   },
+   "Mendoza et al. 2011": {
+    "n": 54,
+    "mean": 27.09171321448666,
+    "median": 21.979364230870864
+   }
+  },
+  "N \u2264 10": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 1048,
+    "mean": 0.4394471252811953,
+    "median": 0.2336944249445075
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 1048,
+    "mean": 0.5139984898241091,
+    "median": 0.29496760267088207
+   },
+   "Mendoza et al. 2011": {
+    "n": 1048,
+    "mean": 0.3958505853075365,
+    "median": 0.1725720268290144
+   }
+  },
+  "11 \u2264 N \u2264 36": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 2275,
+    "mean": 1.430052449821139,
+    "median": 0.8166362857290466
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 2275,
+    "mean": 2.1159074167675636,
+    "median": 1.1673204308544536
+   },
+   "Mendoza et al. 2011": {
+    "n": 2275,
+    "mean": 1.8222389204828513,
+    "median": 0.6124866393747652
+   }
+  },
+  "N \u2265 37": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 1688,
+    "mean": 2.6167582765880795,
+    "median": 1.507851034394288
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 1688,
+    "mean": 4.6493884492873905,
+    "median": 3.5193630058657144
+   },
+   "Mendoza et al. 2011": {
+    "n": 1688,
+    "mean": 5.677113706196319,
+    "median": 2.4829761943319815
+   }
+  },
+  "H-like": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 110,
+    "mean": 0.0011608008240878806,
+    "median": 0.00013678600962625342
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 110,
+    "mean": 0.0011608008240878806,
+    "median": 0.00013678600962625342
+   },
+   "Mendoza et al. 2011": {
+    "n": 110,
+    "mean": 0.1901628719532642,
+    "median": 0.11849714070406511
+   }
+  },
+  "Z \u2265 55": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 3526,
+    "mean": 1.5724380824663653,
+    "median": 0.7236887222128751
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 3526,
+    "mean": 2.296809601090267,
+    "median": 1.0844690360826905
+   },
+   "Mendoza et al. 2011": {
+    "n": 3526,
+    "mean": 2.736812913054305,
+    "median": 1.0012229821198206
+   }
+  },
+  "experimental": {
+   "Screened Rydberg, final (33 p)": {
+    "n": 236,
+    "mean": 4.3741577414530335,
+    "median": 2.3892695137689826
+   },
+   "bounded 9-parameter (pa_bound9)": {
+    "n": 236,
+    "mean": 7.169025071902503,
+    "median": 5.244249347327441
+   },
+   "Mendoza et al. 2011": {
+    "n": 236,
+    "mean": 11.27611220765282,
+    "median": 5.707544824055923
+   }
+  }
+ },
+ "row_wins": {
+  "final_vs_mendoza": 0.5126721213330673,
+  "bound9_vs_mendoza": 0.36140490919976054
+ },
+ "mendoza_nonzero_constants": 331
+}

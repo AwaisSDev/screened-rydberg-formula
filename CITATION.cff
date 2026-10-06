@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+title: "Screened Rydberg formula for the successive ionization energies of all atoms and ions (code and data)"
+authors:
+  - family-names: Awais
+    given-names: Muhammad
+    affiliation: "Independent researcher"
+    email: mawais9171@gmail.com
+repository-code: "https://github.com/AwaisSDev/Chem-Research"
+license: MIT
+version: "1.0.0"
+date-released: "2026-10-06"
+keywords:
+  - ionization energy
+  - screening constants
+  - 1/Z expansion
+  - screened hydrogenic model
+abstract: >-
+  Closed-form formula for IE(Z, N) of any atom or ion: exact first-order screening constants plus a bounded fitted
+  remainder (33 global parameters), validated on all 5847 NIST ASD v5.12 successive ionization energies.
+  Project folder: Np/.

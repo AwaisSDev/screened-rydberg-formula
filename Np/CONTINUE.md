@@ -1,5 +1,116 @@
 # CONTINUE HERE: project handoff
 
+## ▶ 2026-10-06 review pass (D:\ machine). READ THIS FIRST
+
+**Environment.** This machine has no Python 3.13. Use `py -3.11` with
+`export PYTHONPATH="D:/Chem-Research/Np/tools/numba_stub"`, a no-op numba stand-in with identical numerics. Frozen
+hashes are intact; models/push_a/model.py matches once CRLF is normalised to LF. The refits reproduce the final model
+to ≤0.005 percentage points. The unbounded references do not: the pocket formula's V1 converges to 4.35 % here
+instead of diverging. Details: `docs/review/reproducibility_py311.md`.
+
+**Task.** Work through a reviewer's 25-item checklist. Items 1–19 must be done before anyone else sees the paper;
+20–21 are optional; 22–25 are the user's own actions. At the user's request, all agents were stopped at 16:08 to
+save session limit. **Continue without spawning agents unless the user asks for them.**
+
+| item | status | where |
+|---|---|---|
+| 1 component printout (O, Na, N, Ca, Fe, Pb) | ✅ | `tools/audit_components.py` → `results/audit_components.{md,json}`; asserts equality with the code |
+| 2 hand recompute, paper only | ⚠ partial | `tools/hand_recompute.py`. The agent was stopped mid-diagnosis: the pocket formula matches the code to 6e-15 on all rows, but the paper-only pa_* versions disagreed for some Z (NaNs). Check whether the paper text is insufficient. |
+| 3 Ca/Fe gaps, Pb σ₁ 76.2 | ✅ | `docs/review/cheat_sheet_reconciliation.md`. No model gives +0.24/+0.39 eV; the cheat sheet's Ca/Fe lines are not reproducible (true pa_bound9: Ca 4.32 eV, Fe 7.30 eV). Pb σ₁ = 63.72; "76.2" is total screening or Slater's σ. |
+| 4 cheat sheet = pa_bound9; add its parameters to Table A1 | ✅ identified, ⏳ paper edit | same file; parameters in results/pa_params.json |
+| 5 one grouping rule | ✅ | `docs/review/grouping_rule.md` (paper-ready text + Table A2); `tools/check_grouping_rule.py`: 0 mismatches on 5847 rows and 7021 Z ≤ 118 configurations |
+| 6 rename models (pa_bound9 ≠ pocket) | ⏳ | canonical names: "Screened Rydberg formula (final, pa_hier_rel, 33 p)", "bounded 9-parameter variant (pa_bound9)", "pocket formula (8 p, uni_pocket)" |
+| 7 remove "destroyed"/"best" | ⏳ | only "best Push B candidate" (paper l.265) is in the repo; "destroyed" is in the user's own material |
+| 8 Mendoza numbers | ✅ sourced | constants transcribed from the user-supplied open-access PDF (oa.upm.es/11165); 6 printed tables reproduced (`models/benchmarks/mendoza2011/NOTES.md`). Keep the numbers, but with row sets (5011 covered rows). Paper §4.5 still wrongly says "not obtained". |
+| 9 reconcile matrix vs paper | ✅ matrix, ⏳ paper | `results/benchmark_matrix.{md,csv,json}` (`tools/benchmark_matrix.py`, n in every cell); row-set issues in cheat_sheet_reconciliation.md §5 |
+| 10 Slater ratio | ⏳ | mean: 11.8/1.87 = 6.3× (final), 11.8/2.90 = 4.1× (pa_bound9); blind S2: 11.6/6.60 = 1.8× |
+| 11 authors, affiliation, acknowledgements | ⏳ user | |
+| 12 NIST ASD version + access date | ⏳ | refs agent stopped mid-check; access date not recorded anywhere, user must supply |
+| 13 verify references | ⏳ | refs-part1 (A–K) was ~77 % done when stopped, no report written; its transcript is in the session's `subagents/workflows/wf_28a7f90b-4d3/agent-a2b967d2350b4c32d.jsonl` |
+| 14–16 σ₁-table novelty, ML search, superheavy values | ⏳ not started | |
+| 17, 18 Zenodo DOI, AI statement | ⏳ user (after journal choice) | |
+| 19 disclose failures | ⏳ | paper §4.3/§4.7 already list Lr, Og, Pb, Tl; add them to the abstract and conclusions |
+| 20 Mendoza on the 5847 rows | ✅ (2026-10-05) | 5011/5847 covered: 2.82 % vs final 1.62 % on the same rows; Mendoza is the most accurate of the three on N ≤ 10 (0.40 vs 0.44) |
+| 21 Rodrigues 2004 Dirac–Fock | ⏳ optional | |
+
+**UPDATE 2026-10-06 16:30: the user's PHASE 1 (items 1–4 of their new plan) is DONE in `docs/paper_draft.md`, and
+the PDF is rebuilt (`py -3.14 tools/build_paper_pdf.py`; the build script needs Python ≥ 3.12).**
+- **Case studies.** New Table 6 (O, N, Na, Ca, Fe, Pb × final / pa_bound9 / pocket), from
+  `tools/case_study_table.py`.
+- **Hand-recompute gap closed.** The paper never stated four things: the ν_c classes, that σ₁ uses the frozen
+  configuration, μ(Z), and the QED/FNS values. The fix:
+  - `results/model_inputs.csv` (`tools/export_model_inputs.py`);
+  - `tools/verify_from_inputs.py`, which uses no model code and reproduces both models on all 5847 rows to 7e-16;
+  - §2.2 rewritten with the grouping rule, the removed-subshell rule, K_l, F_{n,j} (renamed from D_{n,j}), μ and QED.
+- **Naming.** A naming table in §2.6; the pa_bound9 parameters added to Appendix A; Table A2 holds the class
+  definitions.
+- **Paper edits.**
+  - Mendoza §4.5 with Table 4a (5011 rows, with caveats).
+  - §3.4 reproducibility, including the pocket-formula V1 caveat (†).
+  - The Slater ratios: 6.3× / 4.1× / 1.8×.
+  - "best" changed to "lowest-scoring".
+  - Failures added to the abstract, §5.2 and the conclusions; numbers from `tools/known_failures.py`.
+- `docs/literature.md`: the Mendoza lines are fixed.
+
+**2026-10-06 ~17:30: "do all the still open things" pass.**
+- **Paper is in final form** (IEEE-style numbered citations and reference list, built by `tools/ieee_refs.py`;
+  "Abstract—" / "Index Terms—" front matter). It has no draft banner and 0 TODO/VERIFY markers.
+- **References.** The 14 flagged references were checked against Crossref (DOIs added). Layzer1967 is not in
+  Crossref and was dropped; DiRocco1992 is labelled "as cited in Pomarico2005".
+- **Other paper fixes.**
+  - NIST ASD v5.12, accessed on or before 2026-10-05.
+  - The NumPy/SciPy versions are stated as not recorded.
+  - Code availability points to the GitHub URL.
+  - Acknowledgements: None.
+- **Phase 3 done** (except the web calculator):
+  - `ionization.ie(Z, N, config)` returns all intermediates and warnings; CLI `--details --config`.
+  - `README.md`; its examples come from `tools/readme_examples.py`.
+  - `tests/test_paper_examples.py`: 7 tests pass.
+- **Zenodo.** `CITATION.cff` at the git root. The user must link GitHub to Zenodo and make a release to get a DOI.
+- **The journal** is still the user's choice, after human review.
+
+**2026-10-06 ~17:00: reviewer fix list 1–9 applied.**
+- Author: Muhammad Awais, independent researcher, mawais9171@gmail.com.
+- §4.5 split into Kregar (4.5.1) and Mendoza (4.5.2).
+- Table 6 verdict fixed.
+- Pb cancellation added to §5.2.
+- N worked example added.
+- Abstract: 57.2 % / 170 %.
+- Unverifiable claims softened (the 88 % claim, the σ₁-table novelty, ML priority).
+- Cheat sheet: `docs/cheat_sheet_pa_bound9.md` (`tools/cheat_sheet_bound9.py`).
+- PDF rebuilt.
+- Remaining paper markers: the NIST version and date, NumPy/SciPy versions, the Zenodo DOI, acknowledgements, and
+  the reference [VERIFY] tags.
+- **The pre-registration commit is waiting for the user's OK. §3.3 already says "committed afterwards".**
+
+**PHASE 2, round 1 done (16:35).** Four pre-registered variants were scored and all rejected (`models/v2/NOTES.md`);
+v1 stays final. The paper discloses this in §3.3 (one sentence). §4.5 Table 4a is now a same-row comparison of the
+33 p model, pa_bound9 and Mendoza (`tools/compare_mendoza.py`). Claim: "competitive", not "better". Mendoza has 331
+non-zero published constants.
+(Original note: PHASE 2 had not started at that point.) Its pre-registration is written in `docs/preregistration_v2.md`; the user must commit it
+(baseline score in this environment 2.1473). Still open from the reviewer list: 12–16 (NIST version, references,
+σ₁ novelty, ML search, superheavy values) and the user-only items.
+
+**Earlier next steps (kept for reference):**
+1. **Replace the Ca, Fe and Na case studies with real code output, labelled by model.** The user's earlier Ca/Fe case
+   studies (+2.9 %, +4.8 %, the "+0.24/+0.39 eV" gaps, and "Hund/Spin correction = 8.28") were AI-written numbers,
+   not model output. Never reuse them. Real values (`results/audit_components.md`), IE in eV with error vs NIST:
+
+   | ion (NIST) | final pa_hier_rel (33 p) | pa_bound9 (9 p) | pocket (8 p) |
+   |---|---|---|---|
+   | Na I (5.139) | 6.203 (+20.70 %) | 5.414 (+5.36 %) | 6.287 (+22.33 %) |
+   | Ca I (6.113) | 5.027 (−17.77 %) | 4.323 (−29.28 %) | 4.925 (−19.43 %) |
+   | Fe I (7.902) | 7.611 (−3.69 %) | 7.299 (−7.64 %) | 8.386 (+6.12 %) |
+
+   O, N and Pb are in the same file. Print the full component chains from `tools/audit_components.py`. Fe's 3d⁶
+   electrons belong in the **in** group, not df.
+2. Item 2 hand-recompute gap: find which pa_* term the paper text doesn't specify (start from `tools/hand_recompute.py`).
+   Then either describe it fully in §2.2 or point the reader to `tools/audit_components.py` as the reference
+   implementation.
+3. Edit `docs/paper_draft.md` with the ✅ findings (items 4–10, 19, Mendoza §4.5, grouping rule,
+Table A1/A2, the "D" vs Dirac-factor notation clash, the reproducibility note), then rebuild the PDF with
+`py -3.11 tools/build_paper_pdf.py`.
+
 > **03:05 orchestrator check.** I verified the main workflow results independently:
 > - frozen fingerprints intact (`handoff/FROZEN.txt`); `uni_predictions.csv` byte-identical to the frozen winner;
 > - evaluate.py: 1.874% overall, 7.515% neutral atoms, 4.63% on the 311 experimental rows;

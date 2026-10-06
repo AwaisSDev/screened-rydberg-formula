@@ -1,0 +1,56 @@
+{
+ "S2_fit_Zle54": {
+  "Tl": {
+   "Z": 81,
+   "pred_eV": 1.736,
+   "NIST_eV": 6.1082873
+  },
+  "Pb": {
+   "Z": 82,
+   "pred_eV": 1.196,
+   "NIST_eV": 7.4166799
+  },
+  "Rn": {
+   "Z": 86,
+   "pred_eV": 6.098,
+   "NIST_eV": 10.7485
+  },
+  "Lr": {
+   "Z": 103,
+   "pred_eV": -3.327,
+   "NIST_eV": 4.96
+  }
+ },
+ "all_data_fit": {
+  "Ca": {
+   "Z": 20,
+   "pred_eV": 5.027,
+   "NIST_eV": 6.113154921,
+   "err_pct": -17.77
+  },
+  "Sr": {
+   "Z": 38,
+   "pred_eV": 4.852,
+   "NIST_eV": 5.69486745,
+   "err_pct": -14.8
+  },
+  "Ba": {
+   "Z": 56,
+   "pred_eV": 4.774,
+   "NIST_eV": 5.2116646,
+   "err_pct": -8.39
+  },
+  "Rn": {
+   "Z": 86,
+   "pred_eV": 8.107,
+   "NIST_eV": 10.7485,
+   "err_pct": -24.58
+  },
+  "Og": {
+   "Z": 118,
+   "pred_eV": 3.659,
+   "NIST_eV": null,
+   "err_pct": null
+  }
+ }
+}

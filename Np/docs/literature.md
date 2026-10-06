@@ -70,7 +70,7 @@ rediscovery, not as a new law (`docs/unified.md`, referee item 5).
 | Faussurier, Blancard, Decoster 1997 [Faussurier1997] | σ(nl, n′l′) with l-splitting, fitted | no | yes | **coefficients not obtained** (paywalled; SpK [Crilly2023] uses them but does not print them) |
 | Faussurier, Blancard, Renaudin 2008 [Faussurier2008] | SHM with l-splitting for the equation of state of dense plasmas | – | yes | cited only |
 | Rubiano et al. 2002 [Rubiano2002]; Martel et al. 1998 [Martel1998] | SHM from analytical potentials | – | partly | cited only |
-| Mendoza et al. 2011 [Mendoza2011] | nlj-dependent relativistic screening constants, genetic-algorithm fit to NIST energies plus FAC-calculated IPs and excitation energies | yes | **yes** | reported accuracy: about 88 % of their database within ±10 %; constants not obtained |
+| Mendoza et al. 2011 [Mendoza2011] | nlj-dependent relativistic screening constants, genetic-algorithm fit to NIST energies plus FAC-calculated IPs and excitation energies | yes | **yes** | constants transcribed from the authors' open-access deposit (oa.upm.es/11165) and validated against six printed tables; scored on the 5011 rows it covers: 2.82 % MAPE (`models/benchmarks/mendoza2011/`, paper §4.5) |
 | **Kregar 1984/85; Di Rocco 1992; Pomarico, Iriarte & Di Rocco 2005; Lanzini & Di Rocco 2015; Di Rocco & Lanzini 2016** [Kregar1984; Kregar1985; DiRocco1992; Pomarico2005; LanziniDiRocco2015; DiRoccoLanzini2016] | **parameter-free**: σ computed from hydrogenic densities by splitting 1/r_ij into one-body terms, made self-consistent (Z, N)-dependent, with exchange corrections | Pauli (2005), Dirac + Breit + QED (2015/16) | **no** | **implemented and scored on all 5847 rows (§2)** |
 
 Average-atom and HEDP kinetics codes use SHM-type or Hartree-Fock-Slater atomic data. Examples are the
@@ -131,7 +131,7 @@ or neural network, restricted to atoms and ions, is required. The paper should n
 - **More (1982)** and **Faussurier et al. (1997)** constants could **not** be obtained reliably. Both papers are
   paywalled, and no open document reproducing the tables could be verified. Following the honesty rules, **we did
   not reconstruct them from memory**, so there is no head-to-head against them.
-- **Mendoza et al. (2011)**: the constants were not obtained either.
+- **Mendoza et al. (2011)**: constants obtained from the open-access deposit and implemented; see paper §4.5 and `models/benchmarks/mendoza2011/NOTES.md`.
 - **The Kregar / Di Rocco parameter-free SHM** is fully specified by its published definitions:
   - the 1/r_ij split, Eqs. (5)–(7) of [DiRoccoLanzini2016] and Eqs. (12)–(13) of [Pomarico2005];
   - Cowan's average-of-configuration exchange [Cowan1981];

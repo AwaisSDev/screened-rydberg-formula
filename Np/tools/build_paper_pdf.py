@@ -96,7 +96,7 @@ def build_html():
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <style>{CSS}</style></head>
 <body>
-<div class="draftnote">MANUSCRIPT DRAFT &mdash; not for distribution &mdash; items marked [TODO]/[VERIFY] must be resolved before submission</div>
+
 <div id="content"></div>
 <script id="md-src" type="application/json">{json.dumps(md).replace("</", "<\\/")}</script>
 <script>{JS}</script>
