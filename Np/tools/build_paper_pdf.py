@@ -15,9 +15,9 @@ from pathlib import Path
 from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
-MD = ROOT / "docs" / "paper_draft.md"
-HTML = ROOT / "docs" / "paper_draft.html"
-PDF = ROOT / "docs" / "paper_draft.pdf"
+MD = ROOT / (sys.argv[1] if len(sys.argv) > 1 else "docs/paper_draft.md")   # optional input file
+HTML = MD.with_suffix(".html")
+PDF = MD.with_suffix(".pdf")
 CHROME = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
     r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",

@@ -52,6 +52,23 @@ the PDF is rebuilt (`py -3.14 tools/build_paper_pdf.py`; the build script needs 
   - Failures added to the abstract, §5.2 and the conclusions; numbers from `tools/known_failures.py`.
 - `docs/literature.md`: the Mendoza lines are fixed.
 
+**2026-10-07: prose rewritten following github.com/conorbronsdon/avoid-ai-writing.**
+- Bullet lists are now paragraphs: bullets 133 → 0, inline-header bullets 63 → 0, bold 96 → 13.
+- Tables, equations, figures, references and the appendix were spliced in verbatim from
+  `docs/review/paper_before_style_rewrite.md` (prose source: `docs/review/paper_prose_v2.md`).
+- A number-by-number diff confirmed no value changed.
+- The IEEE and PRA outputs were regenerated.
+
+**2026-10-06 ~18:00: Physical Review A versions** (uncommitted). Regenerate in this order:
+1. `py -3.11 tools/to_pra.py` → `docs/paper_pra.md`. It applies APS conventions: Roman sections and "Sec. II B" cross
+   references, numbered equations, TABLE I and FIG. 1 captions, PR-style references with titles, and the AI
+   statement in the Acknowledgments.
+2. `py -3.14 tools/build_paper_pdf.py docs/paper_pra.md` → `docs/paper_pra.pdf`.
+3. `py -3.11 tools/md_to_revtex.py` → `docs/pra/paper_pra.tex` (REVTeX 4.2 'preprint', with figures). It has NOT
+   been compiled here (no LaTeX on this machine): compile on Overleaf with pdflatex.
+
+The IEEE version (`docs/paper_draft.*`) is unchanged.
+
 **2026-10-06 ~17:30: "do all the still open things" pass.**
 - **Paper is in final form** (IEEE-style numbered citations and reference list, built by `tools/ieee_refs.py`;
   "Abstract—" / "Index Terms—" front matter). It has no draft banner and 0 TODO/VERIFY markers.

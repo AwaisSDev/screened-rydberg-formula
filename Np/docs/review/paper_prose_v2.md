@@ -2,7 +2,7 @@
 
 **Muhammad Awais**
 
-Independent researcher, Multan, Pakistan. Correspondence: mawais9171@gmail.com
+Independent researcher. Correspondence: mawais9171@gmail.com
 
 
 
@@ -79,7 +79,7 @@ Mendoza et al. (2011) on the 5011 rows they cover.
 
 ## 2. Theory
 
-§2.1 uses atomic units; energies are converted to eV with Ry = 13.6057 eV. Z is the nuclear charge, N the
+Section 2.1 uses atomic units; energies are converted to eV with Ry = 13.6057 eV. Z is the nuclear charge, N the
 number of electrons before ionization, and Z_a = Z − N + 1 the charge seen by the departing electron. (n, l) is the
 removed subshell and k its occupancy.
 
@@ -89,7 +89,7 @@ Scaling r → ρ/Z turns the non-relativistic Hamiltonian into H = Z²[H₀ + Z�
 V = Σ 1/ρ_ij. Rayleigh–Schrödinger perturbation theory in 1/Z then gives, for a fixed configuration and term,
 E(Z, N) = Z²E₀ + ZE₁ + E₂ + …, and the ionization energy is
 
-$$\mathrm{IE}(Z,N)=Z^2\Delta E_0+Z\,\Delta E_1+\Delta E_2+\dots,\qquad \Delta E_k=E_k(N-1)-E_k(N).$$
+{{L98}}
 
 At zeroth order ΔE₀ = 1/(2n²), which is Bohr's formula. At first order E₁ = ⟨V⟩ over the Z = 1 hydrogenic state.
 Every hydrogenic radial integral F^k and G^k is a rational number, because each product P_a P_c is a polynomial times
@@ -101,7 +101,7 @@ or more open subshells we use a high-spin coupled term, which is the one approxi
 
 Completing the square in the first two terms defines the first-order screening constant
 
-$$\mathrm{IE}\simeq \Delta E_0\,(Z-\sigma_1)^2,\qquad \sigma_1=-\frac{\Delta E_1}{2\Delta E_0}=-n^2\Delta E_1 .$$
+{{L112}}
 
 σ₁ is Layzer's Z → ∞ screening constant. It has no adjustable parameter and depends on the configuration, not on Z.
 For He-like ions E₁(1s²) = 5/8, so σ₁(He) = 0.6250 (Slater: 0.30). For Li-like ions
@@ -117,18 +117,11 @@ E₂ already requires sums over the hydrogenic continuum. The completed-square g
 
 The final model (code name pa_hier_rel) is
 
-$$
-\mathrm{IE}(Z,N)=\mu(Z)\Big\{\mathrm{Ry}\,\frac{Z_\mathrm{eff}^2}{n^2}\,F_{n,j}(Z_\mathrm{eff})\Big[1+r_c\,\frac{(Z\alpha)^2}{n}\Big(\frac{Z_\mathrm{eff}}{Z_a}-1\Big)\Big]+\mathrm{Ry}\,\frac{x_l\,K_l(k)}{n^2}\Big\}-\big[\Delta E_\mathrm{QED}+\Delta E_\mathrm{FNS}\big]_{Z,n}\Big(\frac{Z_\mathrm{eff}}{Z}\Big)^2 ,
-$$
+{{L130-132}}
 
 where the last term applies only to the removal of an ns electron with n ≤ 2, and
 
-$$
-Z_\mathrm{eff}=Z-\sigma_1(\mathcal C)-D,\qquad
-D=\frac{T}{Z_a+\kappa+|T|/h},\qquad
-h=\begin{cases}(N-1)-\sigma_1 & T\ge 0\\ \sigma_1 & T<0\end{cases},\qquad
-T=\sum_{g}\tau_g\,\nu_g+\sum_{c}\delta\tau_c\,\nu_c .
-$$
+{{L136-141}}
 
 Each of the other N − 1 electrons, in a subshell (n′, l′), is counted in exactly one of five screening groups ν_g.
 The group *same* holds the k − 1 other electrons of (n, l). The group *out* holds outer electrons, with n′ > n or with
@@ -220,24 +213,14 @@ fitted parameters and serve as an independent check that is not a formula (§4.2
 
 The final model has 33 fitted global parameters:
 
-| block | count |
-|---|---|
-| group screening τ_g | 5 |
-| saturation denominator κ | 1 |
-| class deviations δτ_c (ridge-shrunk; counted in full) | 19 |
-| relativistic penetration r_c | 5 |
-| Hund amplitudes x_l (p, d, f) | 3 |
+{{L249-255}}
 
 There are no per-element or per-ion parameters, and the prediction code never reads a NIST ionization energy. The
 fitted values are in Table A1 (Appendix) and `results/uni_final_params.json`; the class definitions are in Table A2.
 
 Each model name in this paper refers to one model:
 
-| name | params | definition |
-|---|---|---|
-| **Screened Rydberg formula** (final; code name pa_hier_rel) | 33 | eq. (2.2) with groups, classes, relativistic bracket |
-| **bounded 9-parameter variant** (pa_bound9) | 9 | eq. (2.2) with the five groups only (no δτ_c) and no relativistic bracket (R = 1) |
-| **pocket formula** (uni_pocket) | 8 | Appendix A. No σ₁, no bound: Z_eff = Z − Σ s_g ν_g − t(N−1)/(Z_a+κ) |
+{{L263-267}}
 
 pa_bound9 uses the pocket formula's five electron groups but is a different model.
 
@@ -273,13 +256,7 @@ so a 4 eV and a 100 keV ionization energy carry equal relative weight.
 
 Every fitted model is refit on the training rows of each split with its own fitting routine:
 
-| split | training rows | test / validation rows | n test rows | role |
-|---|---|---|---|---|
-| V1 | Z ≤ 36 | 37 ≤ Z ≤ 54 | 819 | selection |
-| V2 | Z ≤ 44 | 45 ≤ Z ≤ 54 | 495 | selection |
-| S1 | Z mod 5 ≠ 0 | Z mod 5 = 0 (unseen elements) | 1188 | selection |
-| S3 | N mod 6 ≠ 0 | N mod 6 = 0 (unseen isoelectronic sequences) | 928 | selection |
-| **S2** | Z ≤ 54 | **Z ≥ 55** | 4362 | **blind**, reported once |
+{{L305-311}}
 
 The selection score is the mean MAPE over V1, V2, S1 and S3. It was fixed before the final round of model
 development and was the only quantity used to choose the final model. S2 (fit Z ≤ 54, predict Z ≥ 55) was never used
@@ -337,17 +314,7 @@ Every cross-model number in this section comes from one generated matrix with th
 after refitting. Parameter-free models are not fitted, so their split columns are the error on those rows. Sources:
 `results/model_comparison.md`, `results/uni_validation.md`.
 
-| model | fitted params | all (median) | neutral 1st IE | H-like | V1 | V2 | S1 | S3 | selection score | **blind S2** (median / neutral) |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Bohr Ry Z²/n² | 0 | 1363 (172) | 2.3·10⁴ | 6.00 | 1050 | 1045 | 1317 | 1399 | 1203 | 1517 |
-| Slater 1930, total-energy difference | 0 | 11.8 (7.48) | 51.8 | 6.00 | 13.4 | 14.4 | 11.6 | 12.4 | 12.9 | 11.6 (8.07 / 50.7) |
-| Clementi–Raimondi, total-energy difference | 0 | 120 (18.7) | 2281 | 6.00 | 87.1 | 77.3 | 116 | 119 | 99.9 | 134 |
-| Exact 1/Z series, completed square + rel/QED ("zexp") | 0 | 69.8 (7.20) | 1105 | 0.0012 | 53.4 | 54.0 | 68.3 | 74.3 | 62.5 | 77.8 (– / 1772) |
-| GSHM final (purely fitted, blind) | 32 | 1.57 (0.74) | 7.61 | 0.19 | 34.1 | 1.65 | 1.59 | 1.70 | 9.77 | 170 (3.51 / 7393) |
-| exact σ₁ + linear remainder ("u35") | 35 | 1.48 (0.73) | 6.43 | 0.0012 | 26.4 | 1.48 | 1.52 | 1.65 | 7.76 | 57.2 (2.00 / 3831) |
-| pocket formula (hand-calculable) | 8 | 4.68 (3.04) | 16.8 | 1.16 | 4.4·10⁶ or 4.35† | 2.55 | 4.62 | 5.24 | – or 4.19† | 11.3 (2.04 / 12.3) |
-| bounded 9-parameter variant (pa_bound9) | 9 | 2.90 (1.39) | 12.0 | 0.0012 | 2.16 | 1.95 | 2.90 | 3.05 | 2.51 | 7.80 (– / 28.0) |
-| **Screened Rydberg formula (final, "pa_hier_rel")** | **33** | **1.87 (0.94)** | **7.52** | **0.0012** | **3.09** | **1.60** | **1.91** | **2.00** | **2.15** | **6.60 (1.62 / 21.8)** |
+{{L379-389}}
 
 † Optimizer-path dependent (§3.4): the V1 fit diverges in the frozen run and converges to 4.35 % in a second
 software environment.
@@ -365,13 +332,7 @@ of 13.9 % and 8.47 %. The bound costs some accuracy inside the data, 1.87 % agai
 
 **Table 2.** All-data fit, MAPE in % (source: `results/lit_comparison.md` / `docs/literature.md` §2.2).
 
-| model | N ≤ 10 | 11 ≤ N ≤ 36 | N ≥ 37 | Z ≥ 55 | removed d | removed f |
-|---|---|---|---|---|---|---|
-| Slater 1930 | 4.89 | 9.38 | 16.8 | 11.6 | 16.2 | 12.9 |
-| pocket formula (8 p) | 2.37 | 2.76 | 7.38 | 4.7 | 3.67 | 11.5 |
-| GSHM final (32 p) | 0.698 | 1.16 | 2.31 | 1.48 | 0.982 | 2.67 |
-| u35 (35 p) | 0.463 | 1.08 | 2.28 | 1.58 | 1.17 | 2.58 |
-| **final (33 p)** | **0.439** | **1.43** | **2.87** | **1.92** | **1.52** | **3.51** |
+{{L410-416}}
 
 The error grows with the number of electrons and falls with ion charge; on ions of charge ≥ 3 the final model gives
 1.61 %. For few-electron, highly charged ions the parameter-free exact series is already good, with a median of 0.7 %
@@ -388,12 +349,7 @@ residuals (`results/figures/uni_residuals.png`).
 Fitted on Z ≤ 54 only, the final model predicts the 4362 ionization energies of Z = 55–110 with 6.60 % MAPE and a
 1.62 % median. Its ancestors show what each ingredient contributes:
 
-| model | what it adds | blind S2 MAPE (%) | S2 neutral (%) |
-|---|---|---|---|
-| GSHM final (fitted screening, no exact σ₁) | – | 170 | 7393 |
-| u35 | exact σ₁ as the large-Z anchor, linear remainder | 57.2 | 3831 |
-| final | + saturation bound Z_a ≤ Z_eff ≤ Z, hierarchical shrinkage | **6.60** | **21.8** |
-| Slater 1930 (0 p, nothing extrapolated) | – | 11.6 | 50.7 |
+{{L435-440}}
 
 Exact σ₁ alone did not fix extrapolation; confining the fitted part to a bounded remainder did. In a 14-parameter
 ablation the bound improved the selection score from 3.96 to 2.91, and its blind S2 changed from 9.43 % to 5.53 %, a
@@ -405,14 +361,14 @@ generally extrapolate well, but the relation is not monotone. One candidate with
 3.73) has a lower blind S2 (6.03 %) than the final model. We did not promote it, because that would be selection on
 S2.
 
-![Figure 1](../results/figures/paper_blind_s2_by_Z.png)
+{{L452-452}}
 
 **Figure 1.** Blind extrapolation. Each point is the median absolute percentage error over all ion stages of one
 element Z = 55–110. The three fitted models are fitted on Z ≤ 54 only; Slater's rules and the Kregar/Di Rocco SHM have
 no fitted parameters. The S2 MAPEs, computed from refits with the project's validation code, reproduce Table 1 (final
 6.603 %, u35 57.233 %, pocket 11.334 %, Slater 11.638 %).
 
-![Figure 2](../results/figures/paper_selection_vs_blind.png)
+{{L459-459}}
 
 **Figure 2.** Selection score (mean of V1, V2, S1, S3; no S2 data, although S1 and S3 contain Z ≥ 55 rows) against
 blind S2 MAPE for every fitted candidate in `results/model_comparison.csv`. The pocket formula is omitted because its
@@ -431,13 +387,7 @@ rows; worst Er²⁺ at 55.65 eV against 22.7 eV), because the Z ≤ 54 training 
 
 **Table 3.** 110 H-like ions, Z = 1–110 (`docs/first_principles.md` §2.1).
 
-| layer | MAPE (%) | median (%) | max (%) |
-|---|---|---|---|
-| Bohr Ry Z² | 6.0 | 4.2 | 19.5 |
-| (a) Dirac, point nucleus | 0.190 | 0.118 | 0.91 |
-| (b) + recoil + finite nuclear size | 0.113 | 0.109 | 0.248 |
-| (c) + one-loop QED (Uehling computed; F_SE from [31]) | 0.00117 | 0.000154 | 0.0096 |
-| (d) as (c) but with the closed-form Zα expansion of F_SE | 0.354 | 0.191 | 1.18 |
+{{L485-491}}
 
 The NIST H-like reference values are themselves computed from the same QED theory, so layer (c) shows consistency
 with that source rather than independent validation. The remaining 10⁻⁵–10⁻⁴ residual at high Z is the omitted
@@ -464,14 +414,7 @@ printed. Our near-neutral numbers therefore describe the model as defined, not t
 **Table 4.** Same 5847 rows, same scorer, MAPE in % (`results/lit_comparison.md`). For the 0-parameter models the S2
 column is the error on the Z ≥ 55 rows; for the fitted models it is the blind S2 refit.
 
-| model | params | all (median) | neutral 1st IE | H-like | charge ≥ 3 | S2 (Z ≥ 55) |
-|---|---|---|---|---|---|---|
-| Kregar/Di Rocco SHM, non-relativistic | 0 | 13.6 (2.34) | 230 | 6 | – | 15.1 |
-| Kregar/Di Rocco SHM + Pauli | 0 | 12.6 (1.79) | 225 | 1.16 | – | 13.9 |
-| Kregar/Di Rocco SHM + Dirac | 0 | 12.5 (1.71) | 224 | 0.19 | 4.68 | 13.6 |
-| Slater 1930 | 0 | 11.8 (7.48) | 51.8 | 6 | 10.2 | 11.6 |
-| pocket formula | 8 | 4.68 (3.04) | 16.8 | 1.16 | – | 11.3 |
-| **final** | **33** | **1.87 (0.94)** | **7.52** | **0.0012** | **1.61** | **6.6** |
+{{L525-532}}
 
 Because of the valence discrepancy above, the 224 % neutral-atom figure probably overstates the error of the authors'
 own model on neutral atoms. The parameter-free SHM works well for ionised species, with a median of 1.54 % for
@@ -500,20 +443,7 @@ prediction. The comparison is therefore restricted to the 5011 covered rows.
 **Table 4a.** The 5011 rows covered by Mendoza et al.; same scorer, all three models fitted to all data (in-sample).
 Cells: mean / median absolute percentage error [n]. Source: `tools/compare_mendoza.py` → `results/compare_mendoza.md`.
 
-| rows | Screened Rydberg (final, 33 p) | bounded 9-parameter (pa_bound9) | Mendoza et al. 2011 |
-|---|---|---|---|
-| all covered rows | **1.62 / 0.78** [5011] | 2.63 / 1.19 | 2.82 / 0.85 |
-| ions only (Z > N) | **1.55 / 0.76** [4957] | 2.54 / 1.17 | 2.56 / 0.82 |
-| charge ≥ 3 | **1.45 / 0.73** [4837] | 2.43 / 1.14 | 2.27 / 0.77 |
-| N ≤ 10 | 0.44 / 0.23 [1048] | 0.51 / 0.30 | **0.40 / 0.17** |
-| 11 ≤ N ≤ 36 | **1.43** / 0.82 [2275] | 2.12 / 1.17 | 1.82 / **0.61** |
-| N ≥ 37 | **2.62 / 1.51** [1688] | 4.65 / 3.52 | 5.68 / 2.48 |
-| Z ≥ 55 | **1.57 / 0.72** [3526] | 2.30 / 1.08 | 2.74 / 1.00 |
-| H-like | **0.0012** [110] | 0.0012 | 0.19 |
-| experimental | **4.37** [236] | 7.17 | 11.3 |
-| neutral atoms (outside Mendoza's fit range) | 8.37 [54] | 11.5 | 27.1 |
-| 99th percentile / max APE | 11.3 / 30.4 | 14.8 / 38.0 | 28.4 / 119 |
-| rows within 5 % | 92.2 % | 83.8 % | 86.4 % |
+{{L573-586}}
 
 On the ions it covers, the 33-parameter formula is competitive with the published constants of Mendoza et al., not
 decisively better. Its mean error is lower (1.62 % vs 2.82 %), its median is similar (0.78 % vs 0.85 %), and it has
@@ -537,19 +467,7 @@ A comparison with Dirac–Fock ionization energies [30] on the same rows is left
 N = 1–110 is in `results/fp_zexp_coefficients.csv`, with values for all 5847 rows in
 `results/fp_zexp_rows_coefficients.csv`.
 
-| N | configuration | removed | E₁ (exact) | ΔE₁ | σ₁ (ab initio) | σ (Slater) |
-|---|---|---|---|---|---|---|
-| 2 | 1s² | 1s | 5/8 | −0.625000 | 0.6250 | 0.30 |
-| 3 | 1s²2s | 2s | 5965/5832 | −0.397805 | 1.5912 | 1.70 |
-| 4 | 1s²2s² | 2s | 586373/373248 | −0.536469 | 2.1459 | 2.05 |
-| 6 | 1s²2s²2p² (³P) | 2p | 10957679/3359232 | −0.931338 | 3.7254 | 2.75 |
-| 8 | 1s²2s²2p⁴ | 2p | 4754911/839808 | −1.308370 | 5.2335 | 3.45 |
-| 10 | 1s²2s²2p⁶ | 2p | 2455271/279936 | −1.636495 | 6.5460 | 4.15 |
-| 11 | [Ne]3s | 3s | 9.635901 | −0.865071 | 7.7856 | 8.80 |
-| 18 | [Ne]3s²3p⁶ | 3p | 17.980333 | −1.407535 | 12.6678 | 11.25 |
-| 19 | [Ar]4s | 4s | 18.859971 | −0.879639 | 14.0742 | 16.80 |
-| 29 | [Ar]3d¹⁰4s | 4s | 39.317547 | −1.347129 | 21.5541 | 25.30 |
-| 36 | [Ar]3d¹⁰4s²4p⁶ | 4p | 50.145538 | −1.667284 | 26.6765 | 27.75 |
+{{L619-631}}
 
 E₁ is the Hund-term single-configuration value, except for N = 4 (Be), where σ₁ uses the Layzer-complex value
 1.5592742. Decimal E₁ entries are exact rationals stored in the project cache, and σ₁ = −n²ΔE₁.
@@ -560,7 +478,7 @@ Slater's 0.35 per electron (Ne 2p: 6.55 against 4.15). For valence electrons of 
 Slater's σ and than the screening implied by the measured IE (Na 3s: 7.79 against Slater 8.80 and an empirical 9.16;
 Cs 6s: 42.8 against Slater 52.8). The fitted remainder D supplies this difference near neutrality.
 
-![Figure 3](../results/figures/fp_sigma_abinitio_vs_slater.png)
+{{L647-647}}
 
 **Figure 3.** Exact first-order screening σ₁ against Slater's σ for neutral-atom configurations.
 
@@ -582,28 +500,7 @@ models. Printed by `tools/audit_components.py` and `tools/case_study_table.py` (
 asserts that the components reproduce the production code to 10⁻⁹. D is the screening remainder. The relativistic
 factor is F_{n,j}·R for the σ₁ models (R = 1 for pa_bound9) and the Sommerfeld bracket for the pocket formula.
 
-| atom (removed) | model | σ₁ | ν_g (same, in, core, df, out) | T | h | D | Z_eff | Ry Z_eff²/n² (eV) | rel. factor | Hund (eV) | IE (eV) | NIST (eV) | error |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| O (2p) | final | 5.2335 | 3, 4, 0, 0, 0 | 3.3496 | 1.7665 | 0.7128 | 2.0537 | 14.3457 | 0.99794 | −0.8365 | **13.479** | 13.618 | −1.02 % |
-| O (2p) | pa_bound9 | 5.2335 | 3, 4, 0, 0, 0 | 3.0925 | 1.7665 | 0.6173 | 2.1492 | 15.7116 | 1.00002 | −1.4702 | **14.241** | 13.618 | +4.58 % |
-| O (2p) | pocket | – | 3, 4, 0, 0, 0 | – | – | 6.1394* | 1.8606 | 11.7747 | 1.00001 | −2.0735 | **9.701** | 13.618 | −28.76 % |
-| N (2p) | final | 4.3787 | 2, 4, 0, 0, 0 | 2.9470 | 1.6213 | 0.6378 | 1.9835 | 13.3822 | 0.99853 | +0.8365 | **14.199** | 14.534 | −2.31 % |
-| N (2p) | pa_bound9 | 4.3787 | 2, 4, 0, 0, 0 | 2.8578 | 1.6213 | 0.5691 | 2.0522 | 14.3258 | 1.00001 | +1.4702 | **15.796** | 14.534 | +8.68 % |
-| N (2p) | pocket | – | 2, 4, 0, 0, 0 | – | – | 5.2632* | 1.7368 | 10.2598 | 1.00001 | +2.0735 | **12.333** | 14.534 | −15.14 % |
-| Na (3s) | final | 7.7856 | 0, 8, 2, 0, 0 | 7.1802 | 2.2144 | 1.1877 | 2.0266 | 6.2091 | 0.99905 | 0 | **6.203** | 5.139 | +20.70 % |
-| Na (3s) | pa_bound9 | 7.7856 | 0, 8, 2, 0, 0 | 10.6892 | 2.2144 | 1.3219 | 1.8925 | 5.4142 | 1.00005 | 0 | **5.414** | 5.139 | +5.36 % |
-| Na (3s) | pocket | – | 0, 8, 2, 0, 0 | – | – | 8.9608* | 2.0392 | 6.2862 | 1.00006 | 0 | **6.287** | 5.139 | +22.33 % |
-| Ca (4s) | final | 14.6706 | 1, 8, 10, 0, 0 | 24.4604 | 4.3294 | 2.8939 | 2.4356 | 5.0444 | 0.99659 | 0 | **5.027** | 6.113 | −17.77 % |
-| Ca (4s) | pa_bound9 | 14.6706 | 1, 8, 10, 0, 0 | 34.5745 | 4.3294 | 3.0747 | 2.2548 | 4.3233 | 1.00005 | 0 | **4.323** | 6.113 | −29.28 % |
-| Ca (4s) | pocket | – | 1, 8, 10, 0, 0 | – | – | 17.5935* | 2.4065 | 4.9248 | 1.00006 | 0 | **4.925** | 6.113 | −19.43 % |
-| Fe (4s) | final | 19.1852 | 1, 14, 10, 0, 0 | 30.9931 | 5.8148 | 3.8109 | 3.0039 | 7.6732 | 0.99190 | 0 | **7.611** | 7.902 | −3.69 % |
-| Fe (4s) | pa_bound9 | 19.1852 | 1, 14, 10, 0, 0 | 38.1569 | 5.8148 | 3.8852 | 2.9296 | 7.2983 | 1.00009 | 0 | **7.299** | 7.902 | −7.64 % |
-| Fe (4s) | pocket | – | 1, 14, 10, 0, 0 | – | – | 22.8597* | 3.1403 | 8.3855 | 1.00011 | 0 | **8.386** | 7.902 | +6.12 % |
-| Pb (6p) | final | 63.7240 | 1, 20, 60, 0, 0 | 153.9342 | 17.2760 | 13.1422 | 5.1339 | 9.9612 | 0.79963 | +0.0465 | **8.012** | 7.417 | +8.02 % |
-| Pb (6p) | pa_bound9 | 63.7240 | 1, 20, 60, 0, 0 | 189.5551 | 17.2760 | 13.3197 | 4.9564 | 9.2843 | 1.00019 | +0.0817 | **9.368** | 7.417 | +26.31 % |
-| Pb (6p) | pocket | – | 1, 20, 60, 0, 0 | – | – | 76.6038* | 5.3962 | 11.0052 | 1.00023 | +0.1152 | **11.123** | 7.417 | +49.97 % |
-
-\*Pocket formula: total screening Σ s_g ν_g + t(N−1)/(Z_a+κ); it has no σ₁ and no bound.
+{{L675-696}}
 
 For s removal (Na, Ca, Fe) the IE is the screened Rydberg term times relativistic factors within about 1 % of unity;
 no model in this paper adds an s-type correction. The final model is the most accurate of the three on O, N, Ca, Fe
@@ -730,141 +627,4 @@ were checked against Crossref. No AI system is listed as an author.
 
 None.
 
----
-
-## References
-
-[1] J. C. Slater, “Atomic shielding constants,” *Phys. Rev.*, vol. 36, pp. 57–64, 1930.
-
-[2] E. Clementi and D. L. Raimondi, “Atomic screening constants from SCF functions,” *J. Chem. Phys.*, vol. 38, pp. 2686–2689, 1963.
-
-[3] E. Clementi, D. L. Raimondi, and W. P. Reinhardt, “Atomic screening constants from SCF functions. II. Atoms with 37 to 86 electrons,” *J. Chem. Phys.*, vol. 47, pp. 1300–1307, 1967.
-
-[4] D. Layzer, “On a screening theory of atomic spectra,” *Ann. Phys. (N.Y.)*, vol. 8, pp. 271–296, 1959, doi: 10.1016/0003-4916(59)90023-5.
-
-[5] D. Layzer, Z. Horák, M. N. Lewis, and D. P. Thompson, “Second-order Z-dependent theory of many-electron atoms,” *Ann. Phys. (N.Y.)*, vol. 29, no. 1, pp. 101–124, 1964, doi: 10.1016/0003-4916(64)90192-7.
-
-[6] C. W. Scherr and R. E. Knight, “Two-electron atoms III. A sixth-order perturbation study of the 1¹S ground state,” *Rev. Mod. Phys.*, vol. 35, no. 3, pp. 436–442, 1963, doi: 10.1103/RevModPhys.35.436.
-
-[7] A. Dalgarno and A. L. Stewart, “A perturbation calculation of properties of the helium iso-electronic sequence,” *Proc. R. Soc. Lond. A*, vol. 247, no. 1249, pp. 245–259, 1958, doi: 10.1098/rspa.1958.0182.
-
-[8] B. Edlén, “Atomic spectra,” in *Handbuch der Physik / Encyclopedia of Physics*, vol. 27, *Spectroscopy I*, S. Flügge, Ed. Berlin, Germany: Springer, 1964, pp. 80–220, doi: 10.1007/978-3-662-35391-2_2.
-
-[9] U. I. Safronova, I. Yu. Tolstikhina, R. Bruch, T. Tanaka, F. Hao, and D. Schneider, “Screening theory for transition energies of highly charged ions,” *Phys. Scr.*, vol. 47, no. 3, pp. 364–382, 1993, doi: 10.1088/0031-8949/47/3/007.
-
-[10] H. Mayer, “Methods of opacity calculations,” Los Alamos Sci. Lab., Los Alamos, NM, USA, Rep. LA-647, 1947.
-
-[11] R. M. More, “Electronic energy levels in dense plasmas,” *J. Quant. Spectrosc. Radiat. Transf.*, vol. 27, no. 3, pp. 345–357, 1982, doi: 10.1016/0022-4073(82)90127-3.
-
-[12] G. Faussurier, C. Blancard, and A. Decoster, “New screening coefficients for the hydrogenic ion model including l-splitting for fast calculations of atomic structure in plasmas,” *J. Quant. Spectrosc. Radiat. Transf.*, vol. 58, no. 2, pp. 233–260, 1997, doi: 10.1016/S0022-4073(97)00018-6.
-
-[13] G. Faussurier, C. Blancard, and P. Renaudin, “Equation of state of dense plasmas using a screened-hydrogenic model with l-splitting,” *High Energy Density Phys.*, vol. 4, pp. 114–123, 2008.
-
-[14] P. Martel, J. G. Rubiano, J. M. Gil, L. Doreste, and E. Mínguez, “Analytical expressions for the n-order momenta of charge distribution for ions,” *J. Quant. Spectrosc. Radiat. Transf.*, vol. 60, no. 4, pp. 623–633, 1998, doi: 10.1016/S0022-4073(97)00226-4.
-
-[15] J. G. Rubiano, R. Rodríguez, J. M. Gil, F. H. Ruano, P. Martel, and E. Mínguez, “A screened hydrogenic model using analytical potentials,” *J. Quant. Spectrosc. Radiat. Transf.*, vol. 72, no. 5, pp. 575–588, 2002, doi: 10.1016/S0022-4073(01)00142-X.
-
-[16] M. A. Mendoza, J. G. Rubiano, J. M. Gil, R. Rodríguez, R. Florido, P. Martel, and E. Mínguez, “A new set of relativistic screening constants for the screened hydrogenic model,” *High Energy Density Phys.*, vol. 7, no. 3, pp. 169–179, 2011, doi: 10.1016/j.hedp.2011.04.006.
-
-[17] M. Kregar, “The virial and the independent particle models of the atom,” *Phys. Scr.*, vol. 29, no. 5, pp. 438–447, 1984, doi: 10.1088/0031-8949/29/5/005.
-
-[18] M. Kregar, “The virial as the atomic model potential energy operator,” *Phys. Scr.*, vol. 31, no. 4, pp. 246–254, 1985, doi: 10.1088/0031-8949/31/4/005.
-
-[19] H. O. Di Rocco, *Braz. J. Phys.*, vol. 22, p. 227, 1992 (as cited in [20]; not independently verified).
-
-[20] J. Pomarico, D. I. Iriarte, and H. O. Di Rocco, “An efficient screening approach to be used in plasma modeling and ion-surface collision experiments,” *Braz. J. Phys.*, vol. 35, no. 1, pp. 130–135, 2005, doi: 10.1590/S0103-97332005000100008.
-
-[21] F. Lanzini and H. O. Di Rocco, “Screening parameters for the relativistic hydrogenic model,” *High Energy Density Phys.*, vol. 17, pp. 240–247, 2015, doi: 10.1016/j.hedp.2015.08.002.
-
-[22] H. O. Di Rocco and F. Lanzini, “Breit and quantum electrodynamics energy contributions in multielectron atoms from the relativistic screened hydrogenic model,” *Braz. J. Phys.*, vol. 46, pp. 175–183, 2016, doi: 10.1007/s13538-015-0397-9.
-
-[23] B. F. Rozsnyai, “Relativistic Hartree-Fock-Slater calculations for arbitrary temperature and matter density,” *Phys. Rev. A*, vol. 5, no. 3, pp. 1137–1149, 1972, doi: 10.1103/PhysRevA.5.1137.
-
-[24] H.-K. Chung, M. H. Chen, W. L. Morgan, Yu. Ralchenko, and R. W. Lee, “FLYCHK: Generalized population kinetics and spectral model for rapid spectroscopic analysis for all elements,” *High Energy Density Phys.*, vol. 1, pp. 3–12, 2005.
-
-[25] A. J. Crilly *et al.*, “SpK: A fast atomic and microphysics code for the high-energy-density regime,” *High Energy Density Phys.*, 2023, doi: 10.1016/j.hedp.2023.101053.
-
-[26] T. Koopmans, “Über die Zuordnung von Wellenfunktionen und Eigenwerten zu den einzelnen Elektronen eines Atoms,” *Physica*, vol. 1, pp. 104–113, 1934.
-
-[27] W. Kohn and L. J. Sham, “Self-consistent equations including exchange and correlation effects,” *Phys. Rev.*, vol. 140, pp. A1133–A1138, 1965.
-
-[28] S. Kotochigova, Z. H. Levine, E. L. Shirley, M. D. Stiles, and C. W. Clark, “Local-density-functional calculations of the energy of atoms,” *Phys. Rev. A*, vol. 55, pp. 191–199, 1997.
-
-[29] S. J. Chakravorty, S. R. Gwaltney, E. R. Davidson, F. A. Parpia, and C. Froese Fischer, “Ground-state correlation energies for atomic ions with 3 to 18 electrons,” *Phys. Rev. A*, vol. 47, pp. 3649–3670, 1993.
-
-[30] G. C. Rodrigues, P. Indelicato, J. P. Santos, P. Patté, and F. Parente, “Systematic calculation of total atomic energies of ground state configurations,” *At. Data Nucl. Data Tables*, vol. 86, pp. 117–233, 2004, doi: 10.1016/j.adt.2003.11.005.
-
-[31] V. A. Yerokhin and V. M. Shabaev, “Lamb shift of n = 1 and n = 2 states of hydrogen-like atoms, 1 ≤ Z ≤ 110,” *J. Phys. Chem. Ref. Data*, vol. 44, 033103, 2015.
-
-[32] A. Kramida, Yu. Ralchenko, J. Reader, and NIST ASD Team, *NIST Atomic Spectra Database* (version 5.12). Gaithersburg, MD, USA: Nat. Inst. Standards Technol., 2024. [Online]. Available: https://physics.nist.gov/asd (accessed on or before Oct. 5, 2026), doi: 10.18434/T4W30F.
-
-[33] R. D. Cowan, *The Theory of Atomic Structure and Spectra*. Berkeley, CA, USA: Univ. California Press, 1981.
-
-[34] C. Froese Fischer, T. Brage, and P. Jönsson, *Computational Atomic Structure: An MCHF Approach*. Bristol, U.K.: Inst. Phys. Publ., 1997.
-
----
-
-## Appendix A. Fitted parameters (all-data fit)
-
-**Table A1.** Source: `results/uni_final_params.json`, which is identical to `results/pa_params.json`.
-
-| block | values |
-|---|---|
-| τ_g (same, in, core, df, out) | 0.3928, 0.7879, 2.2243, 2.5488, 10.5688 |
-| κ | 1.7527 (1.8027 as used in the code, which applies \|κ\| + 0.05) |
-| δτ_c (19 classes, defined in Table A2) | same_s −0.1552, same_p 0.0098, same_d 0.0004, same_f 0.1457, sn_in_p −0.1133, n1_sp_sp −0.3916, n1_sp_d 0.3009, n1_sp_f 0.2042, n2_sp_sp −0.2195, n2_sp_df −0.0622, d_near −0.6962, n1_d_d −0.2689, n1_d_f 0.3286, f_near 0.5476, n1_f_f −0.0918, out_d −0.0176, out_f 0.0173, core_sp 0.2828, core_df 0.1812 |
-| r_c (s, p½, p3/2, d, f) | −0.4543, −0.8129, −1.1533, −0.8426, −1.4672 |
-| x_l (p, d, f) | 0.2049, 0.4402, 0.4612 |
-
-**Bounded 9-parameter variant, pa_bound9 (all-data fit, `results/pa_params.json`, candidate `pa_bound9`).** Same
-equation (2.2) and inputs as the final model, with T = Σ_g τ_g ν_g (no class deviations), R = 1 (no relativistic
-bracket), and the same F_{n,j}, μ and QED/FNS terms. Using these 4-decimal values instead of full precision changes
-no IE by more than 0.002 % (`tools/hand_recompute.py`).
-
-| block | values |
-|---|---|
-| τ_g (same, in, core, df, out) | 0.2347, 0.5971, 2.9563, 2.9515, 23.7087 |
-| κ | 2.2091 (2.2591 as used) |
-| x_l (p, d, f) | 0.3602, 0.4237, 0.8215 |
-
-Metrics: all data 2.90 % (median 1.39 %), neutral 12.0 %, H-like 0.0012 %; V1 2.16, V2 1.95, S1 2.90, S3 3.05,
-selection score 2.51; blind S2 7.80 % (Table 1).
-
-**Table A2.** Screening classes c and groups g of §2.2. (n, l) is the removed subshell and (n′, l′) the subshell of
-another electron. Each class lies inside one group. "rows" is the number of the 5847 NIST rows with ν_c > 0. δτ_c is
-from Table A1, and τ_g + δτ_c is the coefficient of one electron of that class in T. (Verified by
-`tools/check_grouping_rule.py`.)
-
-| group g | class c | target l | other electron (n′, l′) | rows | δτ_c | τ_g + δτ_c |
-|---|---|---|---|---|---|---|
-| same | same_s | s | (n′, l′) = (n, l) | 534 | −0.1552 | 0.2376 |
-| same | same_p | p | (n′, l′) = (n, l) | 1713 | 0.0098 | 0.4026 |
-| same | same_d | d | (n′, l′) = (n, l) | 1720 | 0.0004 | 0.3932 |
-| same | same_f | f | (n′, l′) = (n, l) | 717 | 0.1457 | 0.5385 |
-| in | sn_in_p | p | n′ = n, l′ = s | 2073 | −0.1133 | 0.6745 |
-| in | n1_sp_sp | s, p | n′ = n − 1, l′ = s, p | 2912 | −0.3916 | 0.3963 |
-| in | n1_sp_d | s, p | n′ = n − 1, l′ = d | 1248 | 0.3009 | 1.0888 |
-| in | n1_sp_f | s, p | n′ = n − 1, l′ = f | 386 | 0.2042 | 0.9921 |
-| core | n2_sp_sp | s, p | n′ = n − 2, l′ = s, p | 2083 | −0.2195 | 2.0048 |
-| core | n2_sp_df | s, p | n′ = n − 2, l′ = d, f | 668 | −0.0622 | 2.1621 |
-| core | core_sp | s, p | n′ ≤ n − 3 | 1311 | 0.2828 | 2.5070 |
-| df | d_near | d | n′ = n or n − 1, l′ = s, p | 1938 | −0.6962 | 1.8526 |
-| df | n1_d_d | d | n′ = n − 1, l′ = d | 1078 | −0.2689 | 2.2799 |
-| df | n1_d_f | d | n′ = n − 1, l′ = f | 391 | 0.3286 | 2.8773 |
-| df | f_near | f | n′ = n or n − 1, l′ = s, p, d | 778 | 0.5476 | 3.0964 |
-| df | n1_f_f | f | n′ = n − 1, l′ = f | 201 | −0.0918 | 2.4569 |
-| df | core_df | d, f | n′ ≤ n − 2 | 2716 | 0.1812 | 2.7300 |
-| out | out_d | d | n′ > n | 15 | −0.0176 | 10.5512 |
-| out | out_f | f | n′ > n | 294 | 0.0173 | 10.5861 |
-| out | sn_out | any | n′ = n, l′ > l | 0 | none | 10.5688 |
-| out | out_sp | s, p | n′ > n | 0 | none | 10.5688 |
-
-**Pocket formula (8 parameters, all-data fit, `results/uni_params.json`).** This is the only model called "pocket
-formula" in this paper.
-
-$$Z_\mathrm{eff} = Z - \sum_g s_g\nu_g - t\,\frac{N-1}{Z-N+1+\kappa},\qquad
-\mathrm{IE}=\mathrm{Ry}\,\frac{Z_\mathrm{eff}^2}{n^2}\Big[1+\frac{(Z_\mathrm{eff}\alpha)^2}{n^2}\Big(\frac{n}{j+\tfrac12}-\frac34\Big)\Big]+\mathrm{Ry}\,\frac{x\,K_l(k)}{n^2}$$
-
-The ν_g are the five group counts of §2.2. The fitted values are s_same 0.7499, s_in 0.7514, s_core 0.8432, s_df 0.8408, s_out 1.0497, t 1.3725, κ 9.815
-(9.865 as used) and x 0.508.
-
+{{TAIL}}

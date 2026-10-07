@@ -3,7 +3,7 @@
 A closed-form formula for the ionization energy IE(Z, N) of any atom or ion. It needs only Z and the electron
 configuration, which defaults to the NIST ground configuration.
 
-**Author:** Muhammad Awais (independent researcher, mawais9171@gmail.com).
+**Author:** Muhammad Awais (independent researcher, Multan, Pakistan; mawais9171@gmail.com).
 
 **Paper:** `docs/paper_draft.pdf` (source `docs/paper_draft.md`).
 
