@@ -357,3 +357,9 @@ about 3 pt, so now a pointer to Table IX); Table VII overflowed its page (single
 tables); Mendoza's own table numbers were wrongly renumbered ("Tables I and 2"); one line plus the URL paragraph ran
 into the margin (xurl and emergencystretch); numeric columns are centred; "as used in the code" removed.
 `tools/pdf_overflow_check.py file.pdf` measures margin overflow in any compiled PDF. Needs a recompile on Overleaf to confirm.
+
+**2026-10-07: the PRA paper is now compiled locally** with Tectonic (`tools/compile_pra.py`, needs the TECTONIC env var;
+`docs/paper_pra.pdf` is the compiled REVTeX output and no longer the HTML preview). Bugs found by compiling:
+- `\date{\today}` pushed the abstract to page 2 (removed);
+- en dashes vanished in XeTeX output (now mapped to `\textendash`).
+Final layout: 28 pages, 0 errors, no margin overflow. Overleaf (pdfLaTeX) remains the reference compiler for submission.

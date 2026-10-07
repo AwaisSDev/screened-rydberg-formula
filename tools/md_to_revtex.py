@@ -24,7 +24,7 @@ UNI = {"§": r"\S", "²": r"\ensuremath{^{2}}", "³": r"\ensuremath{^{3}}", "·"
        "√": r"\ensuremath{\surd}", "∞": r"\ensuremath{\infty}", "≈": r"\ensuremath{\approx}",
        "≠": r"\ensuremath{\neq}", "≡": r"\ensuremath{\equiv}", "≤": r"\ensuremath{\leq}", "≥": r"\ensuremath{\geq}",
        "≳": r"\ensuremath{\gtrsim}", "⟨": r"\ensuremath{\langle}", "⟩": r"\ensuremath{\rangle}",
-       "“": "``", "”": "''", "’": "'"}
+       "“": "``", "”": "''", "’": "'", "–": r"\textendash{}", "—": r"\textemdash{}"}
 PRE = r"""% single-column 'preprint' layout for submission; change preprint -> reprint for the two-column look
 \documentclass[aps,pra,preprint,notitlepage,superscriptaddress,amsmath,amssymb]{revtex4-2}
 \makeatletter
@@ -279,7 +279,7 @@ def main():
                                        inline(re.sub(r"Ref\. (\d+)", r"QQCITE\1QQ", t), cite=False))
         for n, t in refs) + "\n\\end{thebibliography}"
     tex = (PRE.replace("%s", nuc) + f"\\title{{{inline(title)}}}\n\\author{{{author}}}\n\\email{{{email}}}\n"
-           f"\\affiliation{{Independent researcher, Multan, Pakistan}}\n\\date{{\\today}}\n\\begin{{abstract}}\n{inline(abstract)}\n"
+           f"\\affiliation{{Independent researcher, Multan, Pakistan}}\n\\begin{{abstract}}\n{inline(abstract)}\n"
            "\\end{abstract}\n\\maketitle\n\n" + "\n\n".join(out) + "\n\n" + bib + "\n\\end{document}\n")
     path = os.path.join(OUTDIR, "paper_pra.tex")
     io.open(path, "w", encoding="utf-8", newline="\n").write(tex)
