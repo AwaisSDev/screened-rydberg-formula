@@ -32,6 +32,7 @@ PRE = r"""% single-column 'preprint' layout for submission; change preprint -> r
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{newunicodechar}
+\usepackage{adjustbox}   % shrinks over-wide tables to the text width
 \usepackage{lineno}   % line numbers, as in the APS sample manuscript
 %s
 \begin{document}
@@ -48,6 +49,22 @@ def esc(t):
     return t.replace("\x00", r"\textbackslash{}")
 
 
+SUB = re.compile(r"(?<![\\A-Za-z_])(IE|[A-Za-zΑ-Ωα-ωΔΣ])_(\{[^}]*\}|[A-Za-z0-9′]+)(?![A-Za-z0-9_])")
+
+
+def sub_tex(x, sub):
+    """Z_eff -> $Z_{\mathrm{eff}}$, F_{n,j} -> $F_{n,j}$, r_c -> $r_{c}$."""
+    if sub.startswith("{"):
+        body = sub[1:-1]
+    elif len(sub) > 1 and sub.isalpha():
+        body = r"\mathrm{" + sub + "}"
+    else:
+        body = sub
+    if x == "IE":
+        x = r"\mathrm{IE}"
+    return "$" + x + "_{" + body + "}$"
+
+
 def inline(t, cite=True):
     parts = re.split(r"(`[^`]+`|https?://[^\s)]+)", t)
     out = []
@@ -60,7 +77,15 @@ def inline(t, cite=True):
                 tail, p = p[-1] + tail, p[:-1]
             out.append(r"\url{" + p + "}" + tail)
         else:
-            q = esc(p)
+            subs = []
+
+            def keep(m):
+                if m.group(0) in ("d_near", "f_near"):      # screening-class names, not subscripts
+                    return m.group(0)
+                subs.append(sub_tex(m.group(1), m.group(2)))
+                return "\x01%d\x02" % (len(subs) - 1)
+            q = esc(SUB.sub(keep, p))
+            q = re.sub("\x01(\\d+)\x02", lambda m: subs[int(m.group(1))], q)
             q = re.sub(r"\*\*(.+?)\*\*", r"\\textbf{\1}", q)
             q = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"\\emph{\1}", q)
             if cite:
@@ -78,21 +103,25 @@ def table_tex(lines, caption=None):
     rows = [[c.strip() for c in re.split(r"(?<!\\)\|", l.strip()[1:-1])] for l in lines
             if not re.match(r"^\|[-| :]+\|$", l.strip())]
     ncol = max(len(r) for r in rows)
-    body = []
-    for i, r in enumerate(rows):
-        r = r + [""] * (ncol - len(r))
-        body.append(" & ".join(inline(c, cite=False) for c in r) + r" \\")
-        if i == 0:
-            body.append(r"\hline")
+    rows = [r + [""] * (ncol - len(r)) for r in rows]
+    cells = [[inline(c, cite=False) for c in r] for r in rows]
+    parts = [list(range(ncol))]
+    if ncol > 9:    # very wide table: two blocks, each repeating the identifying first column(s)
+        k = 2 if max(len(r[1]) for r in rows[1:]) <= 14 else 1
+        rest = list(range(k, ncol))
+        half = (len(rest) + 1) // 2
+        parts = [list(range(k)) + rest[:half], list(range(k)) + rest[half:]]
+    boxes = []
+    for cols in parts:
+        body = [" & ".join(r[c] for c in cols) + r" \\" for r in cells]
+        tab = (r"\begin{tabular}{" + "l" * len(cols) + "}\n\\hline\\hline\n" + body[0] + "\n\\hline\n"
+               + "\n".join(body[1:]) + "\n\\hline\\hline\n" + r"\end{tabular}")
+        # APS-style double rules; adjustbox shrinks a table only if it is wider than the text
+        boxes.append(r"\begin{adjustbox}{max width=\linewidth}" + "\n" + tab + "\n" + r"\end{adjustbox}")
+    box = "\n\\medskip\n".join(boxes)
     wide = ncol > 4 or max(len(" ".join(r)) for r in rows) > 70
-    if ncol <= 8:   # APS sample manuscript: ruledtabular (double "Scotch" rules) spanning the float width
-        box = (r"\begin{ruledtabular}" + "\n" + r"\begin{tabular}{" + "l" * ncol + "}\n" + "\n".join(body)
-               + "\n" + r"\end{tabular}" + "\n" + r"\end{ruledtabular}")
-    else:           # very wide tables: same double rules, scaled to the text width
-        box = (r"\resizebox{\textwidth}{!}{%" + "\n" + r"\begin{tabular}{" + "l" * ncol + "}\n\\hline\\hline\n"
-               + "\n".join(body) + "\n\\hline\\hline\n" + r"\end{tabular}}")
     if caption is None:
-        return "\\begin{table}[h]\n\\footnotesize\n" + box.replace(r"\textwidth", r"\columnwidth") + "\n\\end{table}\n"
+        return "\\begin{table}[h]\n\\footnotesize\n" + box + "\n\\end{table}\n"
     env = "table*" if wide else "table"
     return (f"\\begin{{{env}}}[htbp]\n\\caption{{{inline(caption, cite=False)}}}\n\\footnotesize\n{box}\n"
             f"\\end{{{env}}}\n")

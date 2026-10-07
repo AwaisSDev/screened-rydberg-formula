@@ -346,3 +346,8 @@ If the user says **"continue"**, the project work is done; what remains is the u
    - extending LSDA ΔSCF to all neutral atoms (only 207 rows now);
    - the lighter 9-parameter pa_bound9 (selection 2.51, S2 7.80 %) as a paper alternative;
    - publishing the paper as an artifact page if the user wants a shareable view.
+
+**2026-10-07: journal-clean paper.**
+- All code and file references removed from the paper text (`tools/strip_code_refs.py` did this once; the model names are now descriptive: final model, 9-parameter variant, pocket formula, linear-remainder model).
+- LaTeX generator (`tools/md_to_revtex.py`): equations (3), (4) and the appendix equation are multi-line `aligned`; every table sits in `adjustbox{max width=\linewidth}` with APS-style double rules; tables with more than 9 columns are split into two blocks; subscripts such as Z_eff render as math.
+- `tools/check_tex.py` runs structural checks without LaTeX. The source has still NOT been compiled: compile on Overleaf.

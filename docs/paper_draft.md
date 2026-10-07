@@ -115,19 +115,23 @@ E₂ already requires sums over the hydrogenic continuum. The completed-square g
 
 ### 2.2 The screened Rydberg form with a bounded remainder
 
-The final model (code name pa_hier_rel) is
+The final model is
 
 $$
-\mathrm{IE}(Z,N)=\mu(Z)\Big\{\mathrm{Ry}\,\frac{Z_\mathrm{eff}^2}{n^2}\,F_{n,j}(Z_\mathrm{eff})\Big[1+r_c\,\frac{(Z\alpha)^2}{n}\Big(\frac{Z_\mathrm{eff}}{Z_a}-1\Big)\Big]+\mathrm{Ry}\,\frac{x_l\,K_l(k)}{n^2}\Big\}-\big[\Delta E_\mathrm{QED}+\Delta E_\mathrm{FNS}\big]_{Z,n}\Big(\frac{Z_\mathrm{eff}}{Z}\Big)^2 ,
+\begin{aligned}
+\mathrm{IE}(Z,N)&=\mu(Z)\Big\{\mathrm{Ry}\,\frac{Z_\mathrm{eff}^2}{n^2}\,F_{n,j}(Z_\mathrm{eff})\Big[1+r_c\,\frac{(Z\alpha)^2}{n}\Big(\frac{Z_\mathrm{eff}}{Z_a}-1\Big)\Big]+\mathrm{Ry}\,\frac{x_l\,K_l(k)}{n^2}\Big\}\\
+&\quad-\big[\Delta E_\mathrm{QED}+\Delta E_\mathrm{FNS}\big]_{Z,n}\Big(\frac{Z_\mathrm{eff}}{Z}\Big)^2 ,
+\end{aligned}
 $$
 
 where the last term applies only to the removal of an ns electron with n ≤ 2, and
 
 $$
-Z_\mathrm{eff}=Z-\sigma_1(\mathcal C)-D,\qquad
-D=\frac{T}{Z_a+\kappa+|T|/h},\qquad
-h=\begin{cases}(N-1)-\sigma_1 & T\ge 0\\ \sigma_1 & T<0\end{cases},\qquad
-T=\sum_{g}\tau_g\,\nu_g+\sum_{c}\delta\tau_c\,\nu_c .
+\begin{aligned}
+Z_\mathrm{eff}&=Z-\sigma_1(\mathcal C)-D,\qquad
+D=\frac{T}{Z_a+\kappa+|T|/h},\\
+h&=\begin{cases}(N-1)-\sigma_1 & T\ge 0\\ \sigma_1 & T<0\end{cases},\qquad
+T=\sum_{g}\tau_g\,\nu_g+\sum_{c}\delta\tau_c\,\nu_c .\end{aligned}
 $$
 
 Each of the other N − 1 electrons, in a subshell (n′, l′), is counted in exactly one of five screening groups ν_g.
@@ -144,9 +148,9 @@ The screening classes ν_c (Table A2) refine the groups. An electron's class dep
 f), on n − n′ and on l′. Each class lies inside one group, and an electron of class c in group g contributes
 τ_g + δτ_c to T. A ridge penalty (10⁻⁴ per row) shrinks the deviations toward their group value. Two of the 21
 classes are empty in all 5847 rows and carry no δτ_c: sn_out (n′ = n, l′ > l) and out_sp (n′ > n, s/p target). That
-leaves the 19 of Table A1. The bounded 9-parameter variant (pa_bound9) and the pocket formula (Appendix A) use the
+leaves the 19 of Table A1. The bounded 9-parameter variant and the pocket formula (Appendix A) use the
 five groups without classes. An independent implementation of the rule reproduces the code's group and class counts
-with 0 mismatches on all 5847 rows and on all 7021 configurations with Z ≤ 118 (`tools/check_grouping_rule.py`).
+with 0 mismatches on all 5847 rows and on all 7021 configurations with Z ≤ 118 .
 
 The removed subshell (n, l) is the one whose occupancy drops from the N-electron configuration to the NIST ground
 configuration of the (N − 1)-electron ion. The N-electron configuration is the NIST ground configuration, or the
@@ -168,10 +172,8 @@ applied only to 1s and 2s removal (427 rows); it is the one-electron shift of §
 (Z_eff/Z)², and reaches at most 0.9 % of the IE (at Z = 110, N = 2). For N = 1, T = 0 and so D = 0.
 
 A reader cannot reconstruct the frozen-configuration σ₁, μ(Z) or the QED/FNS shift from the text alone, so we publish
-every per-row input in `results/model_inputs.csv`: removed subshell, k, j, σ₁, ν_g, ν_c, K, μ and QED/FNS. A short
-script that uses only this table, the equations above and the parameters of Table A1 (`tools/verify_from_inputs.py`,
-which imports no model code) reproduces the production code on all 5847 rows to 7·10⁻¹⁶ relative, for the final
-model and for pa_bound9.
+every per-row input as a table in the repository: removed subshell, k, j, σ₁, ν_g, ν_c, K, μ and QED/FNS. A short
+script that uses only this table, the equations above and the parameters of Table A1 (it imports no model code) reproduces the production code on all 5847 rows to 7·10⁻¹⁶ relative, for the final model and for the bounded 9-parameter variant.
 
 The saturation form of D has two properties for any parameter values. First, it bounds the effective charge,
 Z_a ≤ Z_eff ≤ Z. Writing D = sign(T)·h·u/(1+u) with u = |T|/[h(Z_a+κ)] gives |D| < h, so Z_eff can fall neither
@@ -184,7 +186,7 @@ only ΔE₂ and higher orders, that is relaxation, correlation and penetration a
 
 ### 2.3 Charge-dependent penetration as an Edlén-type term
 
-We found the remainder's dependence on 1/(Z_a + κ) empirically (docs/semi_empirical.md). Along every isoelectronic
+We found the remainder's dependence on 1/(Z_a + κ) empirically . Along every isoelectronic
 sequence the excess charge p = Z_eff − Z_a grows with ion charge q as p∞ − τ/(Z_a + κ), with one κ for all
 sequences. For the Na sequence (3s), p = 0.84, 1.15, 1.34, 1.46, 1.56 for q = 0–4 and 2.11 at q = 20. Adding the term
 reduced the error of the purely fitted model from about 9 % to about 2 % MAPE. This is an independent rediscovery of
@@ -229,17 +231,17 @@ The final model has 33 fitted global parameters:
 | Hund amplitudes x_l (p, d, f) | 3 |
 
 There are no per-element or per-ion parameters, and the prediction code never reads a NIST ionization energy. The
-fitted values are in Table A1 (Appendix) and `results/uni_final_params.json`; the class definitions are in Table A2.
+fitted values are in Table A1 (Appendix) ; the class definitions are in Table A2.
 
 Each model name in this paper refers to one model:
 
 | name | params | definition |
 |---|---|---|
-| **Screened Rydberg formula** (final; code name pa_hier_rel) | 33 | eq. (2.2) with groups, classes, relativistic bracket |
-| **bounded 9-parameter variant** (pa_bound9) | 9 | eq. (2.2) with the five groups only (no δτ_c) and no relativistic bracket (R = 1) |
-| **pocket formula** (uni_pocket) | 8 | Appendix A. No σ₁, no bound: Z_eff = Z − Σ s_g ν_g − t(N−1)/(Z_a+κ) |
+| **Screened Rydberg formula** (final) | 33 | eq. (2.2) with groups, classes, relativistic bracket |
+| **bounded 9-parameter variant**  | 9 | eq. (2.2) with the five groups only (no δτ_c) and no relativistic bracket (R = 1) |
+| **pocket formula**  | 8 | Appendix A. No σ₁, no bound: Z_eff = Z − Σ s_g ν_g − t(N−1)/(Z_a+κ) |
 
-pa_bound9 uses the pocket formula's five electron groups but is a different model.
+The bounded 9-parameter variant uses the pocket formula's five electron groups but is a different model.
 
 ---
 
@@ -248,13 +250,13 @@ pa_bound9 uses the pocket formula's five electron groups but is a different mode
 ### 3.1 Data
 
 The reference data are the 5847 successive ionization energies of the NIST Atomic Spectra Database [32] for
-Z = 1–110, all charge states, with NIST ground configurations (`data/nist_ie.csv`). We took them from ASD version
+Z = 1–110, all charge states, with NIST ground configurations . We took them from ASD version
 5.12 [32], the current version at the time, on or before 5 October 2026; the project log records results computed
 from these data on that date, and the original download timestamp was not kept. The database flags 311 values as
 experimental, 919 as semi-empirical and 4617 as theoretical. Every metric below uses all 5847 rows unless stated
 otherwise. By status, the final model's all-data fit gives 4.63 % MAPE on experimental rows (median 2.86 %,
 n = 311), 2.20 % on semi-empirical rows (median 0.83 %, n = 919) and 1.62 % on theoretical rows (median 0.92 %,
-n = 4617) (evaluate.py, `status=` strata). The experimental rows are mostly neutral atoms and low-charge ions (98
+n = 4617) . The experimental rows are mostly neutral atoms and low-charge ions (98
 neutral, 193 of 311 with charge ≤ 2, median charge 2), the hardest regime for the formula, so their higher error
 reflects the neutral-atom weakness rather than a disagreement with experiment.
 
@@ -266,7 +268,7 @@ it we use the Madelung order: all ions with Z > 110, and 258 ions with Z = 104�
 enter no fit and no score, only the 7021-configuration checks (§4.7) and predictions outside the table.
 
 The error measure is MAPE = (100/M) Σ |IE_pred − IE_NIST| / IE_NIST, together with the median absolute percentage
-error. All scores come from one shared scorer (`evaluate.py`). Fits minimise squared log-ratios ln(IE_pred/IE_NIST),
+error. All scores come from one shared scorer . Fits minimise squared log-ratios ln(IE_pred/IE_NIST),
 so a 4 eV and a 100 keV ionization energy carry equal relative weight.
 
 ### 3.2 Held-out splits
@@ -288,8 +290,8 @@ do contain heavy elements. As pre-registered, S1 and S3 have Z ≥ 55 rows in bo
 1188 S1 test rows and 703 of the 928 S3 test rows, about 76 %), so heavy-atom *interpolation* accuracy informed the
 design choices and only heavy-atom *extrapolation* stayed blind. As a robustness check, made after the audit and for
 reporting only, we recomputed the selection score with S1 and S3 restricted to Z ≤ 54 in training and test. The
-ranking is unchanged: pa_hier_rel 1.844, the 28-parameter variant without the relativistic term 1.989, the bounded
-9-parameter variant 2.094 and the lowest-scoring Push B candidate 2.118. This checks the ranking of the frozen
+ranking is unchanged: the final model 1.844, the 28-parameter variant without the relativistic term 1.989, the bounded
+9-parameter variant 2.094 and the lowest-scoring candidate of a second, independent search 2.118. This checks the ranking of the frozen
 candidates, not the exploration that produced them. An independent validation script reproduced the final model's
 numbers, matching the developing agent's own run with a difference of 0.0 in every split.
 
@@ -306,22 +308,20 @@ that round (43 logged by one agent and about 14 by the other), so the minimum se
 optimistic. The screening classes and the Hund term were designed earlier on all rows, including Z ≥ 55, which is
 structural leakage that cannot be removed now.
 
-After the first draft of this paper we tried four more pre-registered variants (`docs/preregistration_v2.md`,
-`models/v2/NOTES.md`): a relativistic factor that cannot change sign, a second-order charge term, and a κ per orbital
+After the first draft of this paper we tried four more pre-registered variants : a relativistic factor that cannot change sign, a second-order charge term, and a κ per orbital
 type. The sign-preserving relativistic factor fixes the signs of Lr and Og, but no variant improved the selection
 score (2.15 → 2.18–2.49), so the model was left unchanged. That brings the number of explored variants to about 61.
-The pre-registration file was fingerprinted (sha256, `models/v2/PREREG_HASH.txt`) before that round and committed to
-git afterwards.
+The pre-registration file was fingerprinted  (sha256) before that round and committed to the repository afterwards.
 
 ### 3.4 Computational reproducibility
 
 The frozen run used Python 3.13 with NumPy and SciPy; their exact versions were not recorded. We repeated every refit
-in a second software environment (Python 3.11.9, NumPy 2.4.4, SciPy 1.17.1; `docs/review/reproducibility_py311.md`).
+in a second software environment (Python 3.11.9, NumPy 2.4.4, SciPy 1.17.1).
 The final model reproduces to within 0.005 percentage points in every split: selection score 2.1473 vs 2.1481, blind
 S2 6.6030 vs 6.6031 %, and 1.8742 % on all data in both. The unbounded reference models depend on the least-squares
 path. The pocket formula's V1 fit, which diverges in the frozen run (MAPE 4.4·10⁶ %), converges in the second
-environment to 4.35 % (selection score 4.19). The u29 V1 fit converges in the frozen run and diverges in the second,
-and u35's blind S2 moves from 57.2 % to 56.5 %. Their V1 entries in Table 1 therefore describe the optimizer as much
+environment to 4.35 % (selection score 4.19). The V1 fit of the 29-parameter linear-remainder variant converges in the frozen run and diverges in the second,
+and the blind S2 of the 35-parameter linear-remainder model moves from 57.2 % to 56.5 %. Their V1 entries in Table 1 therefore describe the optimizer as much
 as the model, and we do not use the pocket formula's V1 divergence as evidence against it.
 
 ---
@@ -330,47 +330,45 @@ as the model, and we do not use the pocket formula's V1 divergence as evidence a
 
 ### 4.1 Baselines versus the final model
 
-Every cross-model number in this section comes from one generated matrix with the row count in each cell,
-`results/benchmark_matrix.md` (`tools/benchmark_matrix.py`), and comparisons between models always use the same rows.
+Every cross-model number in this section comes from one generated matrix with the row count in each cell, and comparisons between models always use the same rows.
 
 **Table 1.** MAPE in %. "All", "neutral" and "H-like" are from all-data fits; V1, V2, S1, S3 and S2 are held-out values
-after refitting. Parameter-free models are not fitted, so their split columns are the error on those rows. Sources:
-`results/model_comparison.md`, `results/uni_validation.md`.
+after refitting. Parameter-free models are not fitted, so their split columns are the error on those rows. 
 
 | model | fitted params | all (median) | neutral 1st IE | H-like | V1 | V2 | S1 | S3 | selection score | **blind S2** (median / neutral) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Bohr Ry Z²/n² | 0 | 1363 (172) | 2.3·10⁴ | 6.00 | 1050 | 1045 | 1317 | 1399 | 1203 | 1517 |
 | Slater 1930, total-energy difference | 0 | 11.8 (7.48) | 51.8 | 6.00 | 13.4 | 14.4 | 11.6 | 12.4 | 12.9 | 11.6 (8.07 / 50.7) |
 | Clementi–Raimondi, total-energy difference | 0 | 120 (18.7) | 2281 | 6.00 | 87.1 | 77.3 | 116 | 119 | 99.9 | 134 |
-| Exact 1/Z series, completed square + rel/QED ("zexp") | 0 | 69.8 (7.20) | 1105 | 0.0012 | 53.4 | 54.0 | 68.3 | 74.3 | 62.5 | 77.8 (– / 1772) |
+| Exact 1/Z series, completed square + rel/QED  | 0 | 69.8 (7.20) | 1105 | 0.0012 | 53.4 | 54.0 | 68.3 | 74.3 | 62.5 | 77.8 (– / 1772) |
 | GSHM final (purely fitted, blind) | 32 | 1.57 (0.74) | 7.61 | 0.19 | 34.1 | 1.65 | 1.59 | 1.70 | 9.77 | 170 (3.51 / 7393) |
-| exact σ₁ + linear remainder ("u35") | 35 | 1.48 (0.73) | 6.43 | 0.0012 | 26.4 | 1.48 | 1.52 | 1.65 | 7.76 | 57.2 (2.00 / 3831) |
+| exact σ₁ + linear remainder  | 35 | 1.48 (0.73) | 6.43 | 0.0012 | 26.4 | 1.48 | 1.52 | 1.65 | 7.76 | 57.2 (2.00 / 3831) |
 | pocket formula (hand-calculable) | 8 | 4.68 (3.04) | 16.8 | 1.16 | 4.4·10⁶ or 4.35† | 2.55 | 4.62 | 5.24 | – or 4.19† | 11.3 (2.04 / 12.3) |
-| bounded 9-parameter variant (pa_bound9) | 9 | 2.90 (1.39) | 12.0 | 0.0012 | 2.16 | 1.95 | 2.90 | 3.05 | 2.51 | 7.80 (– / 28.0) |
-| **Screened Rydberg formula (final, "pa_hier_rel")** | **33** | **1.87 (0.94)** | **7.52** | **0.0012** | **3.09** | **1.60** | **1.91** | **2.00** | **2.15** | **6.60 (1.62 / 21.8)** |
+| bounded 9-parameter variant  | 9 | 2.90 (1.39) | 12.0 | 0.0012 | 2.16 | 1.95 | 2.90 | 3.05 | 2.51 | 7.80 (– / 28.0) |
+| **Screened Rydberg formula (final)** | **33** | **1.87 (0.94)** | **7.52** | **0.0012** | **3.09** | **1.60** | **1.91** | **2.00** | **2.15** | **6.60 (1.62 / 21.8)** |
 
 † Optimizer-path dependent (§3.4): the V1 fit diverges in the frozen run and converges to 4.35 % in a second
 software environment.
 
 Slater's rules have an all-row MAPE of 11.8 %, 6.3 times that of the final model (1.87 %) and 4.1 times that of
-pa_bound9 (2.90 %). Their median is 7.48 % against 0.94 %, and their blind S2 error is 11.6 % against 6.60 %, a factor
-of 1.8 (ratios from `results/benchmark_matrix.md`).
+the 9-parameter variant (2.90 %). Their median is 7.48 % against 0.94 %, and their blind S2 error is 11.6 % against 6.60 %, a factor
+of 1.8 .
 
 The final model has the lowest selection score of all candidates (2.15). The next were the other developer's choice,
-pb_clip_pos (30 parameters), at 2.37, and the 28-parameter hierarchical variant pa_hier at 2.37, with blind S2 errors
-of 13.9 % and 8.47 %. The bound costs some accuracy inside the data, 1.87 % against 1.48 % for u35 and 7.52 % against
+the best candidate of the second search (30 parameters), at 2.37, and the 28-parameter hierarchical variant at 2.37, with blind S2 errors
+of 13.9 % and 8.47 %. The bound costs some accuracy inside the data, 1.87 % against 1.48 % for the linear-remainder model and 7.52 % against
 6.43 % on neutral atoms, and in return it removes the catastrophic extrapolation failures.
 
 ### 4.2 Errors by stratum
 
-**Table 2.** All-data fit, MAPE in % (source: `results/lit_comparison.md` / `docs/literature.md` §2.2).
+**Table 2.** All-data fit, MAPE in % .
 
 | model | N ≤ 10 | 11 ≤ N ≤ 36 | N ≥ 37 | Z ≥ 55 | removed d | removed f |
 |---|---|---|---|---|---|---|
 | Slater 1930 | 4.89 | 9.38 | 16.8 | 11.6 | 16.2 | 12.9 |
 | pocket formula (8 p) | 2.37 | 2.76 | 7.38 | 4.7 | 3.67 | 11.5 |
 | GSHM final (32 p) | 0.698 | 1.16 | 2.31 | 1.48 | 0.982 | 2.67 |
-| u35 (35 p) | 0.463 | 1.08 | 2.28 | 1.58 | 1.17 | 2.58 |
+| linear remainder (35 p) | 0.463 | 1.08 | 2.28 | 1.58 | 1.17 | 2.58 |
 | **final (33 p)** | **0.439** | **1.43** | **2.87** | **1.92** | **1.52** | **3.51** |
 
 The error grows with the number of electrons and falls with ion charge; on ions of charge ≥ 3 the final model gives
@@ -378,10 +376,6 @@ The error grows with the number of electrons and falls with ion charge; on ions 
 for N ≤ 10 and 0.48 % MAPE for N/Z ≤ 0.2 with two terms. On neutral atoms the parameter-free LSDA ΔSCF solver reaches
 3.30 % on the 54 first IEs with Z ≤ 54, and 0.80 % on all 171 ions with Z ≤ 18. It beats every closed form on neutral
 atoms, but it is a numerical procedure and was run on only 207 rows.
-
-Further figures are in the repository: a parity plot (`results/figures/uni_parity.png`), first IEs against Z
-(`results/figures/uni_first_IE.png`), successive IEs of selected elements (`results/figures/uni_successive.png`) and
-residuals (`results/figures/uni_residuals.png`).
 
 ### 4.3 Blind extrapolation (S2)
 
@@ -391,7 +385,7 @@ Fitted on Z ≤ 54 only, the final model predicts the 4362 ionization energies o
 | model | what it adds | blind S2 MAPE (%) | S2 neutral (%) |
 |---|---|---|---|
 | GSHM final (fitted screening, no exact σ₁) | – | 170 | 7393 |
-| u35 | exact σ₁ as the large-Z anchor, linear remainder | 57.2 | 3831 |
+| linear remainder (35 p) | exact σ₁ as the large-Z anchor, linear remainder | 57.2 | 3831 |
 | final | + saturation bound Z_a ≤ Z_eff ≤ Z, hierarchical shrinkage | **6.60** | **21.8** |
 | Slater 1930 (0 p, nothing extrapolated) | – | 11.6 | 50.7 |
 
@@ -401,8 +395,7 @@ change we saw only after the choice. For ions (Z > N) the blind S2 MAPE is 6.4 %
 Figure 1 shows the per-element median error on the S2 test rows.
 
 Figure 2 plots the selection score against blind S2 for all fitted candidates. Candidates with a low selection score
-generally extrapolate well, but the relation is not monotone. One candidate with a worse selection score (pb_exp_pos,
-3.73) has a lower blind S2 (6.03 %) than the final model. We did not promote it, because that would be selection on
+generally extrapolate well, but the relation is not monotone. One candidate with a worse selection score (3.73) has a lower blind S2 (6.03 %) than the final model. We did not promote it, because that would be selection on
 S2.
 
 ![Figure 1](../results/figures/paper_blind_s2_by_Z.png)
@@ -410,17 +403,17 @@ S2.
 **Figure 1.** Blind extrapolation. Each point is the median absolute percentage error over all ion stages of one
 element Z = 55–110. The three fitted models are fitted on Z ≤ 54 only; Slater's rules and the Kregar/Di Rocco SHM have
 no fitted parameters. The S2 MAPEs, computed from refits with the project's validation code, reproduce Table 1 (final
-6.603 %, u35 57.233 %, pocket 11.334 %, Slater 11.638 %).
+6.603 %, linear-remainder model 57.233 %, pocket 11.334 %, Slater 11.638 %).
 
 ![Figure 2](../results/figures/paper_selection_vs_blind.png)
 
 **Figure 2.** Selection score (mean of V1, V2, S1, S3; no S2 data, although S1 and S3 contain Z ≥ 55 rows) against
-blind S2 MAPE for every fitted candidate in `results/model_comparison.csv`. The pocket formula is omitted because its
+blind S2 MAPE  for every fitted candidate. The pocket formula is omitted because its
 V1 fit diverged in the frozen run; that divergence depends on the optimizer path (§3.4), and with the converged V1 its
 selection score would be 4.19. The dashed line is Slater's rules (0 parameters).
 
 The blind fit has three clear failures, which we report and have not corrected, since a correction now would be post
-hoc. Heavy p-block neutrals come out far too low (`results/known_failures.json`, refit on Z ≤ 54): Pb at 1.20 eV
+hoc. Heavy p-block neutrals come out far too low  (refit on Z ≤ 54): Pb at 1.20 eV
 against 7.42 eV, Tl at 1.74 against 6.11 and Rn at 6.10 against 10.75. The frozen run gave 1.19 and 1.73; refits in
 the two software environments differ here by about 0.01 eV. Lr comes out at −3.33 eV: the fitted r_c are negative and
 the relativistic bracket is not bounded, so the Z_eff bound alone does not keep the IE positive once Zα is large.
@@ -429,7 +422,7 @@ rows; worst Er²⁺ at 55.65 eV against 22.7 eV), because the Z ≤ 54 training 
 
 ### 4.4 Hydrogen-like ions: correction layers
 
-**Table 3.** 110 H-like ions, Z = 1–110 (`docs/first_principles.md` §2.1).
+**Table 3.** 110 H-like ions, Z = 1–110 .
 
 | layer | MAPE (%) | median (%) | max (%) |
 |---|---|---|---|
@@ -461,7 +454,7 @@ most 0.053), because the original uses fitted closed forms whose coefficients we
 of near-neutral ions come out 3–5 eV higher than the printed model values; for Ar I we get 18.96 eV against 14.72 eV
 printed. Our near-neutral numbers therefore describe the model as defined, not the authors' code.
 
-**Table 4.** Same 5847 rows, same scorer, MAPE in % (`results/lit_comparison.md`). For the 0-parameter models the S2
+**Table 4.** Same 5847 rows, same scorer, MAPE in % . For the 0-parameter models the S2
 column is the error on the Z ≥ 55 rows; for the fitted models it is the blind S2 refit.
 
 | model | params | all (median) | neutral 1st IE | H-like | charge ≥ 3 | S2 (Z ≥ 55) |
@@ -488,7 +481,7 @@ from Tables 1 and 2 of the authors' open-access deposit of the article (https://
 model as published: Dirac energies of screened charges, Q_k = Z − Σ_k′ σ_kk′(P_k′ − δ_kk′), and
 IE = E_T(N−1) − E_T(N) with NIST ground configurations. The implementation reproduces six of the paper's printed
 tables to their rounding, the 84 IEs of its Table 3 to ≤ 0.023 % and its Tables 4–8 to ≤ 0.16 %
-(`models/benchmarks/mendoza2011/`). We fitted no parameter.
+. We fitted no parameter.
 
 Four caveats apply. The authors fitted the constants with a genetic algorithm to NIST and FAC energies of
 isoelectronic sequences from He to Eu, with Z up to 92, which overlaps our test rows, so no split is held out for
@@ -498,9 +491,9 @@ stop at 5p3/2, so 836 rows (Z ≥ 55, ground configurations with 5d, 5f, 6s, 6p,
 prediction. The comparison is therefore restricted to the 5011 covered rows.
 
 **Table 4a.** The 5011 rows covered by Mendoza et al.; same scorer, all three models fitted to all data (in-sample).
-Cells: mean / median absolute percentage error [n]. Source: `tools/compare_mendoza.py` → `results/compare_mendoza.md`.
+Cells: mean / median absolute percentage error [n]. 
 
-| rows | Screened Rydberg (final, 33 p) | bounded 9-parameter (pa_bound9) | Mendoza et al. 2011 |
+| rows | Screened Rydberg (final, 33 p) | bounded 9-parameter  | Mendoza et al. 2011 |
 |---|---|---|---|
 | all covered rows | **1.62 / 0.78** [5011] | 2.63 / 1.19 | 2.82 / 0.85 |
 | ions only (Z > N) | **1.55 / 0.76** [4957] | 2.54 / 1.17 | 2.56 / 0.82 |
@@ -533,9 +526,7 @@ A comparison with Dirac–Fock ionization energies [30] on the same rows is left
 
 ### 4.6 The exact first-order screening constants compared with Slater's
 
-**Table 5.** σ₁ for neutral-atom ground configurations, compared with Slater's σ. Excerpt; the full table for
-N = 1–110 is in `results/fp_zexp_coefficients.csv`, with values for all 5847 rows in
-`results/fp_zexp_rows_coefficients.csv`.
+**Table 5.** σ₁ for neutral-atom ground configurations, compared with Slater's σ. Excerpt; the full table for N = 1–110, with values for all 5847 rows, is in the repository.
 
 | N | configuration | removed | E₁ (exact) | ΔE₁ | σ₁ (ab initio) | σ (Slater) |
 |---|---|---|---|---|---|---|
@@ -578,36 +569,35 @@ Hund term is +0.8365 eV, since K_p(3) = +1.2 has the opposite sign to oxygen's, 
 For Mg²⁺ (NIST 80.144 eV) the formula gives 78.63 eV (−1.88 %).
 
 **Table 6.** Case studies: first IEs of six neutral atoms, with every intermediate quantity, for the three named
-models. Printed by `tools/audit_components.py` and `tools/case_study_table.py` (`results/case_studies.md`); the script
-asserts that the components reproduce the production code to 10⁻⁹. D is the screening remainder. The relativistic
-factor is F_{n,j}·R for the σ₁ models (R = 1 for pa_bound9) and the Sommerfeld bracket for the pocket formula.
+models. Generated by a script that asserts that the components reproduce the production code to 10⁻⁹. D is the screening remainder. The relativistic
+factor is F_{n,j}·R for the σ₁ models (R = 1 for the 9-parameter variant) and the Sommerfeld bracket for the pocket formula.
 
 | atom (removed) | model | σ₁ | ν_g (same, in, core, df, out) | T | h | D | Z_eff | Ry Z_eff²/n² (eV) | rel. factor | Hund (eV) | IE (eV) | NIST (eV) | error |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | O (2p) | final | 5.2335 | 3, 4, 0, 0, 0 | 3.3496 | 1.7665 | 0.7128 | 2.0537 | 14.3457 | 0.99794 | −0.8365 | **13.479** | 13.618 | −1.02 % |
-| O (2p) | pa_bound9 | 5.2335 | 3, 4, 0, 0, 0 | 3.0925 | 1.7665 | 0.6173 | 2.1492 | 15.7116 | 1.00002 | −1.4702 | **14.241** | 13.618 | +4.58 % |
+| O (2p) | 9-parameter | 5.2335 | 3, 4, 0, 0, 0 | 3.0925 | 1.7665 | 0.6173 | 2.1492 | 15.7116 | 1.00002 | −1.4702 | **14.241** | 13.618 | +4.58 % |
 | O (2p) | pocket | – | 3, 4, 0, 0, 0 | – | – | 6.1394* | 1.8606 | 11.7747 | 1.00001 | −2.0735 | **9.701** | 13.618 | −28.76 % |
 | N (2p) | final | 4.3787 | 2, 4, 0, 0, 0 | 2.9470 | 1.6213 | 0.6378 | 1.9835 | 13.3822 | 0.99853 | +0.8365 | **14.199** | 14.534 | −2.31 % |
-| N (2p) | pa_bound9 | 4.3787 | 2, 4, 0, 0, 0 | 2.8578 | 1.6213 | 0.5691 | 2.0522 | 14.3258 | 1.00001 | +1.4702 | **15.796** | 14.534 | +8.68 % |
+| N (2p) | 9-parameter | 4.3787 | 2, 4, 0, 0, 0 | 2.8578 | 1.6213 | 0.5691 | 2.0522 | 14.3258 | 1.00001 | +1.4702 | **15.796** | 14.534 | +8.68 % |
 | N (2p) | pocket | – | 2, 4, 0, 0, 0 | – | – | 5.2632* | 1.7368 | 10.2598 | 1.00001 | +2.0735 | **12.333** | 14.534 | −15.14 % |
 | Na (3s) | final | 7.7856 | 0, 8, 2, 0, 0 | 7.1802 | 2.2144 | 1.1877 | 2.0266 | 6.2091 | 0.99905 | 0 | **6.203** | 5.139 | +20.70 % |
-| Na (3s) | pa_bound9 | 7.7856 | 0, 8, 2, 0, 0 | 10.6892 | 2.2144 | 1.3219 | 1.8925 | 5.4142 | 1.00005 | 0 | **5.414** | 5.139 | +5.36 % |
+| Na (3s) | 9-parameter | 7.7856 | 0, 8, 2, 0, 0 | 10.6892 | 2.2144 | 1.3219 | 1.8925 | 5.4142 | 1.00005 | 0 | **5.414** | 5.139 | +5.36 % |
 | Na (3s) | pocket | – | 0, 8, 2, 0, 0 | – | – | 8.9608* | 2.0392 | 6.2862 | 1.00006 | 0 | **6.287** | 5.139 | +22.33 % |
 | Ca (4s) | final | 14.6706 | 1, 8, 10, 0, 0 | 24.4604 | 4.3294 | 2.8939 | 2.4356 | 5.0444 | 0.99659 | 0 | **5.027** | 6.113 | −17.77 % |
-| Ca (4s) | pa_bound9 | 14.6706 | 1, 8, 10, 0, 0 | 34.5745 | 4.3294 | 3.0747 | 2.2548 | 4.3233 | 1.00005 | 0 | **4.323** | 6.113 | −29.28 % |
+| Ca (4s) | 9-parameter | 14.6706 | 1, 8, 10, 0, 0 | 34.5745 | 4.3294 | 3.0747 | 2.2548 | 4.3233 | 1.00005 | 0 | **4.323** | 6.113 | −29.28 % |
 | Ca (4s) | pocket | – | 1, 8, 10, 0, 0 | – | – | 17.5935* | 2.4065 | 4.9248 | 1.00006 | 0 | **4.925** | 6.113 | −19.43 % |
 | Fe (4s) | final | 19.1852 | 1, 14, 10, 0, 0 | 30.9931 | 5.8148 | 3.8109 | 3.0039 | 7.6732 | 0.99190 | 0 | **7.611** | 7.902 | −3.69 % |
-| Fe (4s) | pa_bound9 | 19.1852 | 1, 14, 10, 0, 0 | 38.1569 | 5.8148 | 3.8852 | 2.9296 | 7.2983 | 1.00009 | 0 | **7.299** | 7.902 | −7.64 % |
+| Fe (4s) | 9-parameter | 19.1852 | 1, 14, 10, 0, 0 | 38.1569 | 5.8148 | 3.8852 | 2.9296 | 7.2983 | 1.00009 | 0 | **7.299** | 7.902 | −7.64 % |
 | Fe (4s) | pocket | – | 1, 14, 10, 0, 0 | – | – | 22.8597* | 3.1403 | 8.3855 | 1.00011 | 0 | **8.386** | 7.902 | +6.12 % |
 | Pb (6p) | final | 63.7240 | 1, 20, 60, 0, 0 | 153.9342 | 17.2760 | 13.1422 | 5.1339 | 9.9612 | 0.79963 | +0.0465 | **8.012** | 7.417 | +8.02 % |
-| Pb (6p) | pa_bound9 | 63.7240 | 1, 20, 60, 0, 0 | 189.5551 | 17.2760 | 13.3197 | 4.9564 | 9.2843 | 1.00019 | +0.0817 | **9.368** | 7.417 | +26.31 % |
+| Pb (6p) | 9-parameter | 63.7240 | 1, 20, 60, 0, 0 | 189.5551 | 17.2760 | 13.3197 | 4.9564 | 9.2843 | 1.00019 | +0.0817 | **9.368** | 7.417 | +26.31 % |
 | Pb (6p) | pocket | – | 1, 20, 60, 0, 0 | – | – | 76.6038* | 5.3962 | 11.0052 | 1.00023 | +0.1152 | **11.123** | 7.417 | +49.97 % |
 
 \*Pocket formula: total screening Σ s_g ν_g + t(N−1)/(Z_a+κ); it has no σ₁ and no bound.
 
 For s removal (Na, Ca, Fe) the IE is the screened Rydberg term times relativistic factors within about 1 % of unity;
 no model in this paper adds an s-type correction. The final model is the most accurate of the three on O, N, Ca, Fe
-and Pb, pa_bound9 only on Na, and the pocket formula on none. Both bounded models fail on Ca (−17.8 % and −29.3 %).
+and Pb, the 9-parameter variant only on Na, and the pocket formula on none. Both bounded models fail on Ca (−17.8 % and −29.3 %).
 For Pb, σ₁ = 63.72 (Figure 3), while the total screening σ₁ + D is 76.87.
 
 We evaluated the public API for every Z = 1–118 and every N = 1–Z, 7021 values. All are finite and positive, with no
@@ -652,11 +642,10 @@ remainder gives about 2 % inside the data and 6.6 % in blind extrapolation.
 ### 5.2 Where the formula fails
 
 Heavy near-neutral atoms, alkaline earths and noble gases are the main failure. The blind neutral first-IE MAPE is
-21.8 %, and the all-data neutral MAPE is 7.5 % (6.4 % for u35). Even with all data fitted
-(`results/known_failures.json`) the ns² alkaline earths are too low (Ca −17.8 %, Sr −14.8 %, Ba −8.4 %), Rn is too low
+21.8 %, and the all-data neutral MAPE is 7.5 % (6.4 % for the linear-remainder model). Even with all data fitted the ns² alkaline earths are too low (Ca −17.8 %, Sr −14.8 %, Ba −8.4 %), Rn is too low
 by 24.6 %, and Na is too high by 20.7 % (Table 6). Pb's small all-data error (+8.0 %) is partly a cancellation. Its
 Rydberg term alone is 9.96 eV (+34 % against NIST 7.42 eV); the relativistic bracket, 0.80 because r_p½ is negative,
-lowers it to 7.97 eV (+7.4 %), and the final IE is 8.01 eV (Table 6; `results/audit_components.md`). A term of the
+lowers it to 7.97 eV (+7.4 %), and the final IE is 8.01 eV (Table 6). A term of the
 wrong physical sign is cancelling an overestimate. Valence screening in a neutral atom is an all-order,
 non-perturbative effect, and the parameter-free LSDA ΔSCF does better on neutral atoms (3.3 % for Z ≤ 54).
 
@@ -672,7 +661,7 @@ The formula has one Hund term per removed electron and no term-dependent multipl
 configuration rearranges on ionization are described by single-configuration inputs. These limits also cause the 22
 monotonicity violations.
 
-19 of the 33 parameters are shrunk class deviations. The bounded 9-parameter variant pa_bound9 (selection 2.51,
+19 of the 33 parameters are shrunk class deviations. The bounded 9-parameter variant (selection 2.51,
 blind S2 7.80 %, all data 2.90 %; parameters in Appendix A) is a reasonable alternative with fewer parameters, though
 it was not the pre-registered winner.
 
@@ -708,16 +697,7 @@ The most reusable result is the table of exact rational first-order screening co
 
 ## Data and code availability
 
-All code, data and results are in the project repository, https://github.com/AwaisSDev/screened-rydberg-formula, archived on Zenodo as version 1.0.0 (doi:10.5281/zenodo.23211017).
-It contains the NIST table (`data/nist_ie.csv`) and the shared scorer (`evaluate.py`); the exact first-order
-coefficients (`results/fp_zexp_coefficients.csv`, `results/fp_zexp_rows_coefficients.csv`); the final model and its
-parameters (`models/push_a/model.py`, `models/unified/final.py`, `results/uni_final_params.json`); predictions for all
-rows (`results/uni_predictions.csv`); the validation script (`models/unified/validate_blind.py`); the literature
-re-implementations (`models/literature/kregar_shm.py`, `models/benchmarks/mendoza2011/`); every per-row model input
-(`results/model_inputs.csv`) with the stand-alone reference implementation (`tools/verify_from_inputs.py`), which
-reproduces the production predictions to 7·10⁻¹⁶; and the component audit (`tools/audit_components.py`, Table 6) and
-benchmark matrix with row counts in every cell (`tools/benchmark_matrix.py` → `results/benchmark_matrix.md`). A
-command-line and Python interface (`ionization.py`) evaluates the formula for any Z ≤ 118 and N ≤ Z.
+All code, data and results are in the project repository, https://github.com/AwaisSDev/screened-rydberg-formula, archived on Zenodo as version 1.0.0 (doi:10.5281/zenodo.23211017). It contains the NIST table and the shared scorer; the exact first-order coefficients for every configuration; the final model with its fitted parameters and the predictions for all rows; the validation scripts; the re-implementations of the two published models; every per-row model input with the stand-alone reference implementation, which reproduces the model's predictions to 7·10⁻¹⁶; the component audit and the benchmark matrix with row counts in every cell; and a command-line and Python interface that evaluates the formula for any Z ≤ 118 and N ≤ Z. The README describes each file.
 
 ## AI-assistance disclosure
 
@@ -806,7 +786,7 @@ None.
 
 ## Appendix A. Fitted parameters (all-data fit)
 
-**Table A1.** Source: `results/uni_final_params.json`, which is identical to `results/pa_params.json`.
+**Table A1.** Fitted values of the final model (all-data fit).
 
 | block | values |
 |---|---|
@@ -816,10 +796,10 @@ None.
 | r_c (s, p½, p3/2, d, f) | −0.4543, −0.8129, −1.1533, −0.8426, −1.4672 |
 | x_l (p, d, f) | 0.2049, 0.4402, 0.4612 |
 
-**Bounded 9-parameter variant, pa_bound9 (all-data fit, `results/pa_params.json`, candidate `pa_bound9`).** Same
+**Bounded 9-parameter variant (all-data fit).** Same
 equation (2.2) and inputs as the final model, with T = Σ_g τ_g ν_g (no class deviations), R = 1 (no relativistic
 bracket), and the same F_{n,j}, μ and QED/FNS terms. Using these 4-decimal values instead of full precision changes
-no IE by more than 0.002 % (`tools/hand_recompute.py`).
+no IE by more than 0.002 % .
 
 | block | values |
 |---|---|
@@ -832,8 +812,7 @@ selection score 2.51; blind S2 7.80 % (Table 1).
 
 **Table A2.** Screening classes c and groups g of §2.2. (n, l) is the removed subshell and (n′, l′) the subshell of
 another electron. Each class lies inside one group. "rows" is the number of the 5847 NIST rows with ν_c > 0. δτ_c is
-from Table A1, and τ_g + δτ_c is the coefficient of one electron of that class in T. (Verified by
-`tools/check_grouping_rule.py`.)
+from Table A1, and τ_g + δτ_c is the coefficient of one electron of that class in T. 
 
 | group g | class c | target l | other electron (n′, l′) | rows | δτ_c | τ_g + δτ_c |
 |---|---|---|---|---|---|---|
@@ -859,11 +838,14 @@ from Table A1, and τ_g + δτ_c is the coefficient of one electron of that clas
 | out | sn_out | any | n′ = n, l′ > l | 0 | none | 10.5688 |
 | out | out_sp | s, p | n′ > n | 0 | none | 10.5688 |
 
-**Pocket formula (8 parameters, all-data fit, `results/uni_params.json`).** This is the only model called "pocket
+**Pocket formula (8 parameters, all-data fit).** This is the only model called "pocket
 formula" in this paper.
 
-$$Z_\mathrm{eff} = Z - \sum_g s_g\nu_g - t\,\frac{N-1}{Z-N+1+\kappa},\qquad
-\mathrm{IE}=\mathrm{Ry}\,\frac{Z_\mathrm{eff}^2}{n^2}\Big[1+\frac{(Z_\mathrm{eff}\alpha)^2}{n^2}\Big(\frac{n}{j+\tfrac12}-\frac34\Big)\Big]+\mathrm{Ry}\,\frac{x\,K_l(k)}{n^2}$$
+$$\begin{aligned}
+Z_\mathrm{eff} &= Z - \sum_g s_g\nu_g - t\,\frac{N-1}{Z-N+1+\kappa},\\
+\mathrm{IE}&=\mathrm{Ry}\,\frac{Z_\mathrm{eff}^2}{n^2}\Big[1+\frac{(Z_\mathrm{eff}\alpha)^2}{n^2}\Big(\frac{n}{j+\tfrac12}-\frac34\Big)\Big]+\mathrm{Ry}\,\frac{x\,K_l(k)}{n^2}
+\end{aligned}
+$$
 
 The ν_g are the five group counts of §2.2. The fitted values are s_same 0.7499, s_in 0.7514, s_core 0.8432, s_df 0.8408, s_out 1.0497, t 1.3725, κ 9.815
 (9.865 as used) and x 0.508.
