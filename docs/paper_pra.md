@@ -706,7 +706,7 @@ The most reusable result is the table of exact rational first-order screening co
 
 ## DATA AND CODE AVAILABILITY
 
-All code, data and results are in the project repository, https://github.com/AwaisSDev/screened-rydberg-formula.
+All code, data and results are in the project repository, https://github.com/AwaisSDev/screened-rydberg-formula, archived on Zenodo as version 1.0.0 (doi:10.5281/zenodo.23211017).
 It contains the NIST table (`data/nist_ie.csv`) and the shared scorer (`evaluate.py`); the exact first-order
 coefficients (`results/fp_zexp_coefficients.csv`, `results/fp_zexp_rows_coefficients.csv`); the final model and its
 parameters (`models/push_a/model.py`, `models/unified/final.py`, `results/uni_final_params.json`); predictions for all
