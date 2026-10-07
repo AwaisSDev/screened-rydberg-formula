@@ -268,10 +268,8 @@ insight. The fitted-remainder formula alone is unlikely to meet PRA's novelty ba
 
 ## 5. Required disclosures for the paper
 
-1. **AI assistance.** Code, analysis and draft text were produced with an AI assistant (Anthropic Claude) under the
-   author's direction. Most publishers (IOP, APS, Elsevier, MDPI) require a statement in Methods or
-   Acknowledgements, and an AI cannot be listed as an author. Check the target journal's current policy and word the
-   statement accordingly. The author is responsible for verifying every reference: see the tags in `references.bib`.
+1. **AI assistance.** The paper states its use of AI assistance in the Acknowledgments, as the target journal's
+   policy asks, and no AI system is listed as an author. The author is responsible for verifying every reference: see the tags in `references.bib`.
 2. **Data provenance.** `data/nist_ie.csv` is from NIST ASD and includes values flagged experimental, semi-empirical
    and theoretical (`status` column). Report the ASD version and access date, and give metrics on the experimental
    subset too.

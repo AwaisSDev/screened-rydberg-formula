@@ -289,10 +289,10 @@ def build():
             "not blind tests.",
             "Mendoza 2011 constants (models/benchmarks/mendoza2011/constants.json): all 361 entries were compared "
             "on 2026-10-06 with the text layer of the deposited article (https://oa.upm.es/11165/2/"
-            "INVE_MEM_2011_102088.pdf, Tables 1-2): 0 mismatches (see docs/review/claims_and_matrix.md).",
+            "INVE_MEM_2011_102088.pdf, Tables 1-2): 0 mismatches.",
             "LSDA dSCF covers 207 rows (all ions Z<=18 + neutral Z=19-54); no Z>=55 rows; no selection score.",
             "The pocket formula's V1 (4.4e6, 'fit diverges') is optimizer-path dependent: it converges to 4.35 % "
-            "on the Python 3.11 / NumPy 2.4 / SciPy 1.17 stack (docs/review/reproducibility_py311.md).",
+            "on the Python 3.11 / NumPy 2.4 / SciPy 1.17 stack.",
         ],
     }
     return {"meta": meta, "matrix": matrix, "heldout": heldout, "heldout_crosschecks": checks,

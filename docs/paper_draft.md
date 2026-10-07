@@ -288,7 +288,7 @@ reporting only, we recomputed the selection score with S1 and S3 restricted to Z
 ranking is unchanged: the final model 1.844, the 28-parameter variant without the relativistic term 1.989, the bounded
 9-parameter variant 2.094 and the lowest-scoring candidate of a second, independent search 2.118. This checks the ranking of the frozen
 candidates, not the exploration that produced them. An independent validation script reproduced the final model's
-numbers, matching the developing agent's own run with a difference of 0.0 in every split.
+numbers, matching the original run with a difference of 0.0 in every split.
 
 ### 3.3 History of the protocol
 
@@ -690,7 +690,7 @@ The most reusable result is the table of exact rational first-order screening co
 
 ## Data and code availability
 
-All code, data and results are in the project repository, https://github.com/AwaisSDev/screened-rydberg-formula, archived on Zenodo as version 1.0.0 (doi:10.5281/zenodo.23211017). It contains the NIST table and the shared scorer; the exact first-order coefficients for every configuration; the final model with its fitted parameters and the predictions for all rows; the validation scripts; the re-implementations of the two published models; every per-row model input with the stand-alone reference implementation, which reproduces the model's predictions to 7·10⁻¹⁶; the component audit and the benchmark matrix with row counts in every cell; and a command-line and Python interface that evaluates the formula for any Z ≤ 118 and N ≤ Z. The README describes each file.
+All code, data and results are in the project repository, https://github.com/AwaisSDev/screened-rydberg-formula, archived on Zenodo (doi:10.5281/zenodo.23211016). It contains the NIST table and the shared scorer; the exact first-order coefficients for every configuration; the final model with its fitted parameters and the predictions for all rows; the validation scripts; the re-implementations of the two published models; every per-row model input with the stand-alone reference implementation, which reproduces the model's predictions to 7·10⁻¹⁶; the component audit and the benchmark matrix with row counts in every cell; and a command-line and Python interface that evaluates the formula for any Z ≤ 118 and N ≤ Z. The README describes each file.
 
 ## AI-assistance disclosure
 

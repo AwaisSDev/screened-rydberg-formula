@@ -1,6 +1,6 @@
 r"""Independent check of the written screening-group / screening-class rule (paper §2.2, Table A2).
 
-The rule (docs/review/grouping_rule.md) is implemented here from its own table, WITHOUT calling
+The rule (paper Sec. II B, Table IX) is implemented here from its own table, WITHOUT calling
 gshm.classify(), PA._group_matrix(), PA._dev_matrix() or pocket.counts() to compute anything. Those
 production functions are called only afterwards, to compare.
 

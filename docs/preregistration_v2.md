@@ -10,7 +10,7 @@ first v2 experiment, so that the commit timestamp proves the order. Any later ch
   - `results/pa_params.json`;
   - `results/pa_hier_rel_predictions.csv`;
   - `results/uni_*`;
-  - the hashes in `handoff/FROZEN.txt`.
+  - the hashes in `docs/FROZEN.txt`.
 - Every v2 model lives in a new folder, `models/v2/`, with new result-file prefixes `v2_*`.
 
 ## 2. Selection score (the only quantity used to choose)

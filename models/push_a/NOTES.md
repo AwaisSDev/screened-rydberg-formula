@@ -78,7 +78,7 @@ Superheavy neutral 7p atoms come out low: Og (118) 3.66 eV against about 8.9 eV 
 weakness, not fixed, because fixing it now would be post-hoc.
 
 ## Disclosures
-- Before designing anything I knew from CONTINUE.md and the task brief that u35's S2 failures are heavy near-neutral
+- Before designing anything I knew from earlier project notes that u35's S2 failures are heavy near-neutral
   atoms (Po, Hs, No, Ac, Tl, Ta, Sg, Hf, Md). The idea of bounding Zeff between Za and Z (and so protecting the neutral
   rows) was suggested by the task brief with that knowledge in the background. Its *selection* was made on V1/V2/S1/S3
   only (ablation above).

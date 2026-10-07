@@ -228,7 +228,7 @@ Removed relative to u35: the second-order τ⁽²⁾/(Z_a+κ)² terms, κ_l, and
 
 ---
 
-## 4. Referee responses (`handoff/referee_report.json`)
+## 4. Referee responses
 
 | # | referee issue | response | status |
 |---|---|---|---|
@@ -394,8 +394,8 @@ one major and six minor ones. All were fixed; none of the fixes changes the mode
 
 | severity | finding | response |
 |---|---|---|
-| major | Several documents said that no Z ≥ 55 row influenced any choice. In fact S1/S3 (half the selection score) contain Z ≥ 55 rows in train and test: 913/1188 S1 and 703/928 S3 test rows. | **Fixed (wording).** §1, §3, §7 here, the paper abstract, §3.2 and the Figure 2 caption, `models/push_b/NOTES.md`, `CONTINUE.md`, `results/model_comparison.md` and `results/uni_validation.md` now say: S2 was never used for any choice; S1/S3 contain heavy rows, so heavy-atom interpolation accuracy did inform the choices. Robustness check added (reporting only): with S1/S3 restricted to Z ≤ 54 the winner is unchanged, pa_hier_rel 1.844 < pa_hier 1.989 < pa_bound9 2.094 < pb_clip_pos 2.118 (`models/unified/sensitivity_z54.py`, `results/uni_sensitivity_z54.json`; matches the audit's own values). This checks the frozen ranking, not the exploration path. |
-| minor | `CONTINUE.md` still described the superseded S1+S2+S3 rule as "pre-registered". | **Fixed.** It now gives the V1/V2/S1/S3 rule and marks the old rule as superseded and S2-contaminated. |
+| major | Several documents said that no Z ≥ 55 row influenced any choice. In fact S1/S3 (half the selection score) contain Z ≥ 55 rows in train and test: 913/1188 S1 and 703/928 S3 test rows. | **Fixed (wording).** §1, §3, §7 here, the paper abstract, §3.2 and the Figure 2 caption, `models/push_b/NOTES.md`, `results/model_comparison.md` and `results/uni_validation.md` now say: S2 was never used for any choice; S1/S3 contain heavy rows, so heavy-atom interpolation accuracy did inform the choices. Robustness check added (reporting only): with S1/S3 restricted to Z ≤ 54 the winner is unchanged, pa_hier_rel 1.844 < pa_hier 1.989 < pa_bound9 2.094 < pb_clip_pos 2.118 (`models/unified/sensitivity_z54.py`, `results/uni_sensitivity_z54.json`; matches the audit's own values). This checks the frozen ranking, not the exploration path. |
+| minor | A status note still described the superseded S1+S2+S3 rule as "pre-registered". | **Fixed.** It now gives the V1/V2/S1/S3 rule and marks the old rule as superseded and S2-contaminated. |
 | minor | The size of the exploration was reported inconsistently (30 / 44). | **Fixed.** Push A logged 43 variants (`explore_log.txt`), Push B about 14: about 57 in total, used in §3, §7 and the paper. |
 | minor | "About 2.4×" overstated the S2 error for third-stage f removal. | **Fixed.** Re-checked: 23 rows, ratio mean 2.19, median 2.12, range 1.99–2.45 (worst Er²⁺ 55.65 vs 22.7 eV). Now "about 2.0–2.5× (mean 2.2×)" here and in the paper. |
 | minor | `docs/literature.md` still called the model provisional and said the SHM was "reproduced", although our Kregar/Di Rocco implementation is not faithful for valence shells. | **Fixed.** The provisional sentence is gone; the wording is now "our implementation (from the published definitions)"; the 224 % neutral figure carries a caveat (Ar I 18.96 vs printed 14.72 eV; printed valence IEs 3–5 eV lower than ours) in the literature doc and in the paper. |

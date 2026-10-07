@@ -7,10 +7,10 @@ authors:
     affiliation: "Independent researcher, Multan, Pakistan"
     email: mawais9171@gmail.com
 repository-code: "https://github.com/AwaisSDev/screened-rydberg-formula"
-doi: "10.5281/zenodo.23211017"
+doi: "10.5281/zenodo.23211016"
 license: MIT
-version: "1.0.0"
-date-released: "2026-10-06"
+version: "1.0.1"
+date-released: "2026-10-07"
 keywords:
   - ionization energy
   - screening constants

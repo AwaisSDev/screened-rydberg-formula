@@ -1,6 +1,6 @@
 # Screened Rydberg formula for successive ionization energies
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23211017.svg)](https://doi.org/10.5281/zenodo.23211017)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23211016.svg)](https://doi.org/10.5281/zenodo.23211016)
 
 A closed-form formula for the ionization energy IE(Z, N) of any atom or ion. It needs only Z and the electron
 configuration, which defaults to the NIST ground configuration.
@@ -88,11 +88,14 @@ python tests/test_coverage.py           # all 7021 ions with Z <= 118: finite, p
 
 ```
 M. Awais, "A screened Rydberg formula for the successive ionization energies of all atoms and ions,"
-manuscript, 2026. Code and data: https://github.com/AwaisSDev/screened-rydberg-formula, doi:10.5281/zenodo.23211017.
+manuscript, 2026. Code and data: https://github.com/AwaisSDev/screened-rydberg-formula, doi:10.5281/zenodo.23211016.
 ```
 
 Data: NIST Atomic Spectra Database, version 5.12 (Kramida, Ralchenko, Reader and NIST ASD Team),
 doi:10.18434/T4W30F.
 
-AI assistance: code, analysis and draft text were produced with Anthropic Claude under the author's direction. The
-author is responsible for the content.
+## AI assistance and acknowledgments
+
+The computations, code, analysis and a draft of the paper were produced with AI agents (Anthropic Claude) working under the author's direction. The author designed and directed the study and is responsible for the content. No AI system is listed as an author.
+
+Acknowledgments: none.
