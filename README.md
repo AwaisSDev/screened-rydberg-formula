@@ -86,7 +86,7 @@ python tests/test_coverage.py           # all 7021 ions with Z <= 118: finite, p
 
 ```
 M. Awais, "A screened Rydberg formula for the successive ionization energies of all atoms and ions,"
-manuscript, 2026. Code and data: https://github.com/AwaisSDev/Chem-Research.
+manuscript, 2026. Code and data: https://github.com/AwaisSDev/screened-rydberg-formula.
 ```
 
 Data: NIST Atomic Spectra Database, version 5.12 (Kramida, Ralchenko, Reader and NIST ASD Team),
