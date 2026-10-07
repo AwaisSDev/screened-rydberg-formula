@@ -708,7 +708,7 @@ The most reusable result is the table of exact rational first-order screening co
 
 ## Data and code availability
 
-All code, data and results are in the project repository, https://github.com/AwaisSDev/Chem-Research (folder `Np/`).
+All code, data and results are in the project repository, https://github.com/AwaisSDev/Chem-Research.
 It contains the NIST table (`data/nist_ie.csv`) and the shared scorer (`evaluate.py`); the exact first-order
 coefficients (`results/fp_zexp_coefficients.csv`, `results/fp_zexp_rows_coefficients.csv`); the final model and its
 parameters (`models/push_a/model.py`, `models/unified/final.py`, `results/uni_final_params.json`); predictions for all

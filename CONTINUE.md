@@ -3,7 +3,7 @@
 ## ▶ 2026-10-06 review pass (D:\ machine). READ THIS FIRST
 
 **Environment.** This machine has no Python 3.13. Use `py -3.11` with
-`export PYTHONPATH="D:/Chem-Research/Np/tools/numba_stub"`, a no-op numba stand-in with identical numerics. Frozen
+`export PYTHONPATH="D:/Chem-Research/tools/numba_stub"`, a no-op numba stand-in with identical numerics. Frozen
 hashes are intact; models/push_a/model.py matches once CRLF is normalised to LF. The refits reproduce the final model
 to ≤0.005 percentage points. The unbounded references do not: the pocket formula's V1 converges to 4.35 % here
 instead of diverging. Details: `docs/review/reproducibility_py311.md`.

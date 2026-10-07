@@ -262,6 +262,6 @@ Hund term is exactly zero in all three models.
 ## 8. Reproduce
 
 ```bash
-export PYTHONPATH="D:/Chem-Research/Np/tools/numba_stub"   # only where numba is missing
+export PYTHONPATH="D:/Chem-Research/tools/numba_stub"   # only where numba is missing
 py -3.11 tools/check_grouping_rule.py                      # or py -3.13 where available
 ```

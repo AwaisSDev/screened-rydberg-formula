@@ -1,6 +1,6 @@
 r"""One benchmark matrix for every model, built only from files that already exist in results/.
 
-    export PYTHONPATH="D:/Chem-Research/Np/tools/numba_stub"     # only needed for --blind-check
+    export PYTHONPATH="D:/Chem-Research/tools/numba_stub"     # only needed for --blind-check
     py -3.11 tools/benchmark_matrix.py                # writes results/benchmark_matrix.{csv,md,json}
     py -3.11 tools/benchmark_matrix.py --blind-check  # also prints the in-memory Z<=54 refit check (writes nothing)
 
