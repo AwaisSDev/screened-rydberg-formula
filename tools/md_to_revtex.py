@@ -27,6 +27,9 @@ UNI = {"§": r"\S", "²": r"\ensuremath{^{2}}", "³": r"\ensuremath{^{3}}", "·"
        "“": "``", "”": "''", "’": "'"}
 PRE = r"""% single-column 'preprint' layout for submission; change preprint -> reprint for the two-column look
 \documentclass[aps,pra,preprint,notitlepage,superscriptaddress,amsmath,amssymb]{revtex4-2}
+\makeatletter
+\@ifundefined{@titlepagefalse}{}{\@titlepagefalse}   % title, abstract and text on the same page
+\makeatother
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
