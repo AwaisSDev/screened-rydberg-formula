@@ -351,3 +351,9 @@ If the user says **"continue"**, the project work is done; what remains is the u
 - All code and file references removed from the paper text (`tools/strip_code_refs.py` did this once; the model names are now descriptive: final model, 9-parameter variant, pocket formula, linear-remainder model).
 - LaTeX generator (`tools/md_to_revtex.py`): equations (3), (4) and the appendix equation are multi-line `aligned`; every table sits in `adjustbox{max width=\linewidth}` with APS-style double rules; tables with more than 9 columns are split into two blocks; subscripts such as Z_eff render as math.
 - `tools/check_tex.py` runs structural checks without LaTeX. The source has still NOT been compiled: compile on Overleaf.
+
+**2026-10-07: review of the first compiled PDF (srf-v5).** Fixed: Table VIII (19 class values on one line, shrunk to
+about 3 pt, so now a pointer to Table IX); Table VII overflowed its page (single line spacing and smaller type for split
+tables); Mendoza's own table numbers were wrongly renumbered ("Tables I and 2"); one line plus the URL paragraph ran
+into the margin (xurl and emergencystretch); numeric columns are centred; "as used in the code" removed.
+`tools/pdf_overflow_check.py file.pdf` measures margin overflow in any compiled PDF. Needs a recompile on Overleaf to confirm.

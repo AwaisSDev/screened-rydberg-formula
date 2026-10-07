@@ -146,7 +146,7 @@ The screening classes ν_c (Table IX) refine the groups. An electron's class dep
 f), on n − n′ and on l′. Each class lies inside one group, and an electron of class c in group g contributes
 τ_g + δτ_c to T. A ridge penalty (10⁻⁴ per row) shrinks the deviations toward their group value. Two of the 21
 classes are empty in all 5847 rows and carry no δτ_c: sn_out (n′ = n, l′ > l) and out_sp (n′ > n, s/p target). That
-leaves the 19 of Table VIII. The bounded 9-parameter variant and the pocket formula (Appendix A) use the
+leaves the 19 listed in Table IX. The bounded 9-parameter variant and the pocket formula (Appendix A) use the
 five groups without classes. An independent implementation of the rule reproduces the code's group and class counts
 with 0 mismatches on all 5847 rows and on all 7021 configurations with Z ≤ 118 .
 
@@ -229,7 +229,7 @@ The final model has 33 fitted global parameters:
 | Hund amplitudes x_l (p, d, f) | 3 |
 
 There are no per-element or per-ion parameters, and the prediction code never reads a NIST ionization energy. The
-fitted values are in Table VIII (Appendix) ; the class definitions are in Table IX.
+fitted values are in Table VIII (Appendix) ; the class definitions and their fitted deviations δτ_c are in Table IX.
 
 Each model name in this paper refers to one model:
 
@@ -475,10 +475,10 @@ on the same Z ≥ 55 rows (13.6 %), while the unbounded fitted models extrapolat
 #### 2. Mendoza et al. 2011 (published constants; 5011 covered rows)
 
 We transcribed the relativistic nlj screening constants of [16] (the 19 × 19 matrix σ_kk′, subshells 1s½ to 5p3/2)
-from Tables I and 2 of the authors' open-access deposit of the article (https://oa.upm.es/11165/), and implemented the
+from the two constants tables of the authors' open-access deposit of the article (https://oa.upm.es/11165/), and implemented the
 model as published: Dirac energies of screened charges, Q_k = Z − Σ_k′ σ_kk′(P_k′ − δ_kk′), and
 IE = E_T(N−1) − E_T(N) with NIST ground configurations. The implementation reproduces six of the paper's printed
-tables to their rounding, the 84 IEs of its Table III to ≤ 0.023 % and its Tables IV–8 to ≤ 0.16 %
+tables to their rounding, the 84 IEs of its third table to ≤ 0.023 % and its fourth to eighth tables to ≤ 0.16 %
 . We fitted no parameter.
 
 Four caveats apply. The authors fitted the constants with a genetic algorithm to NIST and FAC energies of
@@ -782,8 +782,8 @@ The computations, code, analysis and a draft of this text were produced with AI 
 | block | values |
 |---|---|
 | τ_g (same, in, core, df, out) | 0.3928, 0.7879, 2.2243, 2.5488, 10.5688 |
-| κ | 1.7527 (1.8027 as used in the code, which applies \|κ\| + 0.05) |
-| δτ_c (19 classes, defined in Table IX) | same_s −0.1552, same_p 0.0098, same_d 0.0004, same_f 0.1457, sn_in_p −0.1133, n1_sp_sp −0.3916, n1_sp_d 0.3009, n1_sp_f 0.2042, n2_sp_sp −0.2195, n2_sp_df −0.0622, d_near −0.6962, n1_d_d −0.2689, n1_d_f 0.3286, f_near 0.5476, n1_f_f −0.0918, out_d −0.0176, out_f 0.0173, core_sp 0.2828, core_df 0.1812 |
+| κ | 1.7527 (used as \|κ\| + 0.05 = 1.8027) |
+| δτ_c (19 classes) | listed per class in Table IX |
 | r_c (s, p½, p3/2, d, f) | −0.4543, −0.8129, −1.1533, −0.8426, −1.4672 |
 | x_l (p, d, f) | 0.2049, 0.4402, 0.4612 |
 
@@ -802,8 +802,7 @@ Metrics: all data 2.90 % (median 1.39 %), neutral 12.0 %, H-like 0.0012 %; V1 2.
 selection score 2.51; blind S2 7.80 % (Table I).
 
 **TABLE IX.** Screening classes c and groups g of Sec. II B. (n, l) is the removed subshell and (n′, l′) the subshell of
-another electron. Each class lies inside one group. "rows" is the number of the 5847 NIST rows with ν_c > 0. δτ_c is
-from Table VIII, and τ_g + δτ_c is the coefficient of one electron of that class in T. 
+another electron. Each class lies inside one group. "rows" is the number of the 5847 NIST rows with ν_c > 0. δτ_c is the fitted deviation, and τ_g + δτ_c is the coefficient of one electron of that class in T. 
 
 | group g | class c | target l | other electron (n′, l′) | rows | δτ_c | τ_g + δτ_c |
 |---|---|---|---|---|---|---|

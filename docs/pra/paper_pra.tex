@@ -3,7 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
-\usepackage{url}
+\usepackage{xurl}   % lets long URLs break anywhere
+\emergencystretch=3em   % avoids lines running into the margin
 \usepackage{newunicodechar}
 \usepackage{adjustbox}   % shrinks over-wide tables to the text width
 \usepackage{lineno}   % line numbers, as in the APS sample manuscript
@@ -141,7 +142,7 @@ T=\sum_{g}\tau_g\,\nu_g+\sum_{c}\delta\tau_c\,\nu_c .\end{aligned}
 Each of the other N − 1 electrons, in a subshell (n′, l′), is counted in exactly one of five screening groups $ν_{g}$. The group \emph{same} holds the k − 1 other electrons of (n, l). The group \emph{out} holds outer electrons, with n′ > n or with n′ = n and l′ > l. All remaining electrons are inner. For an s or p target, inner electrons with n′ ≥ n − 1 form \emph{in} (the ns electrons of an np target plus the whole (n − 1) shell, including its d and f electrons) and those with n′ ≤ n − 2 form \emph{core}. For a d or f target, every inner electron, from the same-n lower-l subshells down to 1s, is in \emph{df}. Hence $Σ_{g}$ $ν_{g}$ = N − 1, and each group has a coefficient $τ_{g}$. As ($ν_{\mathrm{same}}$, $ν_{\mathrm{in}}$, $ν_{\mathrm{core}}$, $ν_{\mathrm{df}}$, $ν_{\mathrm{out}}$), O 2p⁴ gives (3, 4, 0, 0, 0) and Na 3s gives (0, 8, 2, 0, 0). Fe 3d⁶4s² with 4s removed gives (1, 14, 10, 0, 0), because 3d⁶ belongs to the (n − 1) shell. Pb 6p² gives (1, 20, 60, 0, 0), with 6s²5s²5p⁶5d¹⁰ in \emph{in} and every electron with n′ ≤ 4, including 4f¹⁴, in \emph{core}.
 
 
-The screening classes $ν_{c}$ (Table IX) refine the groups. An electron's class depends on the target type (s/p, d or f), on n − n′ and on l′. Each class lies inside one group, and an electron of class c in group g contributes $τ_{g}$ + δ$τ_{c}$ to T. A ridge penalty (10⁻⁴ per row) shrinks the deviations toward their group value. Two of the 21 classes are empty in all 5847 rows and carry no δ$τ_{c}$: sn\_out (n′ = n, l′ > l) and out\_sp (n′ > n, s/p target). That leaves the 19 of Table VIII. The bounded 9-parameter variant and the pocket formula (Appendix A) use the five groups without classes. An independent implementation of the rule reproduces the code's group and class counts with 0 mismatches on all 5847 rows and on all 7021 configurations with Z ≤ 118 .
+The screening classes $ν_{c}$ (Table IX) refine the groups. An electron's class depends on the target type (s/p, d or f), on n − n′ and on l′. Each class lies inside one group, and an electron of class c in group g contributes $τ_{g}$ + δ$τ_{c}$ to T. A ridge penalty (10⁻⁴ per row) shrinks the deviations toward their group value. Two of the 21 classes are empty in all 5847 rows and carry no δ$τ_{c}$: sn\_out (n′ = n, l′ > l) and out\_sp (n′ > n, s/p target). That leaves the 19 listed in Table IX. The bounded 9-parameter variant and the pocket formula (Appendix A) use the five groups without classes. An independent implementation of the rule reproduces the code's group and class counts with 0 mismatches on all 5847 rows and on all 7021 configurations with Z ≤ 118 .
 
 
 The removed subshell (n, l) is the one whose occupancy drops from the N-electron configuration to the NIST ground configuration of the (N − 1)-electron ion. The N-electron configuration is the NIST ground configuration, or the Madelung order if the ion is not tabulated. For a rearranging ion (e.g. V 3d³4s² → V⁺ 3d⁴) it is the subshell that loses most electrons, with ties going to larger n and then larger l. If the (N − 1)-electron ion is not tabulated, or the user supplies the configuration, the outermost subshell (largest n, then largest l) is removed.
@@ -186,9 +187,9 @@ The final model has 33 fitted global parameters:
 
 
 \begin{table}[h]
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{ll}
+\begin{tabular}{lc}
 \hline\hline
 block & count \\
 \hline
@@ -203,16 +204,16 @@ Hund amplitudes $x_{l}$ (p, d, f) & 3 \\
 \end{table}
 
 
-There are no per-element or per-ion parameters, and the prediction code never reads a NIST ionization energy. The fitted values are in Table VIII (Appendix) ; the class definitions are in Table IX.
+There are no per-element or per-ion parameters, and the prediction code never reads a NIST ionization energy. The fitted values are in Table VIII (Appendix) ; the class definitions and their fitted deviations δ$τ_{c}$ are in Table IX.
 
 
 Each model name in this paper refers to one model:
 
 
 \begin{table}[h]
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{lll}
+\begin{tabular}{lcl}
 \hline\hline
 name & params & definition \\
 \hline
@@ -250,9 +251,9 @@ Every fitted model is refit on the training rows of each split with its own fitt
 
 
 \begin{table}[h]
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{lllll}
+\begin{tabular}{lllcl}
 \hline\hline
 split & training rows & test / validation rows & n test rows & role \\
 \hline
@@ -295,9 +296,9 @@ Every cross-model number in this section comes from one generated matrix with th
 
 \begin{table*}[htbp]
 \caption{MAPE in \%. "All", "neutral" and "H-like" are from all-data fits; V1, V2, S1, S3 and S2 are held-out values after refitting. Parameter-free models are not fitted, so their split columns are the error on those rows.}
-\footnotesize
+\scriptsize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{lllllll}
+\begin{tabular}{lcccccc}
 \hline\hline
 model & fitted params & all (median) & neutral 1st IE & H-like & V1 & V2 \\
 \hline
@@ -315,7 +316,7 @@ bounded 9-parameter variant & 9 & 2.90 (1.39) & 12.0 & 0.0012 & 2.16 & 1.95 \\
 \end{adjustbox}
 \medskip
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{llllll}
+\begin{tabular}{lccccc}
 \hline\hline
 model & fitted params & S1 & S3 & selection score & \textbf{blind S2} (median / neutral) \\
 \hline
@@ -347,9 +348,9 @@ The final model has the lowest selection score of all candidates (2.15). The nex
 
 \begin{table*}[htbp]
 \caption{All-data fit, MAPE in \% .}
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{lllllll}
+\begin{tabular}{lcccccc}
 \hline\hline
 model & N ≤ 10 & 11 ≤ N ≤ 36 & N ≥ 37 & Z ≥ 55 & removed d & removed f \\
 \hline
@@ -373,9 +374,9 @@ Fitted on Z ≤ 54 only, the final model predicts the 4362 ionization energies o
 
 
 \begin{table}[h]
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{llll}
+\begin{tabular}{llcc}
 \hline\hline
 model & what it adds & blind S2 MAPE (\%) & S2 neutral (\%) \\
 \hline
@@ -412,9 +413,9 @@ The blind fit has three clear failures, which we report and have not corrected, 
 
 \begin{table*}[htbp]
 \caption{110 H-like ions, Z = 1–110 .}
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{llll}
+\begin{tabular}{lccc}
 \hline\hline
 layer & MAPE (\%) & median (\%) & max (\%) \\
 \hline
@@ -444,9 +445,9 @@ Our implementation follows the published definitions: screening from hydrogenic 
 
 \begin{table*}[htbp]
 \caption{Same 5847 rows, same scorer, MAPE in \% . For the 0-parameter models the S2 column is the error on the Z ≥ 55 rows; for the fitted models it is the blind S2 refit.}
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{lllllll}
+\begin{tabular}{lcccccc}
 \hline\hline
 model & params & all (median) & neutral 1st IE & H-like & charge ≥ 3 & S2 (Z ≥ 55) \\
 \hline
@@ -467,7 +468,7 @@ Because of the valence discrepancy above, the 224 \% neutral-atom figure probabl
 
 \subsubsection{Mendoza et al. 2011 (published constants; 5011 covered rows)}
 
-We transcribed the relativistic nlj screening constants of~\cite{r16} (the 19 × 19 matrix $σ_{kk′}$, subshells 1s½ to 5p3/2) from Tables I and 2 of the authors' open-access deposit of the article (\url{https://oa.upm.es/11165/}), and implemented the model as published: Dirac energies of screened charges, $Q_{k}$ = Z − $Σ_{k′}$ $σ_{kk′}$($P_{k′}$ − $δ_{kk′}$), and IE = $E_{T}$(N−1) − $E_{T}$(N) with NIST ground configurations. The implementation reproduces six of the paper's printed tables to their rounding, the 84 IEs of its Table III to ≤ 0.023 \% and its Tables IV–8 to ≤ 0.16 \% . We fitted no parameter.
+We transcribed the relativistic nlj screening constants of~\cite{r16} (the 19 × 19 matrix $σ_{kk′}$, subshells 1s½ to 5p3/2) from the two constants tables of the authors' open-access deposit of the article (\url{https://oa.upm.es/11165/}), and implemented the model as published: Dirac energies of screened charges, $Q_{k}$ = Z − $Σ_{k′}$ $σ_{kk′}$($P_{k′}$ − $δ_{kk′}$), and IE = $E_{T}$(N−1) − $E_{T}$(N) with NIST ground configurations. The implementation reproduces six of the paper's printed tables to their rounding, the 84 IEs of its third table to ≤ 0.023 \% and its fourth to eighth tables to ≤ 0.16 \% . We fitted no parameter.
 
 
 Four caveats apply. The authors fitted the constants with a genetic algorithm to NIST and FAC energies of isoelectronic sequences from He to Eu, with Z up to 92, which overlaps our test rows, so no split is held out for this model. Neutral atoms and singly charged ions were excluded from their fit. The constants were optimised for ionization and excitation energies together, so an IE-only score is not what they were optimised for. And the tables stop at 5p3/2, so 836 rows (Z ≥ 55, ground configurations with 5d, 5f, 6s, 6p, 6d or 7s electrons) have no prediction. The comparison is therefore restricted to the 5011 covered rows.
@@ -475,9 +476,9 @@ Four caveats apply. The authors fitted the constants with a genetic algorithm to
 
 \begin{table*}[htbp]
 \caption{The 5011 rows covered by Mendoza et al.; same scorer, all three models fitted to all data (in-sample). Cells: mean / median absolute percentage error [n].}
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{llll}
+\begin{tabular}{lccc}
 \hline\hline
 rows & Screened Rydberg (final, 33 p) & bounded 9-parameter & Mendoza et al. 2011 \\
 \hline
@@ -512,9 +513,9 @@ A comparison with Dirac–Fock ionization energies~\cite{r30} on the same rows i
 
 \begin{table*}[htbp]
 \caption{σ₁ for neutral-atom ground configurations, compared with Slater's σ. Excerpt; the full table for N = 1–110, with values for all 5847 rows, is in the repository.}
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{lllllll}
+\begin{tabular}{llccccc}
 \hline\hline
 N & configuration & removed & E₁ (exact) & ΔE₁ & σ₁ (ab initio) & σ (Slater) \\
 \hline
@@ -559,9 +560,9 @@ For Mg²⁺ (NIST 80.144 eV) the formula gives 78.63 eV (−1.88 \%).
 
 \begin{table*}[htbp]
 \caption{Case studies: first IEs of six neutral atoms, with every intermediate quantity, for the three named models. Generated by a script that asserts that the components reproduce the production code to 10⁻⁹. D is the screening remainder. The relativistic factor is $F_{n,j}$·R for the σ₁ models (R = 1 for the 9-parameter variant) and the Sommerfeld bracket for the pocket formula.}
-\footnotesize
+\scriptsize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{llllllll}
+\begin{tabular}{llcccccc}
 \hline\hline
 atom (removed) & model & σ₁ & $ν_{g}$ (same, in, core, df, out) & T & h & D & $Z_{\mathrm{eff}}$ \\
 \hline
@@ -588,7 +589,7 @@ Pb (6p) & pocket & – & 1, 20, 60, 0, 0 & – & – & 76.6038* & 5.3962 \\
 \end{adjustbox}
 \medskip
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{llllllll}
+\begin{tabular}{llcccccc}
 \hline\hline
 atom (removed) & model & Ry $Z_{\mathrm{eff}}$²/n² (eV) & rel. factor & Hund (eV) & IE (eV) & NIST (eV) & error \\
 \hline
@@ -692,30 +693,30 @@ The computations, code, analysis and a draft of this text were produced with AI 
 \appendix
 \section{Fitted parameters (all-data fit)}
 
-\begin{table*}[htbp]
+\begin{table}[htbp]
 \caption{Fitted values of the final model (all-data fit).}
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{ll}
 \hline\hline
 block & values \\
 \hline
 $τ_{g}$ (same, in, core, df, out) & 0.3928, 0.7879, 2.2243, 2.5488, 10.5688 \\
-κ & 1.7527 (1.8027 as used in the code, which applies \textbar{}κ\textbar{} + 0.05) \\
-δ$τ_{c}$ (19 classes, defined in Table IX) & same\_s −0.1552, same\_p 0.0098, same\_d 0.0004, same\_f 0.1457, sn\_in\_p −0.1133, n1\_sp\_sp −0.3916, n1\_sp\_d 0.3009, n1\_sp\_f 0.2042, n2\_sp\_sp −0.2195, n2\_sp\_df −0.0622, d\_near −0.6962, n1\_d\_d −0.2689, n1\_d\_f 0.3286, f\_near 0.5476, n1\_f\_f −0.0918, out\_d −0.0176, out\_f 0.0173, core\_sp 0.2828, core\_df 0.1812 \\
+κ & 1.7527 (used as \textbar{}κ\textbar{} + 0.05 = 1.8027) \\
+δ$τ_{c}$ (19 classes) & listed per class in Table IX \\
 $r_{c}$ (s, p½, p3/2, d, f) & −0.4543, −0.8129, −1.1533, −0.8426, −1.4672 \\
 $x_{l}$ (p, d, f) & 0.2049, 0.4402, 0.4612 \\
 \hline\hline
 \end{tabular}
 \end{adjustbox}
-\end{table*}
+\end{table}
 
 
 \textbf{Bounded 9-parameter variant (all-data fit).} Same equation (2.2) and inputs as the final model, with T = $Σ_{g}$ $τ_{g}$ $ν_{g}$ (no class deviations), R = 1 (no relativistic bracket), and the same $F_{n,j}$, μ and QED/FNS terms. Using these 4-decimal values instead of full precision changes no IE by more than 0.002 \% .
 
 
 \begin{table}[h]
-\footnotesize
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{ll}
 \hline\hline
@@ -734,10 +735,10 @@ Metrics: all data 2.90 \% (median 1.39 \%), neutral 12.0 \%, H-like 0.0012 \%; V
 
 
 \begin{table*}[htbp]
-\caption{Screening classes c and groups g of Sec. II B. (n, l) is the removed subshell and (n′, l′) the subshell of another electron. Each class lies inside one group. "rows" is the number of the 5847 NIST rows with $ν_{c}$ > 0. δ$τ_{c}$ is from Table VIII, and $τ_{g}$ + δ$τ_{c}$ is the coefficient of one electron of that class in T.}
-\footnotesize
+\caption{Screening classes c and groups g of Sec. II B. (n, l) is the removed subshell and (n′, l′) the subshell of another electron. Each class lies inside one group. "rows" is the number of the 5847 NIST rows with $ν_{c}$ > 0. δ$τ_{c}$ is the fitted deviation, and $τ_{g}$ + δ$τ_{c}$ is the coefficient of one electron of that class in T.}
+\footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{lllllll}
+\begin{tabular}{llllccc}
 \hline\hline
 group g & class c & target l & other electron (n′, l′) & rows & δ$τ_{c}$ & $τ_{g}$ + δ$τ_{c}$ \\
 \hline

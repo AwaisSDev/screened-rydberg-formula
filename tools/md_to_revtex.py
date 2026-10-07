@@ -30,7 +30,8 @@ PRE = r"""% single-column 'preprint' layout for submission; change preprint -> r
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
-\usepackage{url}
+\usepackage{xurl}   % lets long URLs break anywhere
+\emergencystretch=3em   % avoids lines running into the margin
 \usepackage{newunicodechar}
 \usepackage{adjustbox}   % shrinks over-wide tables to the text width
 \usepackage{lineno}   % line numbers, as in the APS sample manuscript
@@ -111,19 +112,29 @@ def table_tex(lines, caption=None):
         rest = list(range(k, ncol))
         half = (len(rest) + 1) // 2
         parts = [list(range(k)) + rest[:half], list(range(k)) + rest[half:]]
+    numeric = re.compile(r"^[\s\d.,+\-−–±%()/·†*\[\]a-z⁻⁰¹²³⁴⁵⁶⁷⁸⁹]*$")
+
+    def col_align(c):   # numbers centred, text left
+        vals = [r[c] for r in rows[1:] if r[c]]
+        ok = lambda v: len(v) < 26 and (re.search(r"\d", v) or v.strip() in ("–", "-", "none")) \
+            and numeric.match(v.replace("**", "")) or v.strip() == "none"
+        return "c" if c > 0 and vals and all(ok(v) for v in vals) else "l"
     boxes = []
     for cols in parts:
         body = [" & ".join(r[c] for c in cols) + r" \\" for r in cells]
-        tab = (r"\begin{tabular}{" + "l" * len(cols) + "}\n\\hline\\hline\n" + body[0] + "\n\\hline\n"
+        tab = (r"\begin{tabular}{" + "".join(col_align(c) for c in cols) + "}\n\\hline\\hline\n" + body[0] + "\n\\hline\n"
                + "\n".join(body[1:]) + "\n\\hline\\hline\n" + r"\end{tabular}")
         # APS-style double rules; adjustbox shrinks a table only if it is wider than the text
         boxes.append(r"\begin{adjustbox}{max width=\linewidth}" + "\n" + tab + "\n" + r"\end{adjustbox}")
     box = "\n\\medskip\n".join(boxes)
     wide = ncol > 4 or max(len(" ".join(r)) for r in rows) > 70
+    # single line spacing and a little column padding inside every table float; split tables are set smaller
+    fmt = (r"\scriptsize" if len(parts) > 1 else r"\footnotesize") + \
+        r"\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}"
     if caption is None:
-        return "\\begin{table}[h]\n\\footnotesize\n" + box + "\n\\end{table}\n"
+        return "\\begin{table}[h]\n" + fmt + "\n" + box + "\n\\end{table}\n"
     env = "table*" if wide else "table"
-    return (f"\\begin{{{env}}}[htbp]\n\\caption{{{inline(caption, cite=False)}}}\n\\footnotesize\n{box}\n"
+    return (f"\\begin{{{env}}}[htbp]\n\\caption{{{inline(caption, cite=False)}}}\n{fmt}\n{box}\n"
             f"\\end{{{env}}}\n")
 
 
