@@ -13,7 +13,7 @@ energy IE(Z, N) of any atom or ion. Its inputs are the nuclear charge Z and the 
 formula keeps the hydrogenic form Ry Z_eff²/n² and splits the effective charge into two parts. The first is the
 first-order screening constant σ₁ = −n²ΔE₁ of the 1/Z perturbation expansion. It has no adjustable parameter, it is a
 rational number for every configuration, and we tabulate it for N = 1–110. The second is a fitted higher-order
-remainder that depends on the ion charge in an Edlén-type form. A saturation construction keeps
+remainder that depends on the ion charge and varies smoothly along isoelectronic sequences. A saturation construction keeps
 Z − N + 1 ≤ Z_eff ≤ Z for any parameter values (given 0 ≤ σ₁ ≤ N − 1, which holds for every configuration we use)
 and preserves the exact Z² and Z coefficients of the 1/Z series. One-electron Dirac, recoil, finite-nuclear-size and
 QED corrections enter without fitted parameters. The final model has 33 global parameters and none per element or
@@ -46,19 +46,14 @@ all NIST ions with a total-energy difference, Slater's rules give 11.8 % MAPE an
 
 Layzer [4], [5] showed that the non-relativistic energy of a fixed configuration is an asymptotic series
 E = Z²E₀ + ZE₁ + E₂ + …. E₀ is hydrogenic, and E₁ is a rational combination of hydrogenic Slater integrals, which
-fixes the Z → ∞ limit of the screening constant exactly. Higher orders need continuum sums [6], [7]. Along
-isoelectronic sequences, Edlén [8] described the smooth variation of screening with ion charge by expansions in
-1/(ζ + s). Z-expansion codes with relativistic corrections were developed for selected sequences [9].
+fixes the Z → ∞ limit of the screening constant exactly. Higher orders have been computed numerically for two-electron ions [6], [7]. The regular variation of atomic energies along isoelectronic sequences is a standard tool of atomic spectroscopy [8], and screening theory has been applied to transition energies of highly charged ions [9].
 
 Screened hydrogenic models (SHMs), starting with Mayer [10] and More [11], are used in plasma-physics codes. Their
-screening constants have been tabulated or fitted with l-splitting [12], [13], derived from analytical potentials
-[14], [15], fitted by a genetic algorithm with relativistic subshells [16], or computed self-consistently as functions
-of Z and N without parameters [17]–[22]. Average-atom and kinetics codes use SHMs because they are fast and cover all
-ions [23]–[25].
+screening constants have been tabulated or fitted with l-splitting [12], [13], based on analytical potentials [14], [15], fitted by a genetic algorithm with relativistic subshells [16], or computed self-consistently as functions
+of Z and N without parameters [17]–[22]. Average-atom models [23] and kinetics and radiation-hydrodynamics codes [24], [25] need atomic data for many ions quickly; SpK, for example, uses screened hydrogenic atoms [25].
 
 Ab initio methods give more accurate numbers: Koopmans' theorem [26], ΔSCF Hartree–Fock and Kohn–Sham DFT [27], [28],
-correlated non-relativistic energies [29], and Dirac–Fock total energies for all ground configurations up to Z = 118
-[30]. They are numerical procedures, not formulas.
+correlated non-relativistic energies [29], and Dirac–Fock total energies of ions with 3 to 105 electrons and Z up to 118 [30]. They are numerical procedures, not formulas.
 
 We found no closed-form expression that covers every ion of every element from the configuration alone, reproduces
 the large-Z behaviour of the 1/Z expansion exactly, reports every fitted parameter, and is validated on all NIST
@@ -69,7 +64,7 @@ propose a new law of atomic physics, and §5.1 lists what is rediscovered.
 
 The paper makes four contributions. It tabulates σ₁ for every NIST ground configuration with N = 1–110, as a
 parameter-free counterpart to Slater's σ that is exact as Z → ∞ (§2.1, §4.6). It defines the screened Rydberg
-formula, σ₁ plus a bounded Edlén-type remainder with 33 global parameters (§2.2–2.4). It applies one validation
+formula, σ₁ plus a bounded remainder with 33 global parameters (§2.2–2.4). It applies one validation
 protocol, with a pre-registered selection score and a single extrapolation test, to the final model, its ancestors
 and the published baselines (§3, §4). And it compares the formula with two published SHMs, re-implemented and scored
 with the same scorer (§4.5): the parameter-free Kregar/Di Rocco model on all 5847 rows, and the fitted constants of
@@ -106,7 +101,7 @@ $$\mathrm{IE}\simeq \Delta E_0\,(Z-\sigma_1)^2,\qquad \sigma_1=-\frac{\Delta E_1
 σ₁ is Layzer's Z → ∞ screening constant. It has no adjustable parameter and depends on the configuration, not on Z.
 For He-like ions E₁(1s²) = 5/8, so σ₁(He) = 0.6250 (Slater: 0.30). For Li-like ions
 E₁(1s²2s) = 5965/5832 = 1.0228052 = 5/8 + 2·17/81 − 16/729, so ΔE₁ = −0.397805 and σ₁ = 1.5912. For Be-like ions the
-complex value E₁ = 1.5592742 agrees with Layzer's.
+complex value is E₁ = 1.5592742.
 
 The series fails for near-neutral atoms (§4.6), because its expansion parameter is effectively N/Z. For a neutral
 atom Z − σ is only 1–3, so a 10 % error in σ becomes a 100–1000 % error in IE. The higher orders have no closed form:
@@ -184,13 +179,13 @@ exact asymptotics. At fixed N and Z_a → ∞, D → T/(Z_a+κ) = O(1/Z), so the
 Ry[Z² − 2Zσ₁ + O(1)]/n² and its Z² and Z coefficients are those of the exact 1/Z series. The fitted part represents
 only ΔE₂ and higher orders, that is relaxation, correlation and penetration at low ion charge.
 
-### 2.3 Charge-dependent penetration as an Edlén-type term
+### 2.3 Charge-dependent penetration along isoelectronic sequences
 
 We found the remainder's dependence on 1/(Z_a + κ) empirically. Along every isoelectronic
 sequence the excess charge p = Z_eff − Z_a grows with ion charge q as p∞ − τ/(Z_a + κ), with one κ for all
 sequences. For the Na sequence (3s), p = 0.84, 1.15, 1.34, 1.46, 1.56 for q = 0–4 and 2.11 at q = 20. Adding the term
 reduced the error of the purely fitted model from about 9 % to about 2 % MAPE. This is an independent rediscovery of
-the isoelectronic regularity that Edlén formalised [8], and it is consistent with Layzer's theory, in which the
+the kind of smooth isoelectronic regularity that atomic spectroscopy uses routinely [8], and it is consistent with Layzer's theory, in which the
 screening constant is σ₀ + σ₁′/Z + …. What is specific here is narrower: one denominator for all sequences, combined
 with exact σ₁ and with the saturation bound of §2.2.
 
@@ -450,7 +445,7 @@ Our implementation follows the published definitions: screening from hydrogenic 
 correction, iterated to self-consistency; energies E = −Σ q_i Z_i²/2n_i²; and non-relativistic, Pauli and Dirac
 variants. Its same-shell Z → ∞ screening constants reproduce every printed digit (e.g. 1s 0.3125, 2p 0.3492), and its
 total energies agree with the published table within 0.71 %. Its cross-shell constants differ by 0.011 on average (at
-most 0.053), because the original uses fitted closed forms whose coefficients we could not obtain [19]. Valence IEs
+most 0.053), because the original gives the coefficients as explicit expressions in a paper [19] that we could not access. Valence IEs
 of near-neutral ions come out 3–5 eV higher than the printed model values; for Ar I we get 18.96 eV against 14.72 eV
 printed. Our near-neutral numbers therefore describe the model as defined, not the authors' code.
 
@@ -616,11 +611,10 @@ its lighter congener Rn (NIST 10.75 eV), again because of the negative r_c.
 
 Much of the formula is known. The 1/Z expansion and its exact first-order term are Layzer's (σ₁ is his Z → ∞
 screening constant [4]), computed with textbook Slater-integral algebra [33], [34]. The screened hydrogenic form goes
-back to [1], [10], [11], and self-consistent (Z, N)-dependent screening to [17], [20]. The 1/(Z_a + κ) remainder is
-Edlén-type isoelectronic behaviour [8]. The one-electron Dirac, recoil, finite-size and QED corrections come from
+back to [1], [10], [11], and self-consistent (Z, N)-dependent screening to [17], [20]. The smooth variation of the 1/(Z_a + κ) remainder along isoelectronic sequences is a regularity of the kind long used in atomic spectroscopy [8]. The one-electron Dirac, recoil, finite-size and QED corrections come from
 [31], [32], and LSDA ΔSCF from [27], [28].
 
-Four things may be new. Z-expansion work [4], [5], [9] computed first-order energies for selected configurations and
+Four things may be new. Z-expansion work [4], [5] computed first-order energies for selected configurations and
 isoelectronic sequences, and we are not aware of a table of exact first-order screening constants for every NIST
 ground configuration with N = 1–110; we offer ours as a complete tabulation, not as a new quantity. The formula joins
 exact σ₁ to a bounded fitted remainder in one closed form and is validated on all 5847 NIST successive IEs, with a
@@ -630,7 +624,7 @@ test in the SHM literature we read. Two published SHMs are scored on the same ro
 decisively better (§4.5). Finally, the 8-parameter pocket formula is a hand-calculable successor to Slater's rules,
 with 4.68 % against 11.8 % on all rows and 11.3 % against 11.6 % on blind S2.
 
-We do not claim a first formula for all ionization energies, since SHMs and Dirac–Fock tables already cover all ions,
+We do not claim a first formula for all ionization energies, since SHMs and Dirac–Fock tables already cover most ions,
 or a first-principles formula, since only σ₁ and the one-electron corrections are first principles and the final model
 has 33 fitted parameters. We did not search the machine-learning literature on ionization energies systematically and
 make no claim relative to it.
@@ -670,9 +664,8 @@ agreement with other theory.
 
 ### 5.3 Why no exact closed form exists for N ≥ 2
 
-With V = Σ 1/r_ij the many-electron Schrödinger equation does not separate. E(Z) is analytic in 1/Z only up to a
-critical charge; for He, 1/Z_c ≈ 1.0975. Beyond first order every coefficient E_k (k ≥ 2) is an infinite sum over the
-hydrogenic continuum, with no known closed form even for two electrons, and is known only numerically [6]. A closed
+With V = Σ 1/r_ij the many-electron Schrödinger equation does not separate. The 1/Z series has a finite radius of convergence. Beyond first order every coefficient E_k (k ≥ 2) is an infinite sum over the
+hydrogenic continuum, with no known closed form even for two electrons, and has been evaluated only numerically [6]. A closed
 formula for all ions must therefore combine exact low orders with an approximation for the rest. The choice is which
 approximation, and how it is validated. We keep the exact orders exact and confine the fit to the remainder, under a
 bound that prevents it from extrapolating wildly.
@@ -750,7 +743,7 @@ None.
 
 [18] M. Kregar, “The virial as the atomic model potential energy operator,” *Phys. Scr.*, vol. 31, no. 4, pp. 246–254, 1985, doi: 10.1088/0031-8949/31/4/005.
 
-[19] H. O. Di Rocco, *Braz. J. Phys.*, vol. 22, p. 227, 1992 (as cited in [20]; not independently verified).
+[19] H. O. Di Rocco, *Braz. J. Phys.*, vol. 22, 1992, as cited in [20] (p. 227) and [22] (pp. 1–10); the original paper could not be located.
 
 [20] J. Pomarico, D. I. Iriarte, and H. O. Di Rocco, “An efficient screening approach to be used in plasma modeling and ion-surface collision experiments,” *Braz. J. Phys.*, vol. 35, no. 1, pp. 130–135, 2005, doi: 10.1590/S0103-97332005000100008.
 
@@ -762,7 +755,7 @@ None.
 
 [24] H.-K. Chung, M. H. Chen, W. L. Morgan, Yu. Ralchenko, and R. W. Lee, “FLYCHK: Generalized population kinetics and spectral model for rapid spectroscopic analysis for all elements,” *High Energy Density Phys.*, vol. 1, pp. 3–12, 2005.
 
-[25] A. J. Crilly *et al.*, “SpK: A fast atomic and microphysics code for the high-energy-density regime,” *High Energy Density Phys.*, 2023, doi: 10.1016/j.hedp.2023.101053.
+[25] A. J. Crilly *et al.*, “SpK: A fast atomic and microphysics code for the high-energy-density regime,” *High Energy Density Phys.*, vol. 48, 101053, 2023, doi: 10.1016/j.hedp.2023.101053.
 
 [26] T. Koopmans, “Über die Zuordnung von Wellenfunktionen und Eigenwerten zu den einzelnen Elektronen eines Atoms,” *Physica*, vol. 1, pp. 104–113, 1934.
 
