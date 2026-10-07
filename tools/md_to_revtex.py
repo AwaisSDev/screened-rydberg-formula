@@ -26,7 +26,7 @@ UNI = {"§": r"\S", "²": r"\ensuremath{^{2}}", "³": r"\ensuremath{^{3}}", "·"
        "≳": r"\ensuremath{\gtrsim}", "⟨": r"\ensuremath{\langle}", "⟩": r"\ensuremath{\rangle}",
        "“": "``", "”": "''", "’": "'"}
 PRE = r"""% single-column 'preprint' layout for submission; change preprint -> reprint for the two-column look
-\documentclass[aps,pra,preprint,superscriptaddress,amsmath,amssymb]{revtex4-2}
+\documentclass[aps,pra,preprint,notitlepage,superscriptaddress,amsmath,amssymb]{revtex4-2}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
