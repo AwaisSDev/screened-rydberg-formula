@@ -120,7 +120,7 @@ The final model is
 $$
 \begin{aligned}
 \mathrm{IE}(Z,N)&=\mu(Z)\Big\{\mathrm{Ry}\,\frac{Z_\mathrm{eff}^2}{n^2}\,F_{n,j}(Z_\mathrm{eff})\Big[1+r_c\,\frac{(Z\alpha)^2}{n}\Big(\frac{Z_\mathrm{eff}}{Z_a}-1\Big)\Big]+\mathrm{Ry}\,\frac{x_l\,K_l(k)}{n^2}\Big\}\\
-&\quad-\big[\Delta E_\mathrm{QED}+\Delta E_\mathrm{FNS}\big]_{Z,n}\Big(\frac{Z_\mathrm{eff}}{Z}\Big)^2 ,
+&\quad-\big[\Delta E_\mathrm{QED}+\Delta E_\mathrm{FNS}\big]_{Z,n}\Big(\frac{Z_\mathrm{eff}}{Z}\Big)^2,
 \end{aligned}
 $$
 
@@ -150,7 +150,7 @@ f), on n − n′ and on l′. Each class lies inside one group, and an electron
 classes are empty in all 5847 rows and carry no δτ_c: sn_out (n′ = n, l′ > l) and out_sp (n′ > n, s/p target). That
 leaves the 19 listed in Table A2. The bounded 9-parameter variant and the pocket formula (Appendix A) use the
 five groups without classes. An independent implementation of the rule reproduces the code's group and class counts
-with 0 mismatches on all 5847 rows and on all 7021 configurations with Z ≤ 118 .
+with 0 mismatches on all 5847 rows and on all 7021 configurations with Z ≤ 118.
 
 The removed subshell (n, l) is the one whose occupancy drops from the N-electron configuration to the NIST ground
 configuration of the (N − 1)-electron ion. The N-electron configuration is the NIST ground configuration, or the
@@ -186,7 +186,7 @@ only ΔE₂ and higher orders, that is relaxation, correlation and penetration a
 
 ### 2.3 Charge-dependent penetration as an Edlén-type term
 
-We found the remainder's dependence on 1/(Z_a + κ) empirically . Along every isoelectronic
+We found the remainder's dependence on 1/(Z_a + κ) empirically. Along every isoelectronic
 sequence the excess charge p = Z_eff − Z_a grows with ion charge q as p∞ − τ/(Z_a + κ), with one κ for all
 sequences. For the Na sequence (3s), p = 0.84, 1.15, 1.34, 1.46, 1.56 for q = 0–4 and 2.11 at q = 20. Adding the term
 reduced the error of the purely fitted model from about 9 % to about 2 % MAPE. This is an independent rediscovery of
@@ -250,13 +250,13 @@ The bounded 9-parameter variant uses the pocket formula's five electron groups b
 ### 3.1 Data
 
 The reference data are the 5847 successive ionization energies of the NIST Atomic Spectra Database [32] for
-Z = 1–110, all charge states, with NIST ground configurations . We took them from ASD version
+Z = 1–110, all charge states, with NIST ground configurations. We took them from ASD version
 5.12 [32], the current version at the time, on or before 5 October 2026; the project log records results computed
 from these data on that date, and the original download timestamp was not kept. The database flags 311 values as
 experimental, 919 as semi-empirical and 4617 as theoretical. Every metric below uses all 5847 rows unless stated
 otherwise. By status, the final model's all-data fit gives 4.63 % MAPE on experimental rows (median 2.86 %,
 n = 311), 2.20 % on semi-empirical rows (median 0.83 %, n = 919) and 1.62 % on theoretical rows (median 0.92 %,
-n = 4617) . The experimental rows are mostly neutral atoms and low-charge ions (98
+n = 4617). The experimental rows are mostly neutral atoms and low-charge ions (98
 neutral, 193 of 311 with charge ≤ 2, median charge 2), the hardest regime for the formula, so their higher error
 reflects the neutral-atom weakness rather than a disagreement with experiment.
 
@@ -268,7 +268,7 @@ it we use the Madelung order: all ions with Z > 110, and 258 ions with Z = 104�
 enter no fit and no score, only the 7021-configuration checks (§4.7) and predictions outside the table.
 
 The error measure is MAPE = (100/M) Σ |IE_pred − IE_NIST| / IE_NIST, together with the median absolute percentage
-error. All scores come from one shared scorer . Fits minimise squared log-ratios ln(IE_pred/IE_NIST),
+error. All scores come from one shared scorer. Fits minimise squared log-ratios ln(IE_pred/IE_NIST),
 so a 4 eV and a 100 keV ionization energy carry equal relative weight.
 
 ### 3.2 Held-out splits
@@ -352,7 +352,7 @@ software environment.
 
 Slater's rules have an all-row MAPE of 11.8 %, 6.3 times that of the final model (1.87 %) and 4.1 times that of
 the 9-parameter variant (2.90 %). Their median is 7.48 % against 0.94 %, and their blind S2 error is 11.6 % against 6.60 %, a factor
-of 1.8 .
+of 1.8.
 
 The final model has the lowest selection score of all candidates (2.15). The next were the other developer's choice,
 the best candidate of the second search (30 parameters), at 2.37, and the 28-parameter hierarchical variant at 2.37, with blind S2 errors
@@ -361,7 +361,7 @@ of 13.9 % and 8.47 %. The bound costs some accuracy inside the data, 1.87 % agai
 
 ### 4.2 Errors by stratum
 
-**Table 2.** All-data fit, MAPE in % .
+**Table 2.** All-data fit, MAPE in %.
 
 | model | N ≤ 10 | 11 ≤ N ≤ 36 | N ≥ 37 | Z ≥ 55 | removed d | removed f |
 |---|---|---|---|---|---|---|
@@ -422,7 +422,7 @@ rows; worst Er²⁺ at 55.65 eV against 22.7 eV), because the Z ≤ 54 training 
 
 ### 4.4 Hydrogen-like ions: correction layers
 
-**Table 3.** 110 H-like ions, Z = 1–110 .
+**Table 3.** 110 H-like ions, Z = 1–110.
 
 | layer | MAPE (%) | median (%) | max (%) |
 |---|---|---|---|
@@ -454,7 +454,7 @@ most 0.053), because the original uses fitted closed forms whose coefficients we
 of near-neutral ions come out 3–5 eV higher than the printed model values; for Ar I we get 18.96 eV against 14.72 eV
 printed. Our near-neutral numbers therefore describe the model as defined, not the authors' code.
 
-**Table 4.** Same 5847 rows, same scorer, MAPE in % . For the 0-parameter models the S2
+**Table 4.** Same 5847 rows, same scorer, MAPE in %. For the 0-parameter models the S2
 column is the error on the Z ≥ 55 rows; for the fitted models it is the blind S2 refit.
 
 | model | params | all (median) | neutral 1st IE | H-like | charge ≥ 3 | S2 (Z ≥ 55) |
@@ -797,9 +797,9 @@ None.
 | x_l (p, d, f) | 0.2049, 0.4402, 0.4612 |
 
 **Bounded 9-parameter variant (all-data fit).** Same
-equation (2.2) and inputs as the final model, with T = Σ_g τ_g ν_g (no class deviations), R = 1 (no relativistic
+equation and inputs as the final model, with T = Σ_g τ_g ν_g (no class deviations), R = 1 (no relativistic
 bracket), and the same F_{n,j}, μ and QED/FNS terms. Using these 4-decimal values instead of full precision changes
-no IE by more than 0.002 % .
+no IE by more than 0.002 %.
 
 | block | values |
 |---|---|

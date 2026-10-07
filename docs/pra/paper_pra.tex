@@ -124,7 +124,7 @@ The final model is
 \begin{equation}
 \begin{aligned}
 \mathrm{IE}(Z,N)&=\mu(Z)\Big\{\mathrm{Ry}\,\frac{Z_\mathrm{eff}^2}{n^2}\,F_{n,j}(Z_\mathrm{eff})\Big[1+r_c\,\frac{(Z\alpha)^2}{n}\Big(\frac{Z_\mathrm{eff}}{Z_a}-1\Big)\Big]+\mathrm{Ry}\,\frac{x_l\,K_l(k)}{n^2}\Big\}\\
-&\quad-\big[\Delta E_\mathrm{QED}+\Delta E_\mathrm{FNS}\big]_{Z,n}\Big(\frac{Z_\mathrm{eff}}{Z}\Big)^2 ,
+&\quad-\big[\Delta E_\mathrm{QED}+\Delta E_\mathrm{FNS}\big]_{Z,n}\Big(\frac{Z_\mathrm{eff}}{Z}\Big)^2,
 \end{aligned}
 \end{equation}
 
@@ -142,7 +142,7 @@ T=\sum_{g}\tau_g\,\nu_g+\sum_{c}\delta\tau_c\,\nu_c .\end{aligned}
 Each of the other N − 1 electrons, in a subshell (n′, l′), is counted in exactly one of five screening groups $ν_{g}$. The group \emph{same} holds the k − 1 other electrons of (n, l). The group \emph{out} holds outer electrons, with n′ > n or with n′ = n and l′ > l. All remaining electrons are inner. For an s or p target, inner electrons with n′ ≥ n − 1 form \emph{in} (the ns electrons of an np target plus the whole (n − 1) shell, including its d and f electrons) and those with n′ ≤ n − 2 form \emph{core}. For a d or f target, every inner electron, from the same-n lower-l subshells down to 1s, is in \emph{df}. Hence $Σ_{g}$ $ν_{g}$ = N − 1, and each group has a coefficient $τ_{g}$. As ($ν_{\mathrm{same}}$, $ν_{\mathrm{in}}$, $ν_{\mathrm{core}}$, $ν_{\mathrm{df}}$, $ν_{\mathrm{out}}$), O 2p⁴ gives (3, 4, 0, 0, 0) and Na 3s gives (0, 8, 2, 0, 0). Fe 3d⁶4s² with 4s removed gives (1, 14, 10, 0, 0), because 3d⁶ belongs to the (n − 1) shell. Pb 6p² gives (1, 20, 60, 0, 0), with 6s²5s²5p⁶5d¹⁰ in \emph{in} and every electron with n′ ≤ 4, including 4f¹⁴, in \emph{core}.
 
 
-The screening classes $ν_{c}$ (Table IX) refine the groups. An electron's class depends on the target type (s/p, d or f), on n − n′ and on l′. Each class lies inside one group, and an electron of class c in group g contributes $τ_{g}$ + δ$τ_{c}$ to T. A ridge penalty (10⁻⁴ per row) shrinks the deviations toward their group value. Two of the 21 classes are empty in all 5847 rows and carry no δ$τ_{c}$: sn\_out (n′ = n, l′ > l) and out\_sp (n′ > n, s/p target). That leaves the 19 listed in Table IX. The bounded 9-parameter variant and the pocket formula (Appendix A) use the five groups without classes. An independent implementation of the rule reproduces the code's group and class counts with 0 mismatches on all 5847 rows and on all 7021 configurations with Z ≤ 118 .
+The screening classes $ν_{c}$ (Table IX) refine the groups. An electron's class depends on the target type (s/p, d or f), on n − n′ and on l′. Each class lies inside one group, and an electron of class c in group g contributes $τ_{g}$ + δ$τ_{c}$ to T. A ridge penalty (10⁻⁴ per row) shrinks the deviations toward their group value. Two of the 21 classes are empty in all 5847 rows and carry no δ$τ_{c}$: sn\_out (n′ = n, l′ > l) and out\_sp (n′ > n, s/p target). That leaves the 19 listed in Table IX. The bounded 9-parameter variant and the pocket formula (Appendix A) use the five groups without classes. An independent implementation of the rule reproduces the code's group and class counts with 0 mismatches on all 5847 rows and on all 7021 configurations with Z ≤ 118.
 
 
 The removed subshell (n, l) is the one whose occupancy drops from the N-electron configuration to the NIST ground configuration of the (N − 1)-electron ion. The N-electron configuration is the NIST ground configuration, or the Madelung order if the ion is not tabulated. For a rearranging ion (e.g. V 3d³4s² → V⁺ 3d⁴) it is the subshell that loses most electrons, with ties going to larger n and then larger l. If the (N − 1)-electron ion is not tabulated, or the user supplies the configuration, the outermost subshell (largest n, then largest l) is removed.
@@ -162,7 +162,7 @@ The saturation form of D has two properties for any parameter values. First, it 
 
 \subsection{Charge-dependent penetration as an Edlén-type term}
 
-We found the remainder's dependence on 1/($Z_{a}$ + κ) empirically . Along every isoelectronic sequence the excess charge p = $Z_{\mathrm{eff}}$ − $Z_{a}$ grows with ion charge q as p∞ − τ/($Z_{a}$ + κ), with one κ for all sequences. For the Na sequence (3s), p = 0.84, 1.15, 1.34, 1.46, 1.56 for q = 0–4 and 2.11 at q = 20. Adding the term reduced the error of the purely fitted model from about 9 \% to about 2 \% MAPE. This is an independent rediscovery of the isoelectronic regularity that Edlén formalised~\cite{r8}, and it is consistent with Layzer's theory, in which the screening constant is σ₀ + σ₁′/Z + …. What is specific here is narrower: one denominator for all sequences, combined with exact σ₁ and with the saturation bound of Sec. II B.
+We found the remainder's dependence on 1/($Z_{a}$ + κ) empirically. Along every isoelectronic sequence the excess charge p = $Z_{\mathrm{eff}}$ − $Z_{a}$ grows with ion charge q as p∞ − τ/($Z_{a}$ + κ), with one κ for all sequences. For the Na sequence (3s), p = 0.84, 1.15, 1.34, 1.46, 1.56 for q = 0–4 and 2.11 at q = 20. Adding the term reduced the error of the purely fitted model from about 9 \% to about 2 \% MAPE. This is an independent rediscovery of the isoelectronic regularity that Edlén formalised~\cite{r8}, and it is consistent with Layzer's theory, in which the screening constant is σ₀ + σ₁′/Z + …. What is specific here is narrower: one denominator for all sequences, combined with exact σ₁ and with the saturation bound of Sec. II B.
 
 
 \subsection{Relativistic, recoil, finite-size and QED corrections}
@@ -233,7 +233,7 @@ The bounded 9-parameter variant uses the pocket formula's five electron groups b
 
 \subsection{Data}
 
-The reference data are the 5847 successive ionization energies of the NIST Atomic Spectra Database~\cite{r32} for Z = 1–110, all charge states, with NIST ground configurations . We took them from ASD version 5.12~\cite{r32}, the current version at the time, on or before 5 October 2026; the project log records results computed from these data on that date, and the original download timestamp was not kept. The database flags 311 values as experimental, 919 as semi-empirical and 4617 as theoretical. Every metric below uses all 5847 rows unless stated otherwise. By status, the final model's all-data fit gives 4.63 \% MAPE on experimental rows (median 2.86 \%, n = 311), 2.20 \% on semi-empirical rows (median 0.83 \%, n = 919) and 1.62 \% on theoretical rows (median 0.92 \%, n = 4617) . The experimental rows are mostly neutral atoms and low-charge ions (98 neutral, 193 of 311 with charge ≤ 2, median charge 2), the hardest regime for the formula, so their higher error reflects the neutral-atom weakness rather than a disagreement with experiment.
+The reference data are the 5847 successive ionization energies of the NIST Atomic Spectra Database~\cite{r32} for Z = 1–110, all charge states, with NIST ground configurations. We took them from ASD version 5.12~\cite{r32}, the current version at the time, on or before 5 October 2026; the project log records results computed from these data on that date, and the original download timestamp was not kept. The database flags 311 values as experimental, 919 as semi-empirical and 4617 as theoretical. Every metric below uses all 5847 rows unless stated otherwise. By status, the final model's all-data fit gives 4.63 \% MAPE on experimental rows (median 2.86 \%, n = 311), 2.20 \% on semi-empirical rows (median 0.83 \%, n = 919) and 1.62 \% on theoretical rows (median 0.92 \%, n = 4617). The experimental rows are mostly neutral atoms and low-charge ions (98 neutral, 193 of 311 with charge ≤ 2, median charge 2), the hardest regime for the formula, so their higher error reflects the neutral-atom weakness rather than a disagreement with experiment.
 
 
 Three subsets recur below: the 108 neutral-atom first IEs, the 110 hydrogen-like ions, and 63 rearranged ions whose ground configuration changes by more than one electron on ionization (e.g. V 3d³4s² → V⁺ 3d⁴).
@@ -242,7 +242,7 @@ Three subsets recur below: the 108 neutral-atom first IEs, the 110 hydrogen-like
 The configuration of each ion is an input. Inside the table it is the NIST ground configuration. For ions outside it we use the Madelung order: all ions with Z > 110, and 258 ions with Z = 104–110 that the table lacks. These ions enter no fit and no score, only the 7021-configuration checks (Sec. IV G) and predictions outside the table.
 
 
-The error measure is MAPE = (100/M) Σ \textbar{}$\mathrm{IE}_{\mathrm{pred}}$ − $\mathrm{IE}_{\mathrm{NIST}}$\textbar{} / $\mathrm{IE}_{\mathrm{NIST}}$, together with the median absolute percentage error. All scores come from one shared scorer . Fits minimise squared log-ratios ln($\mathrm{IE}_{\mathrm{pred}}$/$\mathrm{IE}_{\mathrm{NIST}}$), so a 4 eV and a 100 keV ionization energy carry equal relative weight.
+The error measure is MAPE = (100/M) Σ \textbar{}$\mathrm{IE}_{\mathrm{pred}}$ − $\mathrm{IE}_{\mathrm{NIST}}$\textbar{} / $\mathrm{IE}_{\mathrm{NIST}}$, together with the median absolute percentage error. All scores come from one shared scorer. Fits minimise squared log-ratios ln($\mathrm{IE}_{\mathrm{pred}}$/$\mathrm{IE}_{\mathrm{NIST}}$), so a 4 eV and a 100 keV ionization energy carry equal relative weight.
 
 
 \subsection{Held-out splits}
@@ -338,7 +338,7 @@ bounded 9-parameter variant & 9 & 2.90 & 3.05 & 2.51 & 7.80 (– / 28.0) \\
 † Optimizer-path dependent (Sec. III D): the V1 fit diverges in the frozen run and converges to 4.35 \% in a second software environment.
 
 
-Slater's rules have an all-row MAPE of 11.8 \%, 6.3 times that of the final model (1.87 \%) and 4.1 times that of the 9-parameter variant (2.90 \%). Their median is 7.48 \% against 0.94 \%, and their blind S2 error is 11.6 \% against 6.60 \%, a factor of 1.8 .
+Slater's rules have an all-row MAPE of 11.8 \%, 6.3 times that of the final model (1.87 \%) and 4.1 times that of the 9-parameter variant (2.90 \%). Their median is 7.48 \% against 0.94 \%, and their blind S2 error is 11.6 \% against 6.60 \%, a factor of 1.8.
 
 
 The final model has the lowest selection score of all candidates (2.15). The next were the other developer's choice, the best candidate of the second search (30 parameters), at 2.37, and the 28-parameter hierarchical variant at 2.37, with blind S2 errors of 13.9 \% and 8.47 \%. The bound costs some accuracy inside the data, 1.87 \% against 1.48 \% for the linear-remainder model and 7.52 \% against 6.43 \% on neutral atoms, and in return it removes the catastrophic extrapolation failures.
@@ -347,7 +347,7 @@ The final model has the lowest selection score of all candidates (2.15). The nex
 \subsection{Errors by stratum}
 
 \begin{table*}[htbp]
-\caption{All-data fit, MAPE in \% .}
+\caption{All-data fit, MAPE in \%.}
 \footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{lcccccc}
@@ -412,7 +412,7 @@ The blind fit has three clear failures, which we report and have not corrected, 
 \subsection{Hydrogen-like ions: correction layers}
 
 \begin{table*}[htbp]
-\caption{110 H-like ions, Z = 1–110 .}
+\caption{110 H-like ions, Z = 1–110.}
 \footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{lccc}
@@ -444,7 +444,7 @@ Our implementation follows the published definitions: screening from hydrogenic 
 
 
 \begin{table*}[htbp]
-\caption{Same 5847 rows, same scorer, MAPE in \% . For the 0-parameter models the S2 column is the error on the Z ≥ 55 rows; for the fitted models it is the blind S2 refit.}
+\caption{Same 5847 rows, same scorer, MAPE in \%. For the 0-parameter models the S2 column is the error on the Z ≥ 55 rows; for the fitted models it is the blind S2 refit.}
 \footnotesize\linespread{1}\selectfont\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
 \begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{lcccccc}
@@ -712,7 +712,7 @@ $x_{l}$ (p, d, f) & 0.2049, 0.4402, 0.4612 \\
 \end{table}
 
 
-\textbf{Bounded 9-parameter variant (all-data fit).} Same equation (2.2) and inputs as the final model, with T = $Σ_{g}$ $τ_{g}$ $ν_{g}$ (no class deviations), R = 1 (no relativistic bracket), and the same $F_{n,j}$, μ and QED/FNS terms. Using these 4-decimal values instead of full precision changes no IE by more than 0.002 \% .
+\textbf{Bounded 9-parameter variant (all-data fit).} Same equation and inputs as the final model, with T = $Σ_{g}$ $τ_{g}$ $ν_{g}$ (no class deviations), R = 1 (no relativistic bracket), and the same $F_{n,j}$, μ and QED/FNS terms. Using these 4-decimal values instead of full precision changes no IE by more than 0.002 \%.
 
 
 \begin{table}[h]
