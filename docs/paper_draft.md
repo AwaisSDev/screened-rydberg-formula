@@ -46,7 +46,7 @@ all NIST ions with a total-energy difference, Slater's rules give 11.8 % MAPE an
 
 Layzer [4], [5] showed that the non-relativistic energy of a fixed configuration is an asymptotic series
 E = Z²E₀ + ZE₁ + E₂ + …. E₀ is hydrogenic, and E₁ is a rational combination of hydrogenic Slater integrals, which
-fixes the Z → ∞ limit of the screening constant exactly. Higher orders have been computed numerically for two-electron ions [6], [7]. The regular variation of atomic energies along isoelectronic sequences is a standard tool of atomic spectroscopy [8], and screening theory has been applied to transition energies of highly charged ions [9].
+fixes the Z → ∞ limit of the screening constant exactly. Higher orders have been computed numerically for two-electron ions [6], [7]. Edlén's review of atomic spectra [8] describes the regularities of energy levels along isoelectronic sequences, and screening theory combined with many-body perturbation theory has been applied to transition energies of highly charged ions [9].
 
 Screened hydrogenic models (SHMs), starting with Mayer [10] and More [11], are used in plasma-physics codes. Their
 screening constants have been tabulated or fitted with l-splitting [12], [13], based on analytical potentials [14], [15], fitted by a genetic algorithm with relativistic subshells [16], or computed self-consistently as functions
@@ -743,7 +743,7 @@ None.
 
 [18] M. Kregar, “The virial as the atomic model potential energy operator,” *Phys. Scr.*, vol. 31, no. 4, pp. 246–254, 1985, doi: 10.1088/0031-8949/31/4/005.
 
-[19] H. O. Di Rocco, *Braz. J. Phys.*, vol. 22, 1992, as cited in [20] (p. 227) and [22] (pp. 1–10); the original paper could not be located.
+[19] H. O. Di Rocco, *Braz. J. Phys.*, vol. 22, 1992, as cited in [20] and in H. O. Di Rocco, *Il Nuovo Cimento D*, vol. 20, pp. 131–140, 1998 (both give p. 227) and in [22] (pp. 1–10); the original paper could not be located.
 
 [20] J. Pomarico, D. I. Iriarte, and H. O. Di Rocco, “An efficient screening approach to be used in plasma modeling and ion-surface collision experiments,” *Braz. J. Phys.*, vol. 35, no. 1, pp. 130–135, 2005, doi: 10.1590/S0103-97332005000100008.
 

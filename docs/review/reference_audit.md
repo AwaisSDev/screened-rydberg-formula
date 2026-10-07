@@ -52,3 +52,15 @@ does not hold.
   their existence and general subject.
 * Abstracts were not available for most older papers, so "cited for" was judged from titles, and from abstracts only for
   [16], [25], [14] and [30].
+
+## Follow-up searches (same day)
+
+* **Safronova 1993 [9]**: abstract found in the OSTI/ETDE record (via web search): the paper applies many-body perturbation
+  theory together with the screening method to radiative transition energies of highly charged ions, and compares with
+  Hartree–Fock–Pauli and relativistic model-potential results. This supports the sentence now in the paper.
+* **Edlén 1964 [8]**: the Springer chapter description says the chapter treats the gross structure of atomic energy levels
+  and the regularities along isoelectronic sequences. The paper's sentence now says exactly that.
+* **Di Rocco 1992 [19]**: a third citing paper was read through Crossref's reference list, H. O. Di Rocco, *Il Nuovo Cimento D*
+  **20**, 131 (1998), doi:10.1007/BF03036007, which prints "Braz. J. Phys., 22 (1992) 227". So p. 227 appears in two of
+  the three citing papers and 1–10 in the third. The 1992 paper itself was not found (Crossref has no record, OSTI refused
+  the connection, Springer required a login handshake that was not followed).
