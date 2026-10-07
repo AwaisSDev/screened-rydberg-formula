@@ -64,3 +64,11 @@ does not hold.
   **20**, 131 (1998), doi:10.1007/BF03036007, which prints "Braz. J. Phys., 22 (1992) 227". So p. 227 appears in two of
   the three citing papers and 1–10 in the third. The 1992 paper itself was not found (Crossref has no record, OSTI refused
   the connection, Springer required a login handshake that was not followed).
+
+## Decision: Di Rocco 1992 removed from the paper
+
+The 1992 paper could not be located, so it was removed from the reference list. The one sentence that cited it now cites
+Pomarico et al. 2005, who state that the explicit coefficient expressions are in the earlier paper. References 20-34 were
+renumbered to 19-33; the paper now has 33 references. (The numbers printed by `tools/verify_refs.py` refer to the
+earlier numbering.)
+

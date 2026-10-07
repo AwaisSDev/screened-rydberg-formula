@@ -73,13 +73,13 @@ Slater~\cite{r1} replaced Z by an effective charge Z − σ, with σ given by co
 Layzer~\cite{r4,r5} showed that the non-relativistic energy of a fixed configuration is an asymptotic series E = Z²E₀ + ZE₁ + E₂ + …. E₀ is hydrogenic, and E₁ is a rational combination of hydrogenic Slater integrals, which fixes the Z → ∞ limit of the screening constant exactly. Higher orders have been computed numerically for two-electron ions~\cite{r6,r7}. Edlén's review of atomic spectra~\cite{r8} describes the regularities of energy levels along isoelectronic sequences, and screening theory combined with many-body perturbation theory has been applied to transition energies of highly charged ions~\cite{r9}.
 
 
-Screened hydrogenic models (SHMs), starting with Mayer~\cite{r10} and More~\cite{r11}, are used in plasma-physics codes. Their screening constants have been tabulated or fitted with l-splitting~\cite{r12,r13}, based on analytical potentials~\cite{r14,r15}, fitted by a genetic algorithm with relativistic subshells~\cite{r16}, or computed self-consistently as functions of Z and N without parameters~\cite{r17,r18,r19,r20,r21,r22}. Average-atom models~\cite{r23} and kinetics and radiation-hydrodynamics codes~\cite{r24,r25} need atomic data for many ions quickly; SpK, for example, uses screened hydrogenic atoms~\cite{r25}.
+Screened hydrogenic models (SHMs), starting with Mayer~\cite{r10} and More~\cite{r11}, are used in plasma-physics codes. Their screening constants have been tabulated or fitted with l-splitting~\cite{r12,r13}, based on analytical potentials~\cite{r14,r15}, fitted by a genetic algorithm with relativistic subshells~\cite{r16}, or computed self-consistently as functions of Z and N without parameters~\cite{r17,r18,r19,r20,r21}. Average-atom models~\cite{r22} and kinetics and radiation-hydrodynamics codes~\cite{r23,r24} need atomic data for many ions quickly; SpK, for example, uses screened hydrogenic atoms~\cite{r24}.
 
 
-Ab initio methods give more accurate numbers: Koopmans' theorem~\cite{r26}, ΔSCF Hartree–Fock and Kohn–Sham DFT~\cite{r27,r28}, correlated non-relativistic energies~\cite{r29}, and Dirac–Fock total energies of ions with 3 to 105 electrons and Z up to 118~\cite{r30}. They are numerical procedures, not formulas.
+Ab initio methods give more accurate numbers: Koopmans' theorem~\cite{r25}, ΔSCF Hartree–Fock and Kohn–Sham DFT~\cite{r26,r27}, correlated non-relativistic energies~\cite{r28}, and Dirac–Fock total energies of ions with 3 to 105 electrons and Z up to 118~\cite{r29}. They are numerical procedures, not formulas.
 
 
-We found no closed-form expression that covers every ion of every element from the configuration alone, reproduces the large-Z behaviour of the 1/Z expansion exactly, reports every fitted parameter, and is validated on all NIST successive IEs with held-out tests fixed in advance, including an extrapolation to heavier elements. The SHM papers we read report accuracy on their fitting data or, like~\cite{r20}, on selected sequences. Scored on our rows (Sec. IV E), the constants of Mendoza et al. give 2.82 \% MAPE on the 5011 rows they cover. This paper addresses that gap. It does not propose a new law of atomic physics, and Sec. V A lists what is rediscovered.
+We found no closed-form expression that covers every ion of every element from the configuration alone, reproduces the large-Z behaviour of the 1/Z expansion exactly, reports every fitted parameter, and is validated on all NIST successive IEs with held-out tests fixed in advance, including an extrapolation to heavier elements. The SHM papers we read report accuracy on their fitting data or, like~\cite{r19}, on selected sequences. Scored on our rows (Sec. IV E), the constants of Mendoza et al. give 2.82 \% MAPE on the 5011 rows they cover. This paper addresses that gap. It does not propose a new law of atomic physics, and Sec. V A lists what is rediscovered.
 
 
 The paper makes four contributions. It tabulates σ₁ for every NIST ground configuration with N = 1–110, as a parameter-free counterpart to Slater's σ that is exact as Z → ∞ (Sec. II A, Sec. IV F). It defines the screened Rydberg formula, σ₁ plus a bounded remainder with 33 global parameters (Secs. II B–II D). It applies one validation protocol, with a pre-registered selection score and a single extrapolation test, to the final model, its ancestors and the published baselines (Sec. III, Sec. IV). And it compares the formula with two published SHMs, re-implemented and scored with the same scorer (Sec. IV E): the parameter-free Kregar/Di Rocco model on all 5847 rows, and the fitted constants of Mendoza et al. (2011) on the 5011 rows they cover.
@@ -150,7 +150,7 @@ The removed subshell (n, l) is the one whose occupancy drops from the N-electron
 The Hund term uses $K_{l}$(k) = [P(k) − P(k−1)] − 2l(k−1)/(4l+1), the change in the number of parallel-spin pairs relative to a statistical average. P(k) is the number of parallel-spin pairs of l\textasciicircum{}k under Hund's first rule. Equivalently $K_{l}$(k) = (2l+1)(k−1)/(4l+1) for k ≤ 2l+1 and $K_{l}$(k) = −$K_{l}$(4l+3−k) above half filling, so $K_{s}$ ≡ 0, $K_{p}$ = 0, 0.6, 1.2, −1.2, −0.6, 0 for k = 1…6, $K_{d}$ = (5/9)(0, 1, 2, 3, 4, −4, −3, −2, −1, 0) and $K_{f}$ = (7/13)(0, 1, …, 6, −6, …, −1, 0). The amplitude $x_{l}$ is fitted for l = p, d, f; s electrons have no Hund term.
 
 
-Three inputs need a precise definition. σ₁ is evaluated for the \emph{frozen} configuration, the N-electron configuration minus one (n, l) electron, and not for the ground configuration of the ion. The two differ only for the 63 rearranged rows, and the choice keeps ΔE₀ = 1/(2n²) on those rows. The reduced-mass factor is μ(Z) = M/(M + $m_{e}$), where M is the nuclear mass of the isotope used in the QED tabulation~\cite{r31}. The QED and finite-nuclear-size shift is applied only to 1s and 2s removal (427 rows); it is the one-electron shift of Sec. II D for charge Z, scaled by ($Z_{\mathrm{eff}}$/Z)², and reaches at most 0.9 \% of the IE (at Z = 110, N = 2). For N = 1, T = 0 and so D = 0.
+Three inputs need a precise definition. σ₁ is evaluated for the \emph{frozen} configuration, the N-electron configuration minus one (n, l) electron, and not for the ground configuration of the ion. The two differ only for the 63 rearranged rows, and the choice keeps ΔE₀ = 1/(2n²) on those rows. The reduced-mass factor is μ(Z) = M/(M + $m_{e}$), where M is the nuclear mass of the isotope used in the QED tabulation~\cite{r30}. The QED and finite-nuclear-size shift is applied only to 1s and 2s removal (427 rows); it is the one-electron shift of Sec. II D for charge Z, scaled by ($Z_{\mathrm{eff}}$/Z)², and reaches at most 0.9 \% of the IE (at Z = 110, N = 2). For N = 1, T = 0 and so D = 0.
 
 
 A reader cannot reconstruct the frozen-configuration σ₁, μ(Z) or the QED/FNS shift from the text alone, so we publish every per-row input as a table in the repository: removed subshell, k, j, σ₁, $ν_{g}$, $ν_{c}$, K, μ and QED/FNS. A short script that uses only this table, the equations above and the parameters of Table VIII (it imports no model code) reproduces the production code on all 5847 rows to 7·10⁻¹⁶ relative, for the final model and for the bounded 9-parameter variant.
@@ -172,12 +172,12 @@ $F_{n,j}$(ζ) is the exact ratio of the point-nucleus Dirac binding energy to th
 The bracket 1 + $r_{c}$(Zα)²($Z_{\mathrm{eff}}$/$Z_{a}$ − 1)/n is a Fermi–Segrè-type correction for the penetration of the valence electron into the region of full nuclear charge. Its five coefficients $r_{c}$, for the classes s, p½, p3/2, d and f, are fitted.
 
 
-For one-electron ions we use the Dirac energy with a numerically solved finite-nuclear-size (FNS) shift, Barker–Glover recoil, the Uehling vacuum polarisation computed over the Dirac 1s density, and the one-loop self-energy function $F_{\mathrm{SE}}$(Zα) from the all-order tabulation of Yerokhin and Shabaev~\cite{r31}. The 2 × 110 tabulated values are external theory inputs, not fitted parameters. In the many-electron formula the QED and FNS shifts are applied only to 1s and 2s removal, scaled by ($Z_{\mathrm{eff}}$/Z)². The closed-form low-order Zα expansion of $F_{\mathrm{SE}}$ cannot replace the table: it matches the table at Z = 1 but diverges for Z ≳ 15, and it gives 0.354 \% MAPE on H-like ions, worse than no QED.
+For one-electron ions we use the Dirac energy with a numerically solved finite-nuclear-size (FNS) shift, Barker–Glover recoil, the Uehling vacuum polarisation computed over the Dirac 1s density, and the one-loop self-energy function $F_{\mathrm{SE}}$(Zα) from the all-order tabulation of Yerokhin and Shabaev~\cite{r30}. The 2 × 110 tabulated values are external theory inputs, not fitted parameters. In the many-electron formula the QED and FNS shifts are applied only to 1s and 2s removal, scaled by ($Z_{\mathrm{eff}}$/Z)². The closed-form low-order Zα expansion of $F_{\mathrm{SE}}$ cannot replace the table: it matches the table at Z = 1 but diverges for Z ≳ 15, and it gives 0.354 \% MAPE on H-like ions, worse than no QED.
 
 
 \subsection{Density functional theory as a physics check}
 
-We also wrote a radial Kohn–Sham LSDA solver (Slater exchange plus VWN5 correlation). It reproduces the NIST LDA reference total energies~\cite{r28} to about 10⁻⁶ hartree (e.g. Ne −128.233481). That reference uses the same functional, so the agreement verifies the implementation, not the physics. ΔSCF ionization energies from this solver have no fitted parameters and serve as an independent check that is not a formula (Sec. IV B). DFT does not enter the formula.
+We also wrote a radial Kohn–Sham LSDA solver (Slater exchange plus VWN5 correlation). It reproduces the NIST LDA reference total energies~\cite{r27} to about 10⁻⁶ hartree (e.g. Ne −128.233481). That reference uses the same functional, so the agreement verifies the implementation, not the physics. ΔSCF ionization energies from this solver have no fitted parameters and serve as an independent check that is not a formula (Sec. IV B). DFT does not enter the formula.
 
 
 \subsection{Parameter count}
@@ -232,7 +232,7 @@ The bounded 9-parameter variant uses the pocket formula's five electron groups b
 
 \subsection{Data}
 
-The reference data are the 5847 successive ionization energies of the NIST Atomic Spectra Database~\cite{r32} for Z = 1–110, all charge states, with NIST ground configurations. We took them from ASD version 5.12~\cite{r32}, the current version at the time, on or before 5 October 2026; the project log records results computed from these data on that date, and the original download timestamp was not kept. The database flags 311 values as experimental, 919 as semi-empirical and 4617 as theoretical. Every metric below uses all 5847 rows unless stated otherwise. By status, the final model's all-data fit gives 4.63 \% MAPE on experimental rows (median 2.86 \%, n = 311), 2.20 \% on semi-empirical rows (median 0.83 \%, n = 919) and 1.62 \% on theoretical rows (median 0.92 \%, n = 4617). The experimental rows are mostly neutral atoms and low-charge ions (98 neutral, 193 of 311 with charge ≤ 2, median charge 2), the hardest regime for the formula, so their higher error reflects the neutral-atom weakness rather than a disagreement with experiment.
+The reference data are the 5847 successive ionization energies of the NIST Atomic Spectra Database~\cite{r31} for Z = 1–110, all charge states, with NIST ground configurations. We took them from ASD version 5.12~\cite{r31}, the current version at the time, on or before 5 October 2026; the project log records results computed from these data on that date, and the original download timestamp was not kept. The database flags 311 values as experimental, 919 as semi-empirical and 4617 as theoretical. Every metric below uses all 5847 rows unless stated otherwise. By status, the final model's all-data fit gives 4.63 \% MAPE on experimental rows (median 2.86 \%, n = 311), 2.20 \% on semi-empirical rows (median 0.83 \%, n = 919) and 1.62 \% on theoretical rows (median 0.92 \%, n = 4617). The experimental rows are mostly neutral atoms and low-charge ions (98 neutral, 193 of 311 with charge ≤ 2, median charge 2), the hardest regime for the formula, so their higher error reflects the neutral-atom weakness rather than a disagreement with experiment.
 
 
 Three subsets recur below: the 108 neutral-atom first IEs, the 110 hydrogen-like ions, and 63 rearranged ions whose ground configuration changes by more than one electron on ionization (e.g. V 3d³4s² → V⁺ 3d⁴).
@@ -421,7 +421,7 @@ layer & MAPE (\%) & median (\%) & max (\%) \\
 Bohr Ry Z² & 6.0 & 4.2 & 19.5 \\
 (a) Dirac, point nucleus & 0.190 & 0.118 & 0.91 \\
 (b) + recoil + finite nuclear size & 0.113 & 0.109 & 0.248 \\
-(c) + one-loop QED (Uehling computed; $F_{\mathrm{SE}}$ from [31]) & 0.00117 & 0.000154 & 0.0096 \\
+(c) + one-loop QED (Uehling computed; $F_{\mathrm{SE}}$ from [30]) & 0.00117 & 0.000154 & 0.0096 \\
 (d) as (c) but with the closed-form Zα expansion of $F_{\mathrm{SE}}$ & 0.354 & 0.191 & 1.18 \\
 \hline\hline
 \end{tabular}
@@ -434,12 +434,12 @@ The NIST H-like reference values are themselves computed from the same QED theor
 
 \subsection{Head-to-head with published screened hydrogenic models}
 
-We could specify two published SHMs fully from articles we were able to read: the parameter-free Kregar/Di Rocco model~\cite{r20,r22}, implemented from its definitions, and the relativistic model of Mendoza et al.~\cite{r16}, implemented from its published 19 × 19 table of fitted screening constants. The constants of More~\cite{r11} and of Faussurier et al.~\cite{r12} are in papers we could not access, and we found no verifiable reprint of their tables. We did not reconstruct them from memory.
+We could specify two published SHMs fully from articles we were able to read: the parameter-free Kregar/Di Rocco model~\cite{r19,r21}, implemented from its definitions, and the relativistic model of Mendoza et al.~\cite{r16}, implemented from its published 19 × 19 table of fitted screening constants. The constants of More~\cite{r11} and of Faussurier et al.~\cite{r12} are in papers we could not access, and we found no verifiable reprint of their tables. We did not reconstruct them from memory.
 
 
 \subsubsection{Kregar/Di Rocco SHM (parameter-free; all 5847 rows)}
 
-Our implementation follows the published definitions: screening from hydrogenic densities with an exchange correction, iterated to self-consistency; energies E = −Σ $q_{i}$ $Z_{i}$²/2$n_{i}$²; and non-relativistic, Pauli and Dirac variants. Its same-shell Z → ∞ screening constants reproduce every printed digit (e.g. 1s 0.3125, 2p 0.3492), and its total energies agree with the published table within 0.71 \%. Its cross-shell constants differ by 0.011 on average (at most 0.053), because the original gives the coefficients as explicit expressions in a paper~\cite{r19} that we could not access. Valence IEs of near-neutral ions come out 3–5 eV higher than the printed model values; for Ar I we get 18.96 eV against 14.72 eV printed. Our near-neutral numbers therefore describe the model as defined, not the authors' code.
+Our implementation follows the published definitions: screening from hydrogenic densities with an exchange correction, iterated to self-consistency; energies E = −Σ $q_{i}$ $Z_{i}$²/2$n_{i}$²; and non-relativistic, Pauli and Dirac variants. Its same-shell Z → ∞ screening constants reproduce every printed digit (e.g. 1s 0.3125, 2p 0.3492), and its total energies agree with the published table within 0.71 \%. Its cross-shell constants differ by 0.011 on average (at most 0.053), because the original model gives the coefficients as explicit expressions in an earlier paper that we could not access~\cite{r19}. Valence IEs of near-neutral ions come out 3–5 eV higher than the printed model values; for Ar I we get 18.96 eV against 14.72 eV printed. Our near-neutral numbers therefore describe the model as defined, not the authors' code.
 
 
 \begin{table*}[htbp]
@@ -505,7 +505,7 @@ On the ions it covers, the 33-parameter formula is competitive with the publishe
 The two models differ in size and scope. Mendoza et al. publish a 19 × 19 matrix with 331 non-zero constants, fitted by the authors; we count these as published numbers rather than independent degrees of freedom, and they are the only model-specific numbers our implementation of their IE prescription uses. The formula has 33 global parameters and was also validated on held-out splits. Their model also yields excitation energies and orbital properties and is used in plasma codes, while ours gives only ionization energies. The neutral-atom row lies outside the range they fitted and is shown for completeness. The experimental-row value here (236 rows) differs from the all-row value of Sec. III A (4.63 \% on 311 rows) only because the row sets differ.
 
 
-A comparison with Dirac–Fock ionization energies~\cite{r30} on the same rows is left for future work.
+A comparison with Dirac–Fock ionization energies~\cite{r29} on the same rows is left for future work.
 
 
 \subsection{The exact first-order screening constants compared with Slater's}
@@ -632,7 +632,7 @@ Above Z = 110 the predictions are qualitative. The 7p neutrals come out too low:
 
 \subsection{What is new and what is rediscovered}
 
-Much of the formula is known. The 1/Z expansion and its exact first-order term are Layzer's (σ₁ is his Z → ∞ screening constant~\cite{r4}), computed with textbook Slater-integral algebra~\cite{r33,r34}. The screened hydrogenic form goes back to~\cite{r1,r10,r11}, and self-consistent (Z, N)-dependent screening to~\cite{r17,r20}. The smooth variation of the 1/($Z_{a}$ + κ) remainder along isoelectronic sequences is a regularity of the kind long used in atomic spectroscopy~\cite{r8}. The one-electron Dirac, recoil, finite-size and QED corrections come from~\cite{r31,r32}, and LSDA ΔSCF from~\cite{r27,r28}.
+Much of the formula is known. The 1/Z expansion and its exact first-order term are Layzer's (σ₁ is his Z → ∞ screening constant~\cite{r4}), computed with textbook Slater-integral algebra~\cite{r32,r33}. The screened hydrogenic form goes back to~\cite{r1,r10,r11}, and self-consistent (Z, N)-dependent screening to~\cite{r17,r19}. The smooth variation of the 1/($Z_{a}$ + κ) remainder along isoelectronic sequences is a regularity of the kind long used in atomic spectroscopy~\cite{r8}. The one-electron Dirac, recoil, finite-size and QED corrections come from~\cite{r30,r31}, and LSDA ΔSCF from~\cite{r26,r27}.
 
 
 Four things may be new. Z-expansion work~\cite{r4,r5} computed first-order energies for selected configurations and isoelectronic sequences, and we are not aware of a table of exact first-order screening constants for every NIST ground configuration with N = 1–110; we offer ours as a complete tabulation, not as a new quantity. The formula joins exact σ₁ to a bounded fitted remainder in one closed form and is validated on all 5847 NIST successive IEs, with a pre-registered selection score and an extrapolation from Z ≤ 54 to Z ≥ 55; we found no out-of-range extrapolation test in the SHM literature we read. Two published SHMs are scored on the same rows: the Kregar/Di Rocco model on all 5847, and the constants of Mendoza et al. on the 5011 they cover, where the formula is competitive rather than decisively better (Sec. IV E). Finally, the 8-parameter pocket formula is a hand-calculable successor to Slater's rules, with 4.68 \% against 11.8 \% on all rows and 11.3 \% against 11.6 \% on blind S2.
@@ -781,7 +781,7 @@ Z_\mathrm{eff} &= Z - \sum_g s_g\nu_g - t\,\frac{N-1}{Z-N+1+\kappa},\\
 The $ν_{g}$ are the five group counts of Sec. II B. The fitted values are $s_{\mathrm{same}}$ 0.7499, $s_{\mathrm{in}}$ 0.7514, $s_{\mathrm{core}}$ 0.8432, $s_{\mathrm{df}}$ 0.8408, $s_{\mathrm{out}}$ 1.0497, t 1.3725, κ 9.815 (9.865 as used) and x 0.508.
 
 
-\begin{thebibliography}{34}
+\begin{thebibliography}{33}
 \bibitem{r1} J. C. Slater, Atomic shielding constants, Phys. Rev. \textbf{36}, 57 (1930).
 \bibitem{r2} E. Clementi and D. L. Raimondi, Atomic screening constants from SCF functions, J. Chem. Phys. \textbf{38}, 2686 (1963).
 \bibitem{r3} E. Clementi, D. L. Raimondi, and W. P. Reinhardt, Atomic screening constants from SCF functions. II. Atoms with 37 to 86 electrons, J. Chem. Phys. \textbf{47}, 1300 (1967).
@@ -800,21 +800,20 @@ The $ν_{g}$ are the five group counts of Sec. II B. The fitted values are $s_{\
 \bibitem{r16} M. A. Mendoza, J. G. Rubiano, J. M. Gil, R. Rodríguez, R. Florido, P. Martel, and E. Mínguez, A new set of relativistic screening constants for the screened hydrogenic model, High Energy Density Phys. \textbf{7}, 169 (2011), doi:10.1016/j.hedp.2011.04.006.
 \bibitem{r17} M. Kregar, The virial and the independent particle models of the atom, Phys. Scr. \textbf{29}, 438 (1984), doi:10.1088/0031-8949/29/5/005.
 \bibitem{r18} M. Kregar, The virial as the atomic model potential energy operator, Phys. Scr. \textbf{31}, 246 (1985), doi:10.1088/0031-8949/31/4/005.
-\bibitem{r19} H. O. Di Rocco, Braz. J. Phys. \textbf{22} (1992), as cited in Ref.~\cite{r20} and in H. O. Di Rocco, Il Nuovo Cimento D \textbf{20}, 131 (1998) (both give p. 227) and in Ref.~\cite{r22} (pp. 1–10); the original paper could not be located.
-\bibitem{r20} J. Pomarico, D. I. Iriarte, and H. O. Di Rocco, An efficient screening approach to be used in plasma modeling and ion-surface collision experiments, Braz. J. Phys. \textbf{35}, 130 (2005), doi:10.1590/S0103-97332005000100008.
-\bibitem{r21} F. Lanzini and H. O. Di Rocco, Screening parameters for the relativistic hydrogenic model, High Energy Density Phys. \textbf{17}, 240 (2015), doi:10.1016/j.hedp.2015.08.002.
-\bibitem{r22} H. O. Di Rocco and F. Lanzini, Breit and quantum electrodynamics energy contributions in multielectron atoms from the relativistic screened hydrogenic model, Braz. J. Phys. \textbf{46}, 175 (2016), doi:10.1007/s13538-015-0397-9.
-\bibitem{r23} B. F. Rozsnyai, Relativistic Hartree-Fock-Slater calculations for arbitrary temperature and matter density, Phys. Rev. A \textbf{5}, 1137 (1972), doi:10.1103/PhysRevA.5.1137.
-\bibitem{r24} H.-K. Chung, M. H. Chen, W. L. Morgan, Yu. Ralchenko, and R. W. Lee, FLYCHK: Generalized population kinetics and spectral model for rapid spectroscopic analysis for all elements, High Energy Density Phys. \textbf{1}, 3 (2005).
-\bibitem{r25} A. J. Crilly \emph{et al.}, SpK: A fast atomic and microphysics code for the high-energy-density regime, High Energy Density Phys. \textbf{48}, 101053 (2023), doi:10.1016/j.hedp.2023.101053.
-\bibitem{r26} T. Koopmans, Über die Zuordnung von Wellenfunktionen und Eigenwerten zu den einzelnen Elektronen eines Atoms, Physica \textbf{1}, 104 (1934).
-\bibitem{r27} W. Kohn and L. J. Sham, Self-consistent equations including exchange and correlation effects, Phys. Rev. \textbf{140}, A1133 (1965).
-\bibitem{r28} S. Kotochigova, Z. H. Levine, E. L. Shirley, M. D. Stiles, and C. W. Clark, Local-density-functional calculations of the energy of atoms, Phys. Rev. A \textbf{55}, 191 (1997).
-\bibitem{r29} S. J. Chakravorty, S. R. Gwaltney, E. R. Davidson, F. A. Parpia, and C. Froese Fischer, Ground-state correlation energies for atomic ions with 3 to 18 electrons, Phys. Rev. A \textbf{47}, 3649 (1993).
-\bibitem{r30} G. C. Rodrigues, P. Indelicato, J. P. Santos, P. Patté, and F. Parente, Systematic calculation of total atomic energies of ground state configurations, At. Data Nucl. Data Tables \textbf{86}, 117 (2004), doi:10.1016/j.adt.2003.11.005.
-\bibitem{r31} V. A. Yerokhin and V. M. Shabaev, Lamb shift of n = 1 and n = 2 states of hydrogen-like atoms, 1 ≤ Z ≤ 110, J. Phys. Chem. Ref. Data \textbf{44}, 033103 (2015).
-\bibitem{r32} A. Kramida, Yu. Ralchenko, J. Reader, and NIST ASD Team, NIST Atomic Spectra Database (version 5.12) (National Institute of Standards and Technology, Gaithersburg, MD, 2024), \url{https://physics.nist.gov/asd}, doi:10.18434/T4W30F, accessed on or before 5 October 2026.
-\bibitem{r33} R. D. Cowan, \emph{The Theory of Atomic Structure and Spectra} (University of California Press, Berkeley, 1981).
-\bibitem{r34} C. Froese Fischer, T. Brage, and P. Jönsson, \emph{Computational Atomic Structure: An MCHF Approach} (Institute of Physics Publishing, Bristol, 1997).
+\bibitem{r19} J. Pomarico, D. I. Iriarte, and H. O. Di Rocco, An efficient screening approach to be used in plasma modeling and ion-surface collision experiments, Braz. J. Phys. \textbf{35}, 130 (2005), doi:10.1590/S0103-97332005000100008.
+\bibitem{r20} F. Lanzini and H. O. Di Rocco, Screening parameters for the relativistic hydrogenic model, High Energy Density Phys. \textbf{17}, 240 (2015), doi:10.1016/j.hedp.2015.08.002.
+\bibitem{r21} H. O. Di Rocco and F. Lanzini, Breit and quantum electrodynamics energy contributions in multielectron atoms from the relativistic screened hydrogenic model, Braz. J. Phys. \textbf{46}, 175 (2016), doi:10.1007/s13538-015-0397-9.
+\bibitem{r22} B. F. Rozsnyai, Relativistic Hartree-Fock-Slater calculations for arbitrary temperature and matter density, Phys. Rev. A \textbf{5}, 1137 (1972), doi:10.1103/PhysRevA.5.1137.
+\bibitem{r23} H.-K. Chung, M. H. Chen, W. L. Morgan, Yu. Ralchenko, and R. W. Lee, FLYCHK: Generalized population kinetics and spectral model for rapid spectroscopic analysis for all elements, High Energy Density Phys. \textbf{1}, 3 (2005).
+\bibitem{r24} A. J. Crilly \emph{et al.}, SpK: A fast atomic and microphysics code for the high-energy-density regime, High Energy Density Phys. \textbf{48}, 101053 (2023), doi:10.1016/j.hedp.2023.101053.
+\bibitem{r25} T. Koopmans, Über die Zuordnung von Wellenfunktionen und Eigenwerten zu den einzelnen Elektronen eines Atoms, Physica \textbf{1}, 104 (1934).
+\bibitem{r26} W. Kohn and L. J. Sham, Self-consistent equations including exchange and correlation effects, Phys. Rev. \textbf{140}, A1133 (1965).
+\bibitem{r27} S. Kotochigova, Z. H. Levine, E. L. Shirley, M. D. Stiles, and C. W. Clark, Local-density-functional calculations of the energy of atoms, Phys. Rev. A \textbf{55}, 191 (1997).
+\bibitem{r28} S. J. Chakravorty, S. R. Gwaltney, E. R. Davidson, F. A. Parpia, and C. Froese Fischer, Ground-state correlation energies for atomic ions with 3 to 18 electrons, Phys. Rev. A \textbf{47}, 3649 (1993).
+\bibitem{r29} G. C. Rodrigues, P. Indelicato, J. P. Santos, P. Patté, and F. Parente, Systematic calculation of total atomic energies of ground state configurations, At. Data Nucl. Data Tables \textbf{86}, 117 (2004), doi:10.1016/j.adt.2003.11.005.
+\bibitem{r30} V. A. Yerokhin and V. M. Shabaev, Lamb shift of n = 1 and n = 2 states of hydrogen-like atoms, 1 ≤ Z ≤ 110, J. Phys. Chem. Ref. Data \textbf{44}, 033103 (2015).
+\bibitem{r31} A. Kramida, Yu. Ralchenko, J. Reader, and NIST ASD Team, NIST Atomic Spectra Database (version 5.12) (National Institute of Standards and Technology, Gaithersburg, MD, 2024), \url{https://physics.nist.gov/asd}, doi:10.18434/T4W30F, accessed on or before 5 October 2026.
+\bibitem{r32} R. D. Cowan, \emph{The Theory of Atomic Structure and Spectra} (University of California Press, Berkeley, 1981).
+\bibitem{r33} C. Froese Fischer, T. Brage, and P. Jönsson, \emph{Computational Atomic Structure: An MCHF Approach} (Institute of Physics Publishing, Bristol, 1997).
 \end{thebibliography}
 \end{document}

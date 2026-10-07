@@ -25,7 +25,6 @@ PR_FIXED = {   # entries that are not journal articles: Physical Review style wr
     "B. Edlén": "B. Edlén, Atomic spectra, in *Handbuch der Physik*, Vol. 27, *Spectroscopy I*, edited by S. Flügge "
                 "(Springer, Berlin, 1964), pp. 80–220, doi:10.1007/978-3-662-35391-2_2.",
     "H. Mayer": "H. Mayer, *Methods of Opacity Calculations*, Los Alamos Scientific Laboratory Report No. LA-647 (1947).",
-    "H. O. Di Rocco, *Braz": "H. O. Di Rocco, Braz. J. Phys. **22** (1992), as cited in Ref. 20 and in H. O. Di Rocco, Il Nuovo Cimento D **20**, 131 (1998) (both give p. 227) and in Ref. 22 (pp. 1–10); the original paper could not be located.",
     "R. D. Cowan": "R. D. Cowan, *The Theory of Atomic Structure and Spectra* (University of California Press, Berkeley, "
                    "1981).",
     "C. Froese Fischer, T. Brage": "C. Froese Fischer, T. Brage, and P. Jönsson, *Computational Atomic Structure: An MCHF "
